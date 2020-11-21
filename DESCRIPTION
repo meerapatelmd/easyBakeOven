@@ -1,0 +1,16 @@
+Package: suzyBakeOven
+Title: Helpers for Package Authoring
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Meera",
+           family = "Patel, MD",
+           role = c("aut", "cre"),
+           email = "patelmeeray@gmail.com",
+           comment = c(ORCID = "0000-0002-3401-3948"))
+Description: Return values in the console for copy and pasting
+    while authoring packages.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
