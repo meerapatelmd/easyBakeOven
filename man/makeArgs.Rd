@@ -12,6 +12,7 @@ Make Args
 \seealso{
 Other make functions: 
 \code{\link{makeArgDeclaration}()},
+\code{\link{makeDescURL}()},
 \code{\link{makeImports}()}
 }
 \concept{make functions}

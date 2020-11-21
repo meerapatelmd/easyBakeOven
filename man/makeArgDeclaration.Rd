@@ -12,6 +12,7 @@ To automatically assign argument objects with the default value, see \code{\link
 \seealso{
 Other make functions: 
 \code{\link{makeArgs}()},
+\code{\link{makeDescURL}()},
 \code{\link{makeImports}()}
 }
 \concept{make functions}

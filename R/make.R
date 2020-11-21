@@ -122,10 +122,7 @@ makeArgDeclaration <-
         }
 
 
-#' Make Arg Declaration
-#' @description
-#' To automatically assign argument objects with the default value, see \code{\link{declareArgs}}
-#'
+#' Make DESCRIPTION Imports
 #' @importFrom rlang is_missing
 #' @importFrom purrr keep
 #' @importFrom readr read_lines
@@ -149,3 +146,25 @@ makeImports <-
                         cat(sep = ",\n")
 
         }
+
+
+#' Make URLS For DESCRIPTION
+#' @export
+#' @rdname makeDescURL
+#' @family make functions
+#' @family DESCRIPTION functions
+
+
+makeDescURL <-
+        function (github_user, repo) {
+
+        gh_pages_url <- get_gh_pages_url(github_user = github_user,
+                                         repo = repo)
+        repo_url <- get_repo_url(github_user = github_user, repo = repo)
+        issues_url <- get_issues_page_url(github_user = github_user,
+                                          repo = repo)
+        c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url),
+          BugReports = sprintf("BugReports: %s/", issues_url)) %>%
+                paste(collapse = "\n")%>%
+                cat()
+}
