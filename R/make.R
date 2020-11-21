@@ -90,7 +90,7 @@ makeArgs <-
 
 #' Make Arg Declaration
 #' @description
-#' To automatically assign argument objects with the default value, see \code{\link[declareArgs]}
+#' To automatically assign argument objects with the default value, see \code{\link{declareArgs}}
 #'
 #' @importFrom rlang is_missing
 #' @importFrom purrr keep
@@ -124,7 +124,7 @@ makeArgDeclaration <-
 
 #' Make Arg Declaration
 #' @description
-#' To automatically assign argument objects with the default value, see \code{\link[declareArgs]}
+#' To automatically assign argument objects with the default value, see \code{\link{declareArgs}}
 #'
 #' @importFrom rlang is_missing
 #' @importFrom purrr keep

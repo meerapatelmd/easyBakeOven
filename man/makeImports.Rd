@@ -7,7 +7,7 @@
 makeImports()
 }
 \description{
-To automatically assign argument objects with the default value, see \code{\link[declareArgs]}
+To automatically assign argument objects with the default value, see \code{\link{declareArgs}}
 }
 \seealso{
 Other make functions: 
