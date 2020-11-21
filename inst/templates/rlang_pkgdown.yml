@@ -1,0 +1,273 @@
+navbar:
+  structure:
+    left:  [home, reference, news]
+    right: [github]
+  components:
+    news:
+      text: News
+      menu:
+      - text: "Release notes"
+      - text: "Version 0.4.3"
+        href: https://www.tidyverse.org/blog/2020/02/glue-strings-and-tidy-eval/
+      - text: "Version 0.4.0"
+        href: https://www.tidyverse.org/articles/2019/06/rlang-0-4-0/
+      - text: "Version 0.3.1"
+        href: https://www.tidyverse.org/articles/2019/01/rlang-0-3-1/
+      - text: "Version 0.3.0"
+        href: https://www.tidyverse.org/articles/2018/10/rlang-0-3-0/
+      - text: "Version 0.2.0"
+        href: https://www.tidyverse.org/articles/2018/03/rlang-0.2.0/
+      - text: "------------------"
+      - text: "Change log"
+        href: news/index.html
+
+
+reference:
+  - title: Tidy evaluation
+    desc: >
+      Quote arguments and expressions with unquoting support. The
+      quosure variants wrap an environment with the expression.
+    contents:
+      - quo
+      - quos
+      - enquo
+      - enquos
+      - expr
+      - exprs
+      - enexpr
+      - enexprs
+      - nse-force
+      - nse-defuse
+      - as_label
+      - as_name
+  - title: Tidy dots
+    desc: >
+      Collect arguments contained in `...` with `!!!` and
+      name-unquoting support.
+    contents:
+      - dyn-dots
+      - list2
+      - dots_list
+      - pairlist2
+  - title: Errors, conditions, and backtraces
+    contents:
+      - abort
+      - warn
+      - inform
+      - signal
+      - cnd_message
+      - format_error_bullets
+      - trace_back
+      - with_abort
+      - entrace
+      - cnd_signal
+      - last_error
+      - rlang_backtrace_on_error
+      - catch_cnd
+  - title: Evaluate expressions
+    contents:
+      - eval_tidy
+      - eval_bare
+      - exec
+  - title: Symbols
+    contents:
+      - sym
+      - syms
+      - is_symbol
+      - as_string
+  - title: Calls
+    contents:
+      - starts_with("call_")
+      - call2
+      - is_call
+  - title: Expressions
+    contents:
+      - starts_with("expr_")
+      - starts_with("exprs_")
+      - starts_with("parse_")
+      - is_expression
+      - is_symbolic
+      - expr_text
+      - expr_label
+      - expr_name
+      - set_expr
+      - get_expr
+  - title: Quosures
+    contents:
+      - starts_with("quo_")
+      - new_quosure
+      - is_quosure
+      - as_quosure
+      - is_quosures
+      - quos_auto_name
+  - title: Formulas
+    contents:
+      - starts_with("f_")
+      - new_formula
+      - is_formula
+      - is_bare_formula
+  - title: Functions
+    contents:
+      - starts_with("fn_")
+      - new_function
+      - is_function
+      - is_closure
+      - is_primitive
+      - as_function
+      - as_closure
+  - title: Environments
+    contents:
+      - env
+      - new_environment
+      - env_print
+      - env_parent
+      - env_tail
+      - env_parents
+      - env_depth
+      - get_env
+      - set_env
+      - env_clone
+      - env_inherits
+      - is_environment
+      - is_bare_environment
+      - as_environment
+      - caller_env
+  - title: Environment bindings
+    contents:
+      - env_bind
+      - env_bind_lazy
+      - env_bind_active
+      - env_unbind
+      - env_poke
+      - with_bindings
+      - scoped_bindings
+      - env_has
+      - env_get
+      - env_get_list
+      - env_names
+      - env_length
+      - env_poke
+  - title: Search path and namespaces
+    contents:
+      - search_envs
+      - search_env
+      - base_env
+      - global_env
+      - empty_env
+      - is_installed
+      - is_namespace
+      - ns_env
+      - pkg_env
+      - env_name
+      - env_label
+  - title: S3
+    contents:
+      - inherits_any
+      - inherits_all
+      - inherits_only
+      - new_box
+      - is_box
+      - as_box
+      - as_box_if
+      - unbox
+      - zap
+      - is_zap
+      - done
+  - title: Create vectors
+    desc: >
+      Atomic vector constructors have implicit splicing (i.e. splice
+      lists automatically), while the list constructor has explicit
+      splicing.
+    contents:
+      - lgl
+      - int
+      - dbl
+      - cpl
+      - chr
+      - list2
+      - rep_along
+      - rep_named
+      - seq2
+      - seq2_along
+  - title: Attributes
+    contents:
+      - set_names
+      - names2
+      - has_name
+      - is_named
+  - title: Type predicates
+    contents:
+      - is_list
+      - is_atomic
+      - is_vector
+      - is_integer
+      - is_double
+      - is_character
+      - is_logical
+      - is_raw
+      - is_bytes
+      - is_scalar_list
+      - is_scalar_atomic
+      - is_scalar_vector
+      - is_scalar_integer
+      - is_scalar_double
+      - is_scalar_character
+      - is_scalar_logical
+      - is_scalar_raw
+      - is_scalar_bytes
+      - is_bare_list
+      - is_bare_atomic
+      - is_bare_vector
+      - is_bare_double
+      - is_bare_integer
+      - is_bare_numeric
+      - is_bare_character
+      - is_bare_logical
+      - is_bare_raw
+      - is_bare_bytes
+      - is_empty
+      - is_integerish
+      - is_bare_integerish
+      - is_scalar_integerish
+      - is_null
+      - is_true
+      - is_false
+      - is_string
+      - is_bool
+      - is_bare_string
+  - title: Operators
+    contents:
+      - "`%||%`"
+      - "`%|%`"
+      - "`%@%`"
+  - title: Function arguments
+    contents:
+      - arg_match
+      - missing_arg
+      - is_missing
+      - maybe_missing
+  - title: Create tidy evaluation APIs
+    desc: >
+      Create data masking APIs à-la dplyr or tidyr.
+      These functions are meant for developers rather than users.
+    contents:
+      - "`tidyeval-data`"
+      - eval_tidy
+      - as_data_mask
+      - new_data_mask
+      - as_data_pronoun
+  - title: Condition handlers
+    contents:
+      - with_handlers
+      - calling
+  - title: Session state
+    contents:
+      - matches("interactive")
+      - matches("option")
+  - title: Weak references
+    contents:
+      - matches("weakref")
+      - matches("wref")
+  - title: FAQ
+    contents:
+      - matches("faq")
