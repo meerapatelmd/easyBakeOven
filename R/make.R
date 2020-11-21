@@ -139,10 +139,11 @@ makeImports <-
 
                 readr::read_lines(file = "NAMESPACE") %>%
                         grep(pattern = "import",
-                             ignore.case = TRUE,
+                             ignore.case = FALSE,
                              value = TRUE) %>%
                         stringr::str_replace_all(pattern = "(^.*?[()]{1})([a-zA-Z]{1}.*?)([,)]{1})(.*)",
                                                  replacement = "    \\2") %>%
+                        unique() %>%
                         cat(sep = ",\n")
 
         }
