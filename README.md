@@ -17,7 +17,6 @@ install_github("meerapatelmd/easyBakeOven")
 If you have the following functions:  
 
 ```
-
 love <- 
         function(thing1) {
                 
@@ -31,16 +30,15 @@ like <-
                 sprintf("I like %s.", thing)
                 
         }
-
 ```
 
 Making a `love_and_like()` function:   
 
 ```  
-
 makeDefaultArgs(love)  
 makeDefaultArgs(like)  
-
+># thing1  
+># thing2
 ```
 
 Copy and paste console text:  
@@ -57,10 +55,10 @@ love_and_like <-
 Repeat for internal arguments:  
 
 ```  
-
 makeInternalArgs(love)  
 makeInternalArgs(like)  
-
+># thing1 = thing1  
+># thing2 = thing2  
 ```
 
 Copy and paste console text:  
