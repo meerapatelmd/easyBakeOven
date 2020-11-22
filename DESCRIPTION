@@ -22,10 +22,8 @@ Imports:
     readr,
     rlang,
     secretary,
-    stringr
+    stringr,
+    magrittr
 Remotes: 
     meerapatelmd/glitter,
     meerapatelmd/secretary
-
-
-
