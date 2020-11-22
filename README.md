@@ -6,7 +6,6 @@ Package helps package authoring by printing back function, yaml, and roxygen2 sk
 ## Installation  
 
 ```  
-
 library(devtools)  
 install_github("meerapatelmd/easyBakeOven")  
 
