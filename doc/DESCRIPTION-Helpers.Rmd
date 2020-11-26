@@ -1,0 +1,39 @@
+---
+title: "DESCRIPTION Helpers"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{DESCRIPTION Helpers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(easyBakeOven)
+```
+
+# Make DESCRIPTION   
+The DESCRIPTION can be printed back into the console to view or copy and pasting.      
+
+```{r}
+makeDescription(path = "~/GitHub/packages/easyBakeOven/", github_user = "meerapatelmd", repo = "easyBakeOven")
+```
+
+If "URL" or "BugReports" are not listed as one of the headers in the file, the function will add the "URL" and "BugReports" at the end of the console message in red italics to add to the DESCRIPTION file.  
+
+```{r}
+temp_dir <- tempdir()
+cat(file = file.path(temp_dir, "DESCRIPTION"))
+makeDescription(path = temp_dir, github_user = "meerapatelmd", repo = "easyBakeOven")  
+```
+
+```{r}
+unlink(temp_dir, recursive = TRUE)
+```
+
