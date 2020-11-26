@@ -226,6 +226,7 @@ makeDescription <-
 
                 }
 
+                cat("\n")
 
                 if (!any("URL" %in% DESCRIPTION$headers)) {
 
@@ -239,10 +240,10 @@ makeDescription <-
                                 paste(collapse = "\n") %>%
                                 cat()
 
-                        makeDescURL(github_user = github_user,
-                                    repo = repo)
 
                 }
+
+                cat("\n")
 
                 if (!any("BugReports" %in% DESCRIPTION$headers)) {
 
