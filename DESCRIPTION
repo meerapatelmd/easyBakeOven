@@ -27,3 +27,7 @@ Imports:
 Remotes: 
     meerapatelmd/glitter,
     meerapatelmd/secretary
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

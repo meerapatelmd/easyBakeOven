@@ -160,10 +160,11 @@ makeImports <-
 
 
 makeDescURL <-
-        function (github_user, repo) {
+        function (github_user,
+                  repo) {
 
-        glitter::makeDescriptionLinks(github_user = github_user,
-                                      repo = repo)
+               glitter::makeDescriptionLinks(github_user = github_user,
+                                             repo = repo)
 }
 
 
@@ -172,6 +173,8 @@ makeDescURL <-
 #' @rdname makeDescription
 #' @family make functions
 #' @family DESCRIPTION functions
+#' @importFrom glitter get_gh_pages_url get_repo_url get_issues_page_url
+#' @importFrom secretary redTxt italicize
 
 makeDescription <-
         function(path = getwd(),
@@ -188,8 +191,31 @@ makeDescription <-
 
                 if (!any("URL" %in% DESCRIPTION$headers)) {
 
+                        gh_pages_url <- glitter::get_gh_pages_url(github_user = github_user,
+                                                         repo = repo)
+                        repo_url <- glitter::get_repo_url(github_user = github_user, repo = repo)
+
+                        c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
+                                secretary::redTxt() %>%
+                                secretary::italicize() %>%
+                                paste(collapse = "\n") %>%
+                                cat()
+
                         makeDescURL(github_user = github_user,
                                     repo = repo)
 
                 }
+
+                if (!any("BugReports" %in% DESCRIPTION$headers)) {
+
+                        issues_url <- glitter::get_issues_page_url(github_user = github_user,
+                                                          repo = repo)
+                        c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
+                                secretary::redTxt() %>%
+                                secretary::italicize() %>%
+                                paste(collapse = "\n") %>%
+                                cat()
+
+                }
+
         }
