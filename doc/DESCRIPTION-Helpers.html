@@ -359,7 +359,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Title: Helpers for Package Authoring</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; Version: 0.0.0.9000</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; Version: 0.0.1</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; Authors@R: person(given = &quot;Meera&quot;,</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; family = &quot;Patel, MD&quot;,</span></a>
@@ -367,37 +367,42 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; email = &quot;patelmeeray@gmail.com&quot;,</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; comment = c(ORCID = &quot;0000-0002-3401-3948&quot;))</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; Description: Return values in the console for copy and pasting while authoring packages.</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; License: `use_mit_license()`</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; Encoding: UTF-8</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; LazyData: true</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; RoxygenNote: 7.1.1</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; URL: https://meerapatelmd.github.io/easyBakeOven/, https://github.com/meerapatelmd/easyBakeOven/</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; Imports: glitter,</span></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; purrr,</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; readr,</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; rlang,</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; secretary,</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt; stringr,</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; magrittr</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; Description: R Package that facilitates various aspects of R package authorship and deployment in tandem with the usethis,</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; devtools, and sinew packages. Features include generating pkgdown yaml</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; skeletons as well as providing customizability to the roxygen2</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; skeletons made by the sinew package.</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; License: MIT + file LICENSE</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; URL: https://meerapatelmd.github.io/easyBakeOven/,</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;     https: //github.com/meerapatelmd/easyBakeOven/</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; Imports: glitter,</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; magrittr,</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; purrr,</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; readr,</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; rlang,</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; secretary,</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; stringr</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt; Suggests: knitr,</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; rmarkdown</span></a>
 <a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt; Remotes: meerapatelmd/glitter,</span></a>
-<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt; meerapatelmd/secretary</span></a>
-<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; Suggests: knitr,</span></a>
-<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; rmarkdown</span></a>
-<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; VignetteBuilder: knitr</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt; VignetteBuilder: knitr</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt; Remotes: meerapatelmd/glitter,</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; meerapatelmd/secretary</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; Encoding: UTF-8</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt; LazyData: true</span></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></a>
+<a class="sourceLine" id="cb2-48" data-line-number="48"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49"><span class="co">#&gt; RoxygenNote: 7.1.1</span></a></code></pre></div>
 <p>If “URL” or “BugReports” are not listed as one of the headers in the file, the function will add the “URL” and “BugReports” at the end of the console message in red italics to add to the DESCRIPTION file.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">temp_dir &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">cat</span>(<span class="dt">file =</span> <span class="kw">file.path</span>(temp_dir, <span class="st">&quot;DESCRIPTION&quot;</span>))</a>
