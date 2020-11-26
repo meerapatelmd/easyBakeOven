@@ -1,33 +1,38 @@
 Package: easyBakeOven
 Title: Helpers for Package Authoring
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Meera",
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com",
            comment = c(ORCID = "0000-0002-3401-3948"))
-Description: Return values in the console for copy and pasting
-    while authoring packages.
-License: `use_mit_license()`
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
-URL: https://meerapatelmd.github.io/easyBakeOven/, https://github.com/meerapatelmd/easyBakeOven/
+Description: R Package that facilitates various aspects of R
+    package authorship and deployment in tandem with the usethis,
+    devtools, and sinew packages. Features include generating pkgdown yaml
+    skeletons as well as providing customizability to the roxygen2
+    skeletons made by the sinew package.
+License: MIT + file LICENSE
+URL: https://meerapatelmd.github.io/easyBakeOven/,
+    https://github.com/meerapatelmd/easyBakeOven/
 BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/
 Imports:
     glitter,
+    magrittr,
     purrr,
     readr,
     rlang,
     secretary,
-    stringr,
-    magrittr
-Remotes: 
-    meerapatelmd/glitter,
-    meerapatelmd/secretary
+    stringr
 Suggests: 
     knitr,
     rmarkdown
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
+Remotes: 
+    meerapatelmd/glitter,
+    meerapatelmd/secretary
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
