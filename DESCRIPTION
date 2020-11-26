@@ -17,13 +17,18 @@ URL: https://meerapatelmd.github.io/easyBakeOven/,
     https://github.com/meerapatelmd/easyBakeOven/
 BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/
 Imports:
+    cave,
+    devtools,
     glitter,
     magrittr,
     purrr,
     readr,
     rlang,
     secretary,
-    stringr
+    sinew,
+    stringr,
+    tibble,
+    tidyr
 Suggests: 
     knitr,
     rmarkdown
@@ -31,7 +36,8 @@ VignetteBuilder:
     knitr
 Remotes: 
     meerapatelmd/glitter,
-    meerapatelmd/secretary
+    meerapatelmd/secretary,
+    meerapatelmd/cave
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

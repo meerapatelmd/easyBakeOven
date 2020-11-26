@@ -168,13 +168,17 @@ makeDescURL <-
 }
 
 
-#' Make URLS For DESCRIPTION
+#' Make DESCRIPTION
+#'
+#' @description
+#' DESCRIPTION file in the given path is read and parsed into a dataframe using \code{\link{read_description}}, printed in the DESCRIPTION file format in the console. Additionally, the `Imports:` are read from the NAMESPACE file using \code{\link{read_namespace}}. If the DESCRIPTION file does not have an Imports section, it is returned in the console in red italics. Otherwise, it is returned in blue italics to still flag the output since this function does not compare whether the list of Imports match. This is up to the user as is updating the `Remotes:` section.  In a similar fashion, if either the `URL:` or `BugReports:` sections are missing, they are concatenated and returned in red italics. However, they are not returned in blue italics otherwise.
+#'
 #' @export
 #' @rdname makeDescription
 #' @family make functions
 #' @family DESCRIPTION functions
 #' @importFrom glitter get_gh_pages_url get_repo_url get_issues_page_url
-#' @importFrom secretary redTxt italicize
+#' @importFrom secretary redTxt italicize blueTxt
 
 makeDescription <-
         function(path = getwd(),
@@ -186,6 +190,40 @@ makeDescription <-
                 for (i in 1:nrow(DESCRIPTION)) {
 
                         cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n\n", sep = "")
+                }
+
+
+                output <- read_namespace(path = path)
+
+                imports <- c(output$importFrom$pkg) %>%
+                        unique()
+
+                if ("import" %in% names(output)) {
+                        imports <-
+                                c(imports,
+                                  output$import) %>%
+                                unique()
+                }
+
+                imports <- paste(sprintf("    %s", imports), collapse = ",\n")
+
+
+                if (!("Imports" %in% DESCRIPTION$headers)) {
+
+                        c(Imports = sprintf("Imports: \n%s", imports)) %>%
+                                secretary::redTxt() %>%
+                                secretary::italicize() %>%
+                                paste(collapse = "\n") %>%
+                                cat()
+
+                } else {
+
+                        c(Imports = sprintf("Imports: \n%s", imports)) %>%
+                                secretary::blueTxt() %>%
+                                secretary::italicize() %>%
+                                paste(collapse = "\n") %>%
+                                cat()
+
                 }
 
 
@@ -219,3 +257,5 @@ makeDescription <-
                 }
 
         }
+
+

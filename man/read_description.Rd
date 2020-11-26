@@ -22,5 +22,9 @@ Other DESCRIPTION functions:
 \code{\link{makeDescURL}()},
 \code{\link{makeDescription}()},
 \code{\link{makeImports}()}
+
+Other R Package functions: 
+\code{\link{read_namespace}()}
 }
 \concept{DESCRIPTION functions}
+\concept{R Package functions}
