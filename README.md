@@ -69,7 +69,7 @@ love_and_like <-
                  
                         c(love(thing1 = thing1),
                           like(thing2 = thing2)) %>%
-                          paste(collape = "\n") %>%
+                          paste(collapse = "\n") %>%
                           cat()
                  }
 ```  
@@ -77,4 +77,5 @@ love_and_like <-
 
 ## Code of Conduct
 
-  Please note that the suzyBakeOven project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the suzyBakeOven project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.  
+
