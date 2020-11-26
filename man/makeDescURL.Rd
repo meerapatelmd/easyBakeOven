@@ -7,16 +7,19 @@
 makeDescURL(github_user, repo)
 }
 \description{
-Make URLS For DESCRIPTION
+Make the links to the Repo, GitHub Pages, and Issues Pages. To make these links in addition to the entire DESCRIPTION contents, see \code{\link{makeDescription}}.
 }
 \seealso{
 Other make functions: 
 \code{\link{makeArgDeclaration}()},
 \code{\link{makeArgs}()},
+\code{\link{makeDescription}()},
 \code{\link{makeImports}()}
 
 Other DESCRIPTION functions: 
-\code{\link{makeImports}()}
+\code{\link{makeDescription}()},
+\code{\link{makeImports}()},
+\code{\link{read_description}()}
 }
 \concept{DESCRIPTION functions}
 \concept{make functions}

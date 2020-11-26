@@ -13,6 +13,7 @@ To automatically assign argument objects with the default value, see \code{\link
 Other make functions: 
 \code{\link{makeArgs}()},
 \code{\link{makeDescURL}()},
+\code{\link{makeDescription}()},
 \code{\link{makeImports}()}
 }
 \concept{make functions}

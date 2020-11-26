@@ -150,6 +150,8 @@ makeImports <-
 
 
 #' Make URLS For DESCRIPTION
+#' @description
+#' Make the links to the Repo, GitHub Pages, and Issues Pages. To make these links in addition to the entire DESCRIPTION contents, see \code{\link{makeDescription}}.
 #' @export
 #' @rdname makeDescURL
 #' @family make functions
@@ -163,3 +165,31 @@ makeDescURL <-
         glitter::makeDescriptionLinks(github_user = github_user,
                                       repo = repo)
 }
+
+
+#' Make URLS For DESCRIPTION
+#' @export
+#' @rdname makeDescription
+#' @family make functions
+#' @family DESCRIPTION functions
+
+makeDescription <-
+        function(path = getwd(),
+                 github_user,
+                 repo) {
+
+                DESCRIPTION <- read_description(path = path)
+
+                for (i in 1:nrow(DESCRIPTION)) {
+
+                        cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n\n", sep = "")
+                }
+
+
+                if (!any("URL" %in% DESCRIPTION$headers)) {
+
+                        makeDescURL(github_user = github_user,
+                                    repo = repo)
+
+                }
+        }

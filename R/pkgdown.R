@@ -6,7 +6,7 @@ copyPkgdownTemplate <-
                         from =
                         system.file("templates",
                                     "rlang_pkgdown.yml",
-                                    package = "suzyBakeOven"),
+                                    package = "easyBakeOven"),
                         to =
                         "template_pkgdown.yml",
                         overwrite = TRUE)
