@@ -7,7 +7,6 @@
 #' @param repo_path   Path to a local clone of the target repo.
 #' @param conn          Connection object.
 #' @name data_package_helpers
-#' @export
 NULL
 
 #' @title
