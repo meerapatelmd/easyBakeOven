@@ -93,5 +93,7 @@ createFavicons <-
                         )
                 )
 
+                file.copy("logo.png", "./man/figures/logo.png")
+
                 cli::cat_bullet('# {PACKAGE_NAME} <img src="man/figures/logo.png" align="right" alt="" width="120" />')
         }
