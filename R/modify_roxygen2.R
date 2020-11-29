@@ -3,7 +3,7 @@
 #' @description
 #' `.Deprecated()` is added after each function declaration in the text. Note that it does not check for an existing `.Deprecated()`.
 #'
-#' @example inst/example/add_deprecated_call.R
+#' @example inst/examples/add_deprecated_call.R
 #' @param text Character vector containing function declarations.
 #' @param new  (Optional) Argument passed to the new call to `.Deprecated()`.
 #' @seealso
@@ -49,7 +49,7 @@ add_deprecated_call <-
 #' @title
 #' Add "(Deprecated)" after the `@description` Roxygen2 Tag
 #' @param text Character vector containing function declarations.
-#' @example inst/example/add_deprecated_to_desc.R
+#' @example inst/examples/add_deprecated_to_desc.R
 #' @seealso
 #'  \code{\link[stringr]{str_replace}}
 #' @rdname add_deprecated_to_desc
