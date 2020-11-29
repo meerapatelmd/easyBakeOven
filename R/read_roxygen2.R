@@ -3,7 +3,7 @@
 #'
 #' @export
 
-split_function_file <-
+readRoxygen2 <-
         function(path) {
           text <- readLines(con = path, skipNul = TRUE, encoding = "UTF8")
 

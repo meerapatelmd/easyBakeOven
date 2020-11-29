@@ -6,8 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make URLS For DESCRIPTION — makeDescription • easyBakeOven</title>
+<title>Make DESCRIPTION — makeDescription • easyBakeOven</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -39,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Make URLS For DESCRIPTION — makeDescription" />
-<meta property="og:description" content="Make URLS For DESCRIPTION" />
+<meta property="og:title" content="Make DESCRIPTION — makeDescription" />
+<meta property="og:description" content="DESCRIPTION file in the given path is read and parsed into a dataframe using read_description, printed in the DESCRIPTION file format in the console. Additionally, the Imports: are read from the NAMESPACE file using read_namespace. If the DESCRIPTION file does not have an Imports section, it is returned in the console in red italics. Otherwise, it is returned in blue italics to still flag the output since this function does not compare whether the list of Imports match. This is up to the user as is updating the Remotes: section.  In a similar fashion, if either the URL: or BugReports: sections are missing, they are concatenated and returned in red italics. However, they are not returned in blue italics otherwise." />
+<meta property="og:image" content="/logo.png" />
 
 
 
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -99,6 +107,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -120,13 +131,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make URLS For DESCRIPTION</h1>
+    <h1>Make DESCRIPTION</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/make.R'><code>R/make.R</code></a></small>
     <div class="hidden name"><code>makeDescription.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Make URLS For DESCRIPTION</p>
+    <p>DESCRIPTION file in the given path is read and parsed into a dataframe using <code><a href='read_description.html'>read_description</a></code>, printed in the DESCRIPTION file format in the console. Additionally, the <code>Imports:</code> are read from the NAMESPACE file using <code><a href='read_namespace.html'>read_namespace</a></code>. If the DESCRIPTION file does not have an Imports section, it is returned in the console in red italics. Otherwise, it is returned in blue italics to still flag the output since this function does not compare whether the list of Imports match. This is up to the user as is updating the <code>Remotes:</code> section.  In a similar fashion, if either the <code>URL:</code> or <code>BugReports:</code> sections are missing, they are concatenated and returned in red italics. However, they are not returned in blue italics otherwise.</p>
     </div>
 
     <pre class="usage"><span class='fu'>makeDescription</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>github_user</span>, <span class='va'>repo</span><span class='op'>)</span></pre>
