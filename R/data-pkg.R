@@ -4,24 +4,27 @@
 #' @description
 #' Data Package Helpers are functions that support the maintenance of the data that is exported in packages.
 #'
-#' @param repo_path   Path to a local clone of the target repo.
+#' @param path   Path to a local clone of the target repo.
 #' @param conn          Connection object.
 #' @name data_package_helpers
 NULL
 
 #' @title
-#' Deploy Package Data
+#' Document Package Data
 #'
-#' @rdname deploy_data
+#' @description
+#' For R packages containing data in the `data-raw` dir, the `usethis.R` is written in the same directory, the data is documented in the `R/data.R`, and `devtools::document` is run on the contents of the provided path.
+#'
+#' @rdname document_data
 #' @export
 #' @importFrom devtools document
 
 
-deploy_data <-
-        function(repo_path) {
-                execute_usethis(repo_path = repo_path)
-                write_data_r_file(repo_path = repo_path)
-                devtools::document(pkg = repo_path)
+document_data <-
+        function(path) {
+                write_usethis_file(path = path)
+                write_data_file(path = path)
+                devtools::document(pkg = path)
         }
 
 
@@ -31,19 +34,19 @@ deploy_data <-
 #' Create Repo Directories
 #'
 #' @description
-#' Creates the `data-raw`, `data`, and `R` directories within the `repo_path` if they do not already exist.
+#' Creates the `data-raw`, `data`, and `R` directories within the `path` if they do not already exist.
 #'
 #' @importFrom cave dir.create_path
 #' @export
 #' @rdname prep_data_repo_dirs
 
 prep_data_repo_dirs <-
-        function(repo_path) {
+        function(path) {
 
-                # repo_path <- "~/GitHub/Public-Packages/cancergovData/"
+                # path <- "~/GitHub/Public-Packages/cancergovData/"
 
                 subdirs <- c("data-raw", "data", "R")
-                all_paths <- as.list(path.expand(file.path(repo_path, subdirs)))
+                all_paths <- as.list(path.expand(file.path(path, subdirs)))
                 names(all_paths) <- c("DATA_RAW", "DATA", "R")
 
                 for (i in seq_along(all_paths)) {
@@ -103,17 +106,17 @@ write_schema_to_csvs <-
 #' @title
 #' Write Processing File
 #'
-#' @rdname execute_usethis
+#' @rdname write_usethis_file
 #' @export
 
-execute_usethis <-
-        function(repo_path) {
+write_usethis_file <-
+        function(path) {
 
                 current_wd <- getwd()
-                setwd(repo_path)
+                setwd(path)
                 on.exit(setwd(current_wd))
 
-                data_raw_path <- file.path(repo_path, "data-raw")
+                data_raw_path <- file.path(path, "data-raw")
 
                 Files <- list.files(path = data_raw_path,
                                     pattern = "[.]csv$",
@@ -156,21 +159,21 @@ execute_usethis <-
 #' @title
 #' Write Processing File
 #'
-#' @rdname write_data_r_file
+#' @rdname write_data_file
 #' @export
 #' @importFrom stringr str_replace str_remove_all
 #' @importFrom readr read_csv
 #' @importFrom sinew makeOxygen
 
-write_data_r_file <-
-        function(repo_path) {
+write_data_file <-
+        function(path) {
 
-                r_dir_path <- path.expand(file.path(repo_path, "R"))
+                r_dir_path <- path.expand(file.path(path, "R"))
                 r_file_path <- file.path(r_dir_path, "data.R")
 
                 cat(file = r_file_path)
 
-                data_raw_path <- file.path(repo_path, "data-raw")
+                data_raw_path <- file.path(path, "data-raw")
                 Files <- list.files(path = data_raw_path,
                                     pattern = "[.]csv$",
                                     full.names = TRUE)
