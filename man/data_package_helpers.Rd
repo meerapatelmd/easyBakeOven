@@ -4,7 +4,7 @@
 \alias{data_package_helpers}
 \title{Data Package Helpers}
 \arguments{
-\item{repo_path}{Path to a local clone of the target repo.}
+\item{path}{Path to a local clone of the target repo.}
 
 \item{conn}{Connection object.}
 }

@@ -12,7 +12,7 @@ Make Args
 \seealso{
 Other make functions: 
 \code{\link{makeArgDeclaration}()},
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeDescription}()},
 \code{\link{makeImports}()}
 }

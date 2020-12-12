@@ -13,11 +13,11 @@ Make DESCRIPTION Imports
 Other make functions: 
 \code{\link{makeArgDeclaration}()},
 \code{\link{makeArgs}()},
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeDescription}()}
 
 Other DESCRIPTION functions: 
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeDescription}()},
 \code{\link{read_description}()}
 }

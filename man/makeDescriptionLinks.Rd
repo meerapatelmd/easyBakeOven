@@ -2,14 +2,30 @@
 % Please edit documentation in R/make.R
 \name{makeDescriptionLinks}
 \alias{makeDescriptionLinks}
-\title{Make Links to Add to DESCRIPTION}
+\title{Make URLS For DESCRIPTION}
 \usage{
+makeDescriptionLinks(github_user, repo)
+
 makeDescriptionLinks(github_user, repo)
 }
 \description{
-Make Links to Add to DESCRIPTION
+Make the links to the Repo, GitHub Pages, and Issues Pages. To make these links in addition to the entire DESCRIPTION contents, see \code{\link{makeDescription}}.
 }
 \examples{
 makeDescriptionLinks(github_user = "meerapatelmd",
                      repo = "rubix")
 }
+\seealso{
+Other make functions: 
+\code{\link{makeArgDeclaration}()},
+\code{\link{makeArgs}()},
+\code{\link{makeDescription}()},
+\code{\link{makeImports}()}
+
+Other DESCRIPTION functions: 
+\code{\link{makeDescription}()},
+\code{\link{makeImports}()},
+\code{\link{read_description}()}
+}
+\concept{DESCRIPTION functions}
+\concept{make functions}

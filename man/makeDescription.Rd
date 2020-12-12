@@ -4,7 +4,7 @@
 \alias{makeDescription}
 \title{Make DESCRIPTION}
 \usage{
-makeDescription(path = getwd(), github_user, repo)
+makeDescription(path = getwd(), github_user, repo = basename(path))
 }
 \description{
 DESCRIPTION file in the given path is read and parsed into a dataframe using \code{\link{read_description}}, printed in the DESCRIPTION file format in the console. Additionally, the \verb{Imports:} are read from the NAMESPACE file using \code{\link{read_namespace}}. If the DESCRIPTION file does not have an Imports section, it is returned in the console in red italics. Otherwise, it is returned in blue italics to still flag the output since this function does not compare whether the list of Imports match. This is up to the user as is updating the \verb{Remotes:} section.  In a similar fashion, if either the \verb{URL:} or \verb{BugReports:} sections are missing, they are concatenated and returned in red italics. However, they are not returned in blue italics otherwise.
@@ -13,11 +13,11 @@ DESCRIPTION file in the given path is read and parsed into a dataframe using \co
 Other make functions: 
 \code{\link{makeArgDeclaration}()},
 \code{\link{makeArgs}()},
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeImports}()}
 
 Other DESCRIPTION functions: 
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeImports}()},
 \code{\link{read_description}()}
 }

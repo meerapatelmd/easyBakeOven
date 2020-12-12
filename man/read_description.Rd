@@ -19,7 +19,7 @@ read_description()
 \code{\link[tidyr]{unite}}
 
 Other DESCRIPTION functions: 
-\code{\link{makeDescURL}()},
+\code{\link{makeDescriptionLinks}()},
 \code{\link{makeDescription}()},
 \code{\link{makeImports}()}
 

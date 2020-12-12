@@ -153,17 +153,26 @@ makeImports <-
 #' @description
 #' Make the links to the Repo, GitHub Pages, and Issues Pages. To make these links in addition to the entire DESCRIPTION contents, see \code{\link{makeDescription}}.
 #' @export
-#' @rdname makeDescURL
+#' @rdname makeDescriptionLinks
 #' @family make functions
 #' @family DESCRIPTION functions
 
 
-makeDescURL <-
+makeDescriptionLinks <-
         function (github_user,
                   repo) {
 
-               makeDescriptionLinks(github_user = github_user,
-                                             repo = repo)
+                gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
+                repo_url <-  sprintf("https://github.com/%s/%s", github_user, repo)
+
+                c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
+                        paste(collapse = "\n") %>%
+                        cat()
+
+                issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
+                c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
+                        paste(collapse = "\n") %>%
+                        cat()
 }
 
 
@@ -182,13 +191,13 @@ makeDescURL <-
 makeDescription <-
         function(path = getwd(),
                  github_user,
-                 repo) {
+                 repo = basename(path)) {
 
                 DESCRIPTION <- read_description(path = path)
 
                 for (i in 1:nrow(DESCRIPTION)) {
 
-                        cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n\n", sep = "")
+                        cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n", sep = "")
                 }
 
 
@@ -229,9 +238,8 @@ makeDescription <-
 
                 if (!any("URL" %in% DESCRIPTION$headers)) {
 
-                        gh_pages_url <- glitter::get_gh_pages_url(github_user = github_user,
-                                                         repo = repo)
-                        repo_url <- glitter::get_repo_url(github_user = github_user, repo = repo)
+                        gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
+                        repo_url <-  sprintf("https://github.com/%s/%s", github_user, repo)
 
                         c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
                                 secretary::redTxt() %>%
@@ -246,17 +254,15 @@ makeDescription <-
 
                 if (!any("BugReports" %in% DESCRIPTION$headers)) {
 
-                        issues_url <- glitter::get_issues_page_url(github_user = github_user,
-                                                          repo = repo)
+                        issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
                         c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
                                 secretary::redTxt() %>%
                                 secretary::italicize() %>%
                                 paste(collapse = "\n") %>%
                                 cat()
-
                 }
+}
 
-        }
 
 #' @title
 #' Make Links to Add to DESCRIPTION
