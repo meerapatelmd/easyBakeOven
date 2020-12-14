@@ -8,13 +8,8 @@ knitr::opts_chunk$set(
 library(easyBakeOven)
 
 ## -----------------------------------------------------------------------------
-makeDescription(path = "~/GitHub/packages/easyBakeOven/", github_user = "meerapatelmd", repo = "easyBakeOven")
+makeDescription(path = "~/GitHub/packages/easyBakeOven/")
 
 ## -----------------------------------------------------------------------------
-temp_dir <- tempdir()
-cat(file = file.path(temp_dir, "DESCRIPTION"))
-makeDescription(path = temp_dir, github_user = "meerapatelmd", repo = "easyBakeOven")  
-
-## -----------------------------------------------------------------------------
-unlink(temp_dir, recursive = TRUE)
+makeDescription(path = "~/GitHub/packages/easyBakeOven/")  
 

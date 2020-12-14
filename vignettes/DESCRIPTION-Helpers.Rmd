@@ -22,18 +22,11 @@ library(easyBakeOven)
 The DESCRIPTION can be printed back into the console to view or copy and pasting.      
 
 ```{r}
-makeDescription(path = "~/GitHub/packages/easyBakeOven/", github_user = "meerapatelmd", repo = "easyBakeOven")
+makeDescription(path = "~/GitHub/packages/easyBakeOven/")
 ```
 
-If "URL" or "BugReports" are not listed as one of the headers in the file, the function will add the "URL" and "BugReports" at the end of the console message in red italics to add to the DESCRIPTION file.  
+If "URL" or "BugReports" are not listed as one of the headers in the file, the function will add the "URL" and "BugReports" at the end of the console message in red italics to add to the DESCRIPTION file.
 
 ```{r}
-temp_dir <- tempdir()
-cat(file = file.path(temp_dir, "DESCRIPTION"))
-makeDescription(path = temp_dir, github_user = "meerapatelmd", repo = "easyBakeOven")  
+makeDescription(path = "~/GitHub/packages/easyBakeOven/")  
 ```
-
-```{r}
-unlink(temp_dir, recursive = TRUE)
-```
-
