@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,7 +114,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/meerapatelmd/easyBakeOven/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,7 +140,7 @@
     <p>DESCRIPTION file in the given path is read and parsed into a dataframe using <code><a href='read_description.html'>read_description</a></code>, printed in the DESCRIPTION file format in the console. Additionally, the <code>Imports:</code> are read from the NAMESPACE file using <code><a href='read_namespace.html'>read_namespace</a></code>. If the DESCRIPTION file does not have an Imports section, it is returned in the console in red italics. Otherwise, it is returned in blue italics to still flag the output since this function does not compare whether the list of Imports match. This is up to the user as is updating the <code>Remotes:</code> section.  In a similar fashion, if either the <code>URL:</code> or <code>BugReports:</code> sections are missing, they are concatenated and returned in red italics. However, they are not returned in blue italics otherwise.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeDescription</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>github_user</span>, <span class='va'>repo</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>makeDescription</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, remote_name <span class='op'>=</span> <span class='st'>"origin"</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -148,10 +148,10 @@
     <div class='dont-index'><p>Other make functions: 
 <code><a href='makeArgDeclaration.html'>makeArgDeclaration</a>()</code>,
 <code><a href='makeArgs.html'>makeArgs</a>()</code>,
-<code><a href='makeDescURL.html'>makeDescURL</a>()</code>,
+<code><a href='makeDescriptionLinks.html'>makeDescriptionLinks</a>()</code>,
 <code><a href='makeImports.html'>makeImports</a>()</code></p>
 <p>Other DESCRIPTION functions: 
-<code><a href='makeDescURL.html'>makeDescURL</a>()</code>,
+<code><a href='makeDescriptionLinks.html'>makeDescriptionLinks</a>()</code>,
 <code><a href='makeImports.html'>makeImports</a>()</code>,
 <code><a href='read_description.html'>read_description</a>()</code></p></div>
 

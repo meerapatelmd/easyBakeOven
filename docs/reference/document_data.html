@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make Arg Declaration — makeArgDeclaration • easyBakeOven</title>
+<title>Document Package Data — document_data • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Make Arg Declaration — makeArgDeclaration" />
-<meta property="og:description" content="To automatically assign argument objects with the default value, see declareArgs" />
+<meta property="og:title" content="Document Package Data — document_data" />
+<meta property="og:description" content="For R packages containing data in the data-raw dir, the usethis.R is written in the same directory, the data is documented in the R/data.R, and devtools::document is run on the contents of the provided path." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,25 +131,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make Arg Declaration</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/make.R'><code>R/make.R</code></a></small>
-    <div class="hidden name"><code>makeArgDeclaration.Rd</code></div>
+    <h1>Document Package Data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/data-pkg.R'><code>R/data-pkg.R</code></a></small>
+    <div class="hidden name"><code>document_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>To automatically assign argument objects with the default value, see <code><a href='declareArgs.html'>declareArgs</a></code></p>
+    <p>For R packages containing data in the <code>data-raw</code> dir, the <code>usethis.R</code> is written in the same directory, the data is documented in the <code>R/data.R</code>, and <code><a href='https://devtools.r-lib.org//reference/document.html'>devtools::document</a></code> is run on the contents of the provided path.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeArgDeclaration</span><span class='op'>(</span><span class='va'>fun</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>document_data</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
 
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other make functions: 
-<code><a href='makeArgs.html'>makeArgs</a>()</code>,
-<code><a href='makeDescriptionLinks.html'>makeDescriptionLinks</a>()</code>,
-<code><a href='makeDescription.html'>makeDescription</a>()</code>,
-<code><a href='makeImports.html'>makeImports</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
