@@ -190,8 +190,27 @@ makeDescriptionLinks <-
 
 makeDescription <-
         function(path = getwd(),
-                 github_user,
-                 repo = basename(path)) {
+                 remote_name = "origin") {
+
+                strip_filename <-
+                        function (file)
+                        {
+
+                                        file <- basename(file)
+
+
+                                        file <- sub(pattern = "(^.*)([.]{1}.*$)", replacement = "\\1",
+                                                    x = file)
+
+                                file
+                        }
+
+                remote_link <- glitter::remote_url(path = path,
+                                    remote_name = remote_name)
+                github_user <- stringr::str_replace_all(string = remote_link,
+                                         pattern = "https://github.com/(.*?)/.*.git$",
+                                         replacement = "\\1")
+                repo <- strip_filename(remote_link)
 
                 DESCRIPTION <- read_description(path = path)
 
