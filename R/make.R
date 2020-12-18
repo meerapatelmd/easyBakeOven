@@ -92,7 +92,7 @@ make_arg_declaration <-
       purrr::keep(~ !rlang::is_missing(.))
 
     nms <- names(Args)
-    values <- nname(Args)
+    values <- unname(Args)
 
     values2 <- vector()
     for (i in seq_along(values)) {
