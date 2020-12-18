@@ -1,0 +1,29 @@
+reference:
+  - title: Make Things
+    desc: >
+      Print back various aspects function arguments or package files
+    contents:
+      - contains('make')
+  - title: Data Packages
+    desc: >
+      Write and deploy packages containing data
+    contents:
+      - contains('data')
+      - contains('write')
+  - title: Document Deprecation
+    desc: >
+      Automate changes to documentation when a function is deprecated
+    contents:
+      - contains('deprecated')
+  - title: Logo
+    desc: >
+      Create package logos
+    contents:
+       - create_medallion
+       - create_favicons
+  - title: Miscellaneous
+    contents:
+      - activate_google_font
+      - list2
+      - dots_list
+      - pairlist2
