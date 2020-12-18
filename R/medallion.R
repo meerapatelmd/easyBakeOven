@@ -96,5 +96,5 @@ create_favicons <-
 
     file.copy("logo.png", "./man/figures/logo.png")
 
-    cli::cat_bullet(sprintf('# %s <img src="man/figures/logo.png" align="right" alt="" width="120" />'), basename(getwd()))
+    cli::cat_bullet(sprintf('# %s <img src="man/figures/logo.png" align="right" alt="" width="120" />', basename(getwd())))
   }
