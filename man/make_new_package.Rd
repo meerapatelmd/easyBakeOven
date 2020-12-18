@@ -7,6 +7,7 @@
 make_new_package(
   path,
   open = FALSE,
+  spellcheck_vignettes = TRUE,
   initial_commit_message = "Initial commit",
   organisation = NULL,
   private = FALSE,
@@ -24,6 +25,8 @@ created, provided that the parent path exists.}
 \item If on RStudio server, the current RStudio project is activated.
 \item Otherwise, the working directory and active project is changed.
 }}
+
+\item{spellcheck_vignettes}{Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.}
 
 \item{organisation}{If supplied, the repo will be created under this
 organisation, instead of the login associated with the GitHub token

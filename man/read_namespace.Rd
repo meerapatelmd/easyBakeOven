@@ -11,7 +11,6 @@ Read the NAMESPACE file as a list split by whether it is tagged as an export, im
 }
 \examples{
 read_namespace()
-
 }
 \seealso{
 Other R Package functions: 

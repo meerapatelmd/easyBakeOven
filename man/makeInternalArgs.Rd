@@ -14,9 +14,9 @@ Retrieve the formal arguments assigned to itself  to copy-and-paste as an intern
 }
 \examples{
 \dontrun{
-if(interactive()){
-       makeInternalArgs(read.csv)
- }
+if (interactive()) {
+  makeInternalArgs(read.csv)
+}
 }
 
 }

@@ -11,7 +11,6 @@ Read the DESCRIPTION file as a 2-column dataframe for the header name along with
 }
 \examples{
 read_description()
-
 }
 \seealso{
 \code{\link[stringr]{str_replace}}

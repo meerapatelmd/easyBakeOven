@@ -14,9 +14,9 @@ Retrieve the formal arguments with the default values to copy-and-paste as forma
 }
 \examples{
 \dontrun{
-if(interactive()){
-       makeDefaultArgs(read.csv)
- }
+if (interactive()) {
+  makeDefaultArgs(read.csv)
+}
 }
 
 }
