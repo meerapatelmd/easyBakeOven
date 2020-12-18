@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Use Google Font — activateGoogleFont • easyBakeOven</title>
+<title>Create and Move Favicons — create_favicons • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Use Google Font — activateGoogleFont" />
-<meta property="og:description" content="Adds a Google Font from https://fonts.google.com/ and activate the showtext package. This function is particularly useful for using Google Fonts for [createLogo]createLogo." />
+<meta property="og:title" content="Create and Move Favicons — create_favicons" />
+<meta property="og:description" content="This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the &quot;man/figures&quot; directory for use." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -131,63 +131,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Use Google Font</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/google_fonts.R'><code>R/google_fonts.R</code></a></small>
-    <div class="hidden name"><code>activateGoogleFont.Rd</code></div>
+    <h1>Create and Move Favicons</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/medallion.R'><code>R/medallion.R</code></a></small>
+    <div class="hidden name"><code>create_favicons.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Adds a Google Font from <a href='https://fonts.google.com/'>https://fonts.google.com/</a> and activate the showtext package. This function is particularly useful for using Google Fonts for <code>[createLogo]createLogo</code>.</p>
+    <p>This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the "man/figures" directory for use.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>activateGoogleFont</span><span class='op'>(</span>
-  <span class='va'>name</span>,
-  regular.wt <span class='op'>=</span> <span class='fl'>400</span>,
-  bold.wt <span class='op'>=</span> <span class='fl'>700</span>,
-  repo <span class='op'>=</span> <span class='st'>"http://fonts.gstatic.com/"</span>,
-  db_cache <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  handle <span class='op'>=</span> <span class='fu'>curl</span><span class='fu'>::</span><span class='fu'><a href='https://jeroen.cran.dev/curl/reference/handle.html'>new_handle</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>create_favicons</span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>name</th>
-      <td><p>name of the font that will be searched in Google Fonts</p></td>
-    </tr>
-    <tr>
-      <th>regular.wt</th>
-      <td><p>font weight for the regular font face, usually 400</p></td>
-    </tr>
-    <tr>
-      <th>bold.wt</th>
-      <td><p>font weight for the bold font face, usually 700</p></td>
-    </tr>
-    <tr>
-      <th>repo</th>
-      <td><p>the site that hosts the font files. Default is the official
-repository <code>http://fonts.gstatic.com/</code> provided by
-Google Fonts.</p></td>
-    </tr>
-    <tr>
-      <th>db_cache</th>
-      <td><p>whether to obtain font metadata from a cache site. Using cache
-is typically faster, but not as update-to-date as using the official
-API. If <code>db_cache</code> is set to <code>FALSE</code>, then metadata
-are retrieved from the Google Fonts API.</p></td>
-    </tr>
-    <tr>
-      <th>handle</th>
-      <td><p>a curl handle object passed to <code><a href='https://jeroen.cran.dev/curl/reference/curl_download.html'>curl::curl_download()</a></code>.</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://jeroen.cran.dev/curl/reference/handle.html'>handle</a></code>
-<code><a href='https://rdrr.io/pkg/sysfonts/man/font_add_google.html'>font_add_google</a></code>
-<code><a href='https://rdrr.io/pkg/showtext/man/showtext_auto.html'>showtext_auto</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

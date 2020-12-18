@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pipe operator — %&gt;% • easyBakeOven</title>
+<title>Start a Package Project — start_pkg_proj • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Pipe operator — %&gt;%" />
-<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
+<meta property="og:title" content="Start a Package Project — start_pkg_proj" />
+<meta property="og:description" content="Similar suite of functions as make_new_package that can occur every time a package is started (i.e. not a one-time setup function.)" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,18 +131,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pipe operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
-    <div class="hidden name"><code>pipe.Rd</code></div>
+    <h1>Start a Package Project</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/start_project.R'><code>R/start_project.R</code></a></small>
+    <div class="hidden name"><code>start_pkg_proj.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See <code>magrittr::%&gt;%</code> for details.</p>
+    <p>Similar suite of functions as <code><a href='make_new_package.html'>make_new_package</a></code> that can occur every time a package is started (i.e. not a one-time setup function.)</p>
     </div>
 
-    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
+    <pre class="usage"><span class='fu'>start_pkg_proj</span><span class='op'>(</span><span class='va'>path</span>, open <span class='op'>=</span> <span class='cn'>FALSE</span>, spellcheck_vignettes <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>A path. If it exists, it is used. If it does not exist, it is
+created, provided that the parent path exists.</p></td>
+    </tr>
+    <tr>
+      <th>open</th>
+      <td><p>If <code>TRUE</code>, <a href='https://usethis.r-lib.org/reference/proj_activate.html'>activates</a> the new project:</p><ul>
+<li><p>If RStudio desktop, the package is opened in a new session.</p></li>
+<li><p>If on RStudio server, the current RStudio project is activated.</p></li>
+<li><p>Otherwise, the working directory and active project is changed.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>spellcheck_vignettes</th>
+      <td><p>Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://usethis.r-lib.org/reference/use_package_doc.html'>use_package_doc</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>use_readme_rmd</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_news_md.html'>use_news_md</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_spell_check.html'>use_spell_check</a></code>,<code><a href='https://usethis.r-lib.org/reference/git_vaccinate.html'>git_vaccinate</a></code>
+<code><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

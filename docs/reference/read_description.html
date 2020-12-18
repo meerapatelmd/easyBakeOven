@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -132,12 +132,12 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Read DESCRIPTION as a Dataframe</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/r_package.R'><code>R/r_package.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/pkg.R'><code>R/pkg.R</code></a></small>
     <div class="hidden name"><code>read_description.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Read the DESCRIPTION file as a 2-column dataframe for the header name along with the value/s following the colon of that header. To make these values in the R console, see <code><a href='makeDescription.html'>makeDescription</a></code>.</p>
+    <p>Read the DESCRIPTION file as a 2-column dataframe for the header name along with the value/s following the colon of that header. To make these values in the R console, see <code>makeDescription</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>read_description</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
@@ -149,16 +149,15 @@
 <code><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></code>
 <code><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></code></p>
 <p>Other DESCRIPTION functions: 
-<code><a href='makeDescriptionLinks.html'>makeDescriptionLinks</a>()</code>,
-<code><a href='makeDescription.html'>makeDescription</a>()</code>,
-<code><a href='makeImports.html'>makeImports</a>()</code></p>
+<code><a href='make_description_links.html'>make_description_links</a>()</code>,
+<code><a href='make_description.html'>make_description</a>()</code>,
+<code><a href='make_imports.html'>make_imports</a>()</code></p>
 <p>Other R Package functions: 
 <code><a href='read_namespace.html'>read_namespace</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>read_description</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file '/Users/meerapatel/GitHub/packages/easyBakeOven/docs/reference/DESCRIPTION': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(con, "r"): cannot open the connection</span></div><div class='input'>
-</div></pre>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file '/Users/meerapatel/GitHub/packages/easyBakeOven/docs/reference/DESCRIPTION': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(con, "r"): cannot open the connection</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

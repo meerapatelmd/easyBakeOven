@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -106,10 +106,10 @@
 <a href="#make-description" class="anchor"></a>Make DESCRIPTION</h1>
 <p>The DESCRIPTION can be printed back into the console to view or copy and pasting.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/makeDescription.html">makeDescription</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"~/GitHub/packages/easyBakeOven/"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="../reference/make_description.html">make_description</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"~/GitHub/packages/easyBakeOven/"</span><span class="op">)</span>
 <span class="co">#&gt; Package: easyBakeOven</span>
 <span class="co">#&gt; Title: Helpers for Package Authoring</span>
-<span class="co">#&gt; Version: 0.0.2</span>
+<span class="co">#&gt; Version: 1.0.0</span>
 <span class="co">#&gt; Authors@R: person(given = "Meera",</span>
 <span class="co">#&gt; family = "Patel, MD",</span>
 <span class="co">#&gt; role = c("aut", "cre"),</span>
@@ -129,14 +129,17 @@
 <span class="co">#&gt; magrittr,</span>
 <span class="co">#&gt; purrr,</span>
 <span class="co">#&gt; readr,</span>
-<span class="co">#&gt; rlang,</span>
+<span class="co">#&gt; rlang (&gt;= 0.1.2),</span>
 <span class="co">#&gt; secretary,</span>
 <span class="co">#&gt; sinew,</span>
 <span class="co">#&gt; stringr,</span>
 <span class="co">#&gt; tibble,</span>
-<span class="co">#&gt; tidyr</span>
+<span class="co">#&gt; tidyr,</span>
+<span class="co">#&gt; usethis</span>
 <span class="co">#&gt; Suggests: knitr,</span>
-<span class="co">#&gt; rmarkdown</span>
+<span class="co">#&gt; rmarkdown,</span>
+<span class="co">#&gt; spelling,</span>
+<span class="co">#&gt; roxygen2</span>
 <span class="co">#&gt; VignetteBuilder: knitr</span>
 <span class="co">#&gt; Remotes: meerapatelmd/glitter,</span>
 <span class="co">#&gt; meerapatelmd/secretary,</span>
@@ -145,6 +148,7 @@
 <span class="co">#&gt; LazyData: true</span>
 <span class="co">#&gt; Roxygen: list(markdown = TRUE)</span>
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
+<span class="co">#&gt; Language: en-US</span>
 <span class="co">#&gt; Imports: </span>
 <span class="co">#&gt;     cave,</span>
 <span class="co">#&gt;     curl,</span>
@@ -162,66 +166,9 @@
 <span class="co">#&gt;     stringr,</span>
 <span class="co">#&gt;     sysfonts,</span>
 <span class="co">#&gt;     tibble,</span>
-<span class="co">#&gt;     tidyr</span></code></pre></div>
-<p>If “URL” or “BugReports” are not listed as one of the headers in the file, the function will add the “URL” and “BugReports” at the end of the console message in red italics to add to the DESCRIPTION file.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/makeDescription.html">makeDescription</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"~/GitHub/packages/easyBakeOven/"</span><span class="op">)</span>  
-<span class="co">#&gt; Package: easyBakeOven</span>
-<span class="co">#&gt; Title: Helpers for Package Authoring</span>
-<span class="co">#&gt; Version: 0.0.2</span>
-<span class="co">#&gt; Authors@R: person(given = "Meera",</span>
-<span class="co">#&gt; family = "Patel, MD",</span>
-<span class="co">#&gt; role = c("aut", "cre"),</span>
-<span class="co">#&gt; email = "patelmeeray@gmail.com",</span>
-<span class="co">#&gt; comment = c(ORCID = "0000-0002-3401-3948"))</span>
-<span class="co">#&gt; Description: R Package that facilitates various aspects of R package authorship and deployment in tandem with the usethis,</span>
-<span class="co">#&gt; devtools, and sinew packages. Features include generating pkgdown yaml</span>
-<span class="co">#&gt; skeletons as well as providing customizability to the roxygen2</span>
-<span class="co">#&gt; skeletons made by the sinew package.</span>
-<span class="co">#&gt; License: MIT + file LICENSE</span>
-<span class="co">#&gt; URL: https://meerapatelmd.github.io/easyBakeOven/,</span>
-<span class="co">#&gt;     https: //github.com/meerapatelmd/easyBakeOven/</span>
-<span class="co">#&gt; BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/</span>
-<span class="co">#&gt; Imports: cave,</span>
-<span class="co">#&gt; devtools,</span>
-<span class="co">#&gt; glitter,</span>
-<span class="co">#&gt; magrittr,</span>
-<span class="co">#&gt; purrr,</span>
-<span class="co">#&gt; readr,</span>
-<span class="co">#&gt; rlang,</span>
-<span class="co">#&gt; secretary,</span>
-<span class="co">#&gt; sinew,</span>
-<span class="co">#&gt; stringr,</span>
-<span class="co">#&gt; tibble,</span>
-<span class="co">#&gt; tidyr</span>
-<span class="co">#&gt; Suggests: knitr,</span>
-<span class="co">#&gt; rmarkdown</span>
-<span class="co">#&gt; VignetteBuilder: knitr</span>
-<span class="co">#&gt; Remotes: meerapatelmd/glitter,</span>
-<span class="co">#&gt; meerapatelmd/secretary,</span>
-<span class="co">#&gt; meerapatelmd/cave</span>
-<span class="co">#&gt; Encoding: UTF-8</span>
-<span class="co">#&gt; LazyData: true</span>
-<span class="co">#&gt; Roxygen: list(markdown = TRUE)</span>
-<span class="co">#&gt; RoxygenNote: 7.1.1</span>
-<span class="co">#&gt; Imports: </span>
-<span class="co">#&gt;     cave,</span>
-<span class="co">#&gt;     curl,</span>
-<span class="co">#&gt;     devtools,</span>
-<span class="co">#&gt;     glitter,</span>
-<span class="co">#&gt;     hexSticker,</span>
-<span class="co">#&gt;     magrittr,</span>
-<span class="co">#&gt;     pkgdown,</span>
-<span class="co">#&gt;     purrr,</span>
-<span class="co">#&gt;     readr,</span>
-<span class="co">#&gt;     rlang,</span>
-<span class="co">#&gt;     secretary,</span>
-<span class="co">#&gt;     showtext,</span>
-<span class="co">#&gt;     sinew,</span>
-<span class="co">#&gt;     stringr,</span>
-<span class="co">#&gt;     sysfonts,</span>
-<span class="co">#&gt;     tibble,</span>
-<span class="co">#&gt;     tidyr</span></code></pre></div>
+<span class="co">#&gt;     tidyr,</span>
+<span class="co">#&gt;     usethis,</span>
+<span class="co">#&gt;     utils</span></code></pre></div>
 </div>
   </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create and Move Favicons — createFavicons • easyBakeOven</title>
+<title>Create Medallion — create_medallion • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Create and Move Favicons — createFavicons" />
-<meta property="og:description" content="This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the &quot;man/figures&quot; directory for use." />
+<meta property="og:title" content="Create Medallion — create_medallion" />
+<meta property="og:description" content="Create Medallion" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -131,17 +131,174 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create and Move Favicons</h1>
+    <h1>Create Medallion</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/medallion.R'><code>R/medallion.R</code></a></small>
-    <div class="hidden name"><code>createFavicons.Rd</code></div>
+    <div class="hidden name"><code>create_medallion.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the "man/figures" directory for use.</p>
+    <p>Create Medallion</p>
     </div>
 
-    <pre class="usage"><span class='fu'>createFavicons</span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>create_medallion</span><span class='op'>(</span>
+  <span class='va'>sourceImg</span>,
+  <span class='va'>package</span>,
+  white_around_sticker <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  s_x <span class='op'>=</span> <span class='fl'>0.8</span>,
+  s_y <span class='op'>=</span> <span class='fl'>0.75</span>,
+  s_width <span class='op'>=</span> <span class='fl'>0.4</span>,
+  s_height <span class='op'>=</span> <span class='fl'>0.5</span>,
+  p_x <span class='op'>=</span> <span class='fl'>1</span>,
+  p_y <span class='op'>=</span> <span class='fl'>1.4</span>,
+  p_color <span class='op'>=</span> <span class='st'>"#FFFFFF"</span>,
+  p_family <span class='op'>=</span> <span class='st'>"Aller_Rg"</span>,
+  p_size <span class='op'>=</span> <span class='fl'>8</span>,
+  h_size <span class='op'>=</span> <span class='fl'>1.2</span>,
+  h_fill <span class='op'>=</span> <span class='st'>"#1881C2"</span>,
+  h_color <span class='op'>=</span> <span class='st'>"#87B13F"</span>,
+  spotlight <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  l_x <span class='op'>=</span> <span class='fl'>1</span>,
+  l_y <span class='op'>=</span> <span class='fl'>0.5</span>,
+  l_width <span class='op'>=</span> <span class='fl'>3</span>,
+  l_height <span class='op'>=</span> <span class='fl'>3</span>,
+  l_alpha <span class='op'>=</span> <span class='fl'>0.4</span>,
+  url <span class='op'>=</span> <span class='st'>""</span>,
+  u_x <span class='op'>=</span> <span class='fl'>1</span>,
+  u_y <span class='op'>=</span> <span class='fl'>0.08</span>,
+  u_color <span class='op'>=</span> <span class='st'>"black"</span>,
+  u_family <span class='op'>=</span> <span class='st'>"Aller_Rg"</span>,
+  u_size <span class='op'>=</span> <span class='fl'>1.5</span>,
+  u_angle <span class='op'>=</span> <span class='fl'>30</span>,
+  filename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>package</span>, <span class='st'>".png"</span><span class='op'>)</span>,
+  asp <span class='op'>=</span> <span class='fl'>1</span>,
+  dpi <span class='op'>=</span> <span class='fl'>300</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>package</th>
+      <td><p>package name</p></td>
+    </tr>
+    <tr>
+      <th>white_around_sticker</th>
+      <td><p>default to FALSE. If set to TRUE, it puts
+white triangles in the corners</p></td>
+    </tr>
+    <tr>
+      <th>s_x</th>
+      <td><p>x position for subplot</p></td>
+    </tr>
+    <tr>
+      <th>s_y</th>
+      <td><p>y position for subplot</p></td>
+    </tr>
+    <tr>
+      <th>s_width</th>
+      <td><p>width for subplot</p></td>
+    </tr>
+    <tr>
+      <th>s_height</th>
+      <td><p>height for subplot</p></td>
+    </tr>
+    <tr>
+      <th>p_x</th>
+      <td><p>x position for package name</p></td>
+    </tr>
+    <tr>
+      <th>p_y</th>
+      <td><p>y position for package name</p></td>
+    </tr>
+    <tr>
+      <th>p_color</th>
+      <td><p>color for package name</p></td>
+    </tr>
+    <tr>
+      <th>p_family</th>
+      <td><p>font family for package name</p></td>
+    </tr>
+    <tr>
+      <th>p_size</th>
+      <td><p>font size for package name</p></td>
+    </tr>
+    <tr>
+      <th>h_size</th>
+      <td><p>size for hexagon border</p></td>
+    </tr>
+    <tr>
+      <th>h_fill</th>
+      <td><p>color to fill hexagon</p></td>
+    </tr>
+    <tr>
+      <th>h_color</th>
+      <td><p>color for hexagon border</p></td>
+    </tr>
+    <tr>
+      <th>spotlight</th>
+      <td><p>whether add spotlight</p></td>
+    </tr>
+    <tr>
+      <th>l_x</th>
+      <td><p>x position for spotlight</p></td>
+    </tr>
+    <tr>
+      <th>l_y</th>
+      <td><p>y position for spotlight</p></td>
+    </tr>
+    <tr>
+      <th>l_width</th>
+      <td><p>width for spotlight</p></td>
+    </tr>
+    <tr>
+      <th>l_height</th>
+      <td><p>height for spotlight</p></td>
+    </tr>
+    <tr>
+      <th>l_alpha</th>
+      <td><p>maximum alpha for spotlight</p></td>
+    </tr>
+    <tr>
+      <th>url</th>
+      <td><p>url at lower border</p></td>
+    </tr>
+    <tr>
+      <th>u_x</th>
+      <td><p>x position for url</p></td>
+    </tr>
+    <tr>
+      <th>u_y</th>
+      <td><p>y position for url</p></td>
+    </tr>
+    <tr>
+      <th>u_color</th>
+      <td><p>color for url</p></td>
+    </tr>
+    <tr>
+      <th>u_family</th>
+      <td><p>font family for url</p></td>
+    </tr>
+    <tr>
+      <th>u_size</th>
+      <td><p>text size for url</p></td>
+    </tr>
+    <tr>
+      <th>u_angle</th>
+      <td><p>angle for url</p></td>
+    </tr>
+    <tr>
+      <th>filename</th>
+      <td><p>filename to save sticker</p></td>
+    </tr>
+    <tr>
+      <th>asp</th>
+      <td><p>aspect ratio, only works if subplot is an image file</p></td>
+    </tr>
+    <tr>
+      <th>dpi</th>
+      <td><p>plot resolution</p></td>
+    </tr>
+    </table>
 
 
   </div>
