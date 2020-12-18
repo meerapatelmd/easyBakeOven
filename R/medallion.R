@@ -84,7 +84,10 @@ create_favicons <-
   function(overwrite = FALSE) {
 
     if (overwrite) {
-        unlink("pkgdown/favicons")
+        unlink(file.path(getwd(), "pkgdown", "favicon"),
+               recursive = TRUE)
+        unlink(file.path(getwd(), "man", "figures"),
+               recursive = TRUE)
     }
     pkgdown::build_favicons(overwrite = overwrite)
     cave::dir.create_path(file.path(getwd(), "man/figures"))
