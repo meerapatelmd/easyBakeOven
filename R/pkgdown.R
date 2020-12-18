@@ -1,24 +1,25 @@
 #' @export
 
 copyPkgdownTemplate <-
-        function() {
-                file.copy(
-                        from =
-                        system.file("templates",
-                                    "rlang_pkgdown.yml",
-                                    package = "easyBakeOven"),
-                        to =
-                        "template_pkgdown.yml",
-                        overwrite = TRUE)
-
-        }
+  function() {
+    file.copy(
+      from =
+        system.file("templates",
+          "rlang_pkgdown.yml",
+          package = "easyBakeOven"
+        ),
+      to =
+        "template_pkgdown.yml",
+      overwrite = TRUE
+    )
+  }
 
 
 #' @export
 
 makeReferenceSection <-
-        function() {
-                '
+  function() {
+    '
                 reference:
                         - title: Tidy evaluation
                         desc: >
@@ -31,22 +32,25 @@ makeReferenceSection <-
                                 - starts_with("arrange)
                                 - matches("test")
                 '
-        }
+  }
 
 
 #' @export
 
 makeReferenceList <-
-        function(reference_path) {
+  function(reference_path) {
+    html_files <-
+      list.files(
+        path = reference_path,
+        pattern = "[.]{1}html$"
+      )
 
-                html_files <-
-                        list.files(path = reference_path,
-                                   pattern = "[.]{1}html$")
+    reference_names <-
+      stringr::str_remove_all(
+        string = html_files,
+        pattern = "[.]{1}html"
+      )
 
-                reference_names <-
-                        stringr::str_remove_all(string = html_files,
-                                                pattern = "[.]{1}html")
-
-                sprintf("- %s", reference_names) %>%
-                        cat(sep = "\n")
-        }
+    sprintf("- %s", reference_names) %>%
+      cat(sep = "\n")
+  }

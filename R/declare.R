@@ -13,24 +13,22 @@
 
 
 declareArgs <-
-        function(fun) {
+  function(fun) {
+    Args <-
+      formals(fun) %>%
+      purrr::keep(~ !rlang::is_missing(.))
 
-                Args <-
-                        formals(fun) %>%
-                        purrr::keep(~ !rlang::is_missing(.))
-
-                nms <- names(Args)
-                values <- unname(Args)
+    nms <- names(Args)
+    values <- unname(Args)
 
 
-                for (i in seq_along(nms)) {
+    for (i in seq_along(nms)) {
+      assign(
+        x = nms[i],
+        value = values[[i]],
+        envir = parent.frame()
+      )
 
-                        assign(
-                                x = nms[i],
-                                value = values[[i]],
-                                envir = parent.frame()
-                        )
-
-                        secretary::typewrite(secretary::magentaTxt(nms[i]), "object created.")
-                }
-        }
+      secretary::typewrite(secretary::magentaTxt(nms[i]), "object created.")
+    }
+  }

@@ -10,11 +10,9 @@
 
 
 str_to_vctr <-
-        function(string) {
-
-                eval(rlang::parse_expr(string))
-
-        }
+  function(string) {
+    eval(rlang::parse_expr(string))
+  }
 
 
 
@@ -29,15 +27,13 @@ str_to_vctr <-
 #' @example inst/examples/str_to_vctr.R
 
 vctr_to_str <-
-        function(vector,
-                 quote = "'") {
+  function(vector,
+           quote = "'") {
+    vector <- as.character(vector)
 
-                vector <- as.character(vector)
+    # Enquoting the strings
+    vector <- sprintf("%s%s%s", quote, vector, quote)
 
-                #Enquoting the strings
-                vector <- sprintf("%s%s%s", quote, vector, quote)
-
-                #Adding commas and bordering with c()
-                sprintf("c(%s)", paste(vector, collapse = ", "))
-
-        }
+    # Adding commas and bordering with c()
+    sprintf("c(%s)", paste(vector, collapse = ", "))
+  }

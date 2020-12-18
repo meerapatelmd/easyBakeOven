@@ -4,7 +4,6 @@
 #' @export
 
 makeReadmeInstallation <-
-        function(pkg = basename(getwd())) {
-
-                cat(sprintf('# Installation  \n\n```  \nlibrary(devtools)\ninstall_github("meerapatelmd/%s")\n```  \n\n', pkg))
-        }
+  function(pkg = basename(getwd())) {
+    cat(sprintf('# Installation  \n\n```  \nlibrary(devtools)\ninstall_github("meerapatelmd/%s")\n```  \n\n', pkg))
+  }

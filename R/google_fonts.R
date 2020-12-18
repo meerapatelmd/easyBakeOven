@@ -16,27 +16,27 @@
 
 
 activateGoogleFont <-
-        function(name,
-                 regular.wt = 400,
-                 bold.wt = 700,
-                 repo = "http://fonts.gstatic.com/",
-                 db_cache = TRUE,
-                 handle = curl::new_handle()) {
+  function(name,
+           regular.wt = 400,
+           bold.wt = 700,
+           repo = "http://fonts.gstatic.com/",
+           db_cache = TRUE,
+           handle = curl::new_handle()) {
+    do.call(sysfonts::font_add_google,
+      args =
+        list(
+          name = name,
+          regular.wt = regular.wt,
+          bold.wt = bold.wt,
+          repo = repo,
+          db_cache = db_cache,
+          handle = handle
+        ),
+      envir = parent.frame()
+    )
 
-                do.call(sysfonts::font_add_google,
-                        args =
-                        list(
-                                name = name,
-                                regular.wt = regular.wt,
-                                bold.wt = bold.wt,
-                                repo = repo,
-                                db_cache = db_cache,
-                                handle = handle),
-                        envir = parent.frame()
-                )
-
-                do.call(showtext::showtext_auto,
-                        args = list(rlang::missing_arg()),
-                        envir = parent.frame())
-
-        }
+    do.call(showtext::showtext_auto,
+      args = list(rlang::missing_arg()),
+      envir = parent.frame()
+    )
+  }

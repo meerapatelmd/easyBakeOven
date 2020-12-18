@@ -21,11 +21,11 @@ NULL
 
 
 document_data <-
-        function(path) {
-                write_usethis_file(path = path)
-                write_data_file(path = path)
-                devtools::document(pkg = path)
-        }
+  function(path) {
+    write_usethis_file(path = path)
+    write_data_file(path = path)
+    devtools::document(pkg = path)
+  }
 
 
 
@@ -41,23 +41,20 @@ document_data <-
 #' @rdname prep_data_repo_dirs
 
 prep_data_repo_dirs <-
-        function(path) {
+  function(path) {
 
-                # path <- "~/GitHub/Public-Packages/cancergovData/"
+    # path <- "~/GitHub/Public-Packages/cancergovData/"
 
-                subdirs <- c("data-raw", "data", "R")
-                all_paths <- as.list(path.expand(file.path(path, subdirs)))
-                names(all_paths) <- c("DATA_RAW", "DATA", "R")
+    subdirs <- c("data-raw", "data", "R")
+    all_paths <- as.list(path.expand(file.path(path, subdirs)))
+    names(all_paths) <- c("DATA_RAW", "DATA", "R")
 
-                for (i in seq_along(all_paths)) {
+    for (i in seq_along(all_paths)) {
+      cave::dir.create_path(all_paths[[i]])
+    }
 
-                        cave::dir.create_path(all_paths[[i]])
-
-                }
-
-                invisible(all_paths)
-
-        }
+    invisible(all_paths)
+  }
 
 
 
@@ -69,39 +66,40 @@ prep_data_repo_dirs <-
 #' @inheritParams readr::write_csv
 
 write_schema_to_csvs <-
-        function(conn,
-                 schema,
-                 path,
-                 na = "NA",
-                 append = FALSE,
-                 col_names = !append,
-                 quote_escape = "double",
-                 eol = "\n") {
+  function(conn,
+           schema,
+           path,
+           na = "NA",
+           append = FALSE,
+           col_names = !append,
+           quote_escape = "double",
+           eol = "\n") {
+    Tables <- pg13::lsTables(conn = conn, schema = schema)
 
-                Tables <- pg13::lsTables(conn = conn, schema = schema)
+    Data <-
+      Tables %>%
+      purrr::map(~ pg13::readTable(
+        conn = conn,
+        schema = schema,
+        tableName = .
+      ))
 
-                Data <-
-                        Tables %>%
-                                purrr::map(~ pg13::readTable(conn = conn,
-                                                             schema = schema,
-                                                             tableName = .))
+    Files <- path.expand(file.path(path, sprintf("%s.csv", Tables)))
 
-                Files <- path.expand(file.path(path, sprintf("%s.csv", Tables)))
+    for (i in seq_along(Data)) {
+      readr::write_csv(
+        x = Data[[i]],
+        file = Files[i],
+        na = na,
+        append = append,
+        col_names = col_names,
+        quote_escape = quote_escape,
+        eol = eol
+      )
+    }
 
-                for (i in seq_along(Data)) {
-
-                        readr::write_csv(x = Data[[i]],
-                                         file = Files[i],
-                                         na = na,
-                                         append = append,
-                                         col_names = col_names,
-                                         quote_escape = quote_escape,
-                                         eol = eol)
-                }
-
-                invisible(Files)
-
-        }
+    invisible(Files)
+  }
 
 #' @title
 #' Write Processing File
@@ -110,50 +108,55 @@ write_schema_to_csvs <-
 #' @export
 
 write_usethis_file <-
-        function(path) {
+  function(path) {
+    current_wd <- getwd()
+    setwd(path)
+    on.exit(setwd(current_wd))
 
-                current_wd <- getwd()
-                setwd(path)
-                on.exit(setwd(current_wd))
+    data_raw_path <- file.path(path, "data-raw")
 
-                data_raw_path <- file.path(path, "data-raw")
+    Files <- list.files(
+      path = data_raw_path,
+      pattern = "[.]csv$",
+      full.names = TRUE
+    )
 
-                Files <- list.files(path = data_raw_path,
-                                    pattern = "[.]csv$",
-                                    full.names = TRUE)
+    ObjNames <- stringr::str_remove_all(basename(Files), "[.]{1}[a-zA-Z]{1,}$")
 
-                ObjNames <- stringr::str_remove_all(basename(Files), "[.]{1}[a-zA-Z]{1,}$")
+    Lines <- c("library(readr)")
 
-                Lines <- c("library(readr)")
-
-                for (i in seq_along(ObjNames)) {
-
-                        Lines <-
-                                c(Lines,
-                                  sprintf('%s <- readr::read_csv("%s")', ObjNames[i], Files[i]))
-
-                }
-
-
-                Lines <-
-                        c(Lines,
-                          "usethis::use_data(",
-                          sprintf("\t%s,", ObjNames),
-                          "overwrite = TRUE",
-                          ")"
-                          )
+    for (i in seq_along(ObjNames)) {
+      Lines <-
+        c(
+          Lines,
+          sprintf('%s <- readr::read_csv("%s")', ObjNames[i], Files[i])
+        )
+    }
 
 
-                file <- file.path(data_raw_path, "usethis.R")
-                cat(Lines,
-                    sep = "\n",
-                    file = file)
+    Lines <-
+      c(
+        Lines,
+        "usethis::use_data(",
+        sprintf("\t%s,", ObjNames),
+        "overwrite = TRUE",
+        ")"
+      )
+
+
+    file <- file.path(data_raw_path, "usethis.R")
+    cat(Lines,
+      sep = "\n",
+      file = file
+    )
 
 
 
-                source(file = file,
-                       local = TRUE)
-        }
+    source(
+      file = file,
+      local = TRUE
+    )
+  }
 
 
 #' @title
@@ -166,39 +169,44 @@ write_usethis_file <-
 #' @importFrom sinew makeOxygen
 
 write_data_file <-
-        function(path) {
+  function(path) {
+    r_dir_path <- path.expand(file.path(path, "R"))
+    r_file_path <- file.path(r_dir_path, "data.R")
 
-                r_dir_path <- path.expand(file.path(path, "R"))
-                r_file_path <- file.path(r_dir_path, "data.R")
+    cat(file = r_file_path)
 
-                cat(file = r_file_path)
+    data_raw_path <- file.path(path, "data-raw")
+    Files <- list.files(
+      path = data_raw_path,
+      pattern = "[.]csv$",
+      full.names = TRUE
+    )
+    ObjNames <- stringr::str_remove_all(basename(Files), "[.]{1}[a-zA-Z]{1,}$")
 
-                data_raw_path <- file.path(path, "data-raw")
-                Files <- list.files(path = data_raw_path,
-                                    pattern = "[.]csv$",
-                                    full.names = TRUE)
-                ObjNames <- stringr::str_remove_all(basename(Files), "[.]{1}[a-zA-Z]{1,}$")
 
+    for (i in seq_along(ObjNames)) {
+      data <- readr::read_csv(Files[i])
+      nm <- ObjNames[i]
 
-                for (i in seq_along(ObjNames)) {
+      doc <- sinew::makeOxygen(
+        obj = data,
+        print = FALSE
+      )
+      doc <- stringr::str_replace(
+        string = doc,
+        pattern = "(.*\")(.*)(\")",
+        replacement = paste0("\\1", nm, "\\3")
+      )
+      doc <- stringr::str_replace(
+        string = doc,
+        pattern = "DATASET_TITLE",
+        replacement = nm
+      )
 
-                        data <- readr::read_csv(Files[i])
-                        nm <- ObjNames[i]
-
-                        doc <- sinew::makeOxygen(obj = data,
-                                                 print = FALSE)
-                        doc <- stringr::str_replace(string = doc,
-                                                    pattern = "(.*\")(.*)(\")",
-                                                    replacement = paste0("\\1", nm, "\\3"))
-                        doc <- stringr::str_replace(string = doc,
-                                                    pattern = "DATASET_TITLE",
-                                                    replacement = nm)
-
-                        cat(doc,
-                            "\n\n",
-                            file = r_file_path,
-                            append = TRUE)
-
-                }
-        }
-
+      cat(doc,
+        "\n\n",
+        file = r_file_path,
+        append = TRUE
+      )
+    }
+  }

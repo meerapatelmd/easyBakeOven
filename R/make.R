@@ -8,9 +8,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'        makeDefaultArgs(read.csv)
-#'  }
+#' if (interactive()) {
+#'   makeDefaultArgs(read.csv)
+#' }
 #' }
 #'
 #' @rdname makeDefaultArgs
@@ -19,24 +19,24 @@
 #' @export
 
 makeDefaultArgs <-
-        function(fun) {
+  function(fun) {
+    nms <- names(formals(fun))
+    values <- unname(formals(fun))
 
-                nms <- names(formals(fun))
-                values <- unname(formals(fun))
+    values2 <- vector()
+    for (i in seq_along(values)) {
+      values2 <-
+        c(
+          values2,
+          deparse(values[[i]])
+        )
+    }
 
-                values2 <- vector()
-                for (i in seq_along(values)) {
-                        values2 <-
-                                c(values2,
-                                  deparse(values[[i]]))
-                }
-
-                mapply(paste0, nms, " = ", values2)  %>%
-                        stringr::str_remove_all(pattern = " [=]{1} $") %>%
-                        paste(collapse = ",\n") %>%
-                        cat()
-
-        }
+    mapply(paste0, nms, " = ", values2) %>%
+      stringr::str_remove_all(pattern = " [=]{1} $") %>%
+      paste(collapse = ",\n") %>%
+      cat()
+  }
 
 #' @title
 #' Make a Formal Argument Skeleton with Default Values
@@ -48,9 +48,9 @@ makeDefaultArgs <-
 #'
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'        makeInternalArgs(read.csv)
-#'  }
+#' if (interactive()) {
+#'   makeInternalArgs(read.csv)
+#' }
 #' }
 #'
 #' @rdname makeInternalArgs
@@ -58,16 +58,14 @@ makeDefaultArgs <-
 #' @export
 
 makeInternalArgs <-
-        function(fun) {
+  function(fun) {
+    nms <- names(formals(fun))
+    values <- unname(formals(fun))
 
-                nms <- names(formals(fun))
-                values <- unname(formals(fun))
-
-                mapply(paste0, nms, " = ", nms) %>%
-                        paste(collapse = ",\n") %>%
-                        cat()
-
-        }
+    mapply(paste0, nms, " = ", nms) %>%
+      paste(collapse = ",\n") %>%
+      cat()
+  }
 
 #' Make Args
 #' @export
@@ -75,17 +73,15 @@ makeInternalArgs <-
 #' @family make functions
 
 makeArgs <-
-        function(fun) {
+  function(fun) {
+    makeDefaultArgs(fun = fun)
 
-                makeDefaultArgs(fun = fun)
+    cat("\n\n")
 
-                cat("\n\n")
+    makeInternalArgs(fun = fun)
 
-                makeInternalArgs(fun = fun)
-
-                cat("\n\n")
-
-        }
+    cat("\n\n")
+  }
 
 
 #' Make Arg Declaration
@@ -99,27 +95,27 @@ makeArgs <-
 #' @family make functions
 
 makeArgDeclaration <-
-        function(fun) {
+  function(fun) {
+    Args <-
+      formals(fun) %>%
+      purrr::keep(~ !rlang::is_missing(.))
 
-                Args <-
-                        formals(fun) %>%
-                        purrr::keep(~ !rlang::is_missing(.))
+    nms <- names(Args)
+    values <- unname(Args)
 
-                nms <- names(Args)
-                values <- unname(Args)
+    values2 <- vector()
+    for (i in seq_along(values)) {
+      values2 <-
+        c(
+          values2,
+          deparse(values[[i]])
+        )
+    }
 
-                values2 <- vector()
-                for (i in seq_along(values)) {
-                        values2 <-
-                                c(values2,
-                                  deparse(values[[i]]))
-                }
-
-                mapply(paste0, nms, " <- ", values2) %>%
-                        paste(collapse = "\n") %>%
-                        cat()
-
-        }
+    mapply(paste0, nms, " <- ", values2) %>%
+      paste(collapse = "\n") %>%
+      cat()
+  }
 
 
 #' Make DESCRIPTION Imports
@@ -133,20 +129,22 @@ makeArgDeclaration <-
 #' @family DESCRIPTION functions
 
 makeImports <-
-        function() {
+  function() {
+    cat("Imports:\n")
 
-                cat("Imports:\n")
-
-                readr::read_lines(file = "NAMESPACE") %>%
-                        grep(pattern = "import",
-                             ignore.case = FALSE,
-                             value = TRUE) %>%
-                        stringr::str_replace_all(pattern = "(^.*?[()]{1})([a-zA-Z]{1}.*?)([,)]{1})(.*)",
-                                                 replacement = "    \\2") %>%
-                        unique() %>%
-                        cat(sep = ",\n")
-
-        }
+    readr::read_lines(file = "NAMESPACE") %>%
+      grep(
+        pattern = "import",
+        ignore.case = FALSE,
+        value = TRUE
+      ) %>%
+      stringr::str_replace_all(
+        pattern = "(^.*?[()]{1})([a-zA-Z]{1}.*?)([,)]{1})(.*)",
+        replacement = "    \\2"
+      ) %>%
+      unique() %>%
+      cat(sep = ",\n")
+  }
 
 
 #' Make URLS For DESCRIPTION
@@ -159,21 +157,20 @@ makeImports <-
 
 
 makeDescriptionLinks <-
-        function (github_user,
-                  repo) {
+  function(github_user,
+           repo) {
+    gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
+    repo_url <- sprintf("https://github.com/%s/%s", github_user, repo)
 
-                gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
-                repo_url <-  sprintf("https://github.com/%s/%s", github_user, repo)
+    c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
+      paste(collapse = "\n") %>%
+      cat()
 
-                c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
-                        paste(collapse = "\n") %>%
-                        cat()
-
-                issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
-                c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
-                        paste(collapse = "\n") %>%
-                        cat()
-}
+    issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
+    c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
+      paste(collapse = "\n") %>%
+      cat()
+  }
 
 
 #' Make DESCRIPTION
@@ -189,98 +186,94 @@ makeDescriptionLinks <-
 #' @importFrom secretary redTxt italicize blueTxt
 
 makeDescription <-
-        function(path = getwd(),
-                 remote_name = "origin") {
-
-                strip_filename <-
-                        function (file)
-                        {
-
-                                        file <- basename(file)
+  function(path = getwd(),
+           remote_name = "origin") {
+    strip_filename <-
+      function(file) {
+        file <- basename(file)
 
 
-                                        file <- sub(pattern = "(^.*)([.]{1}.*$)", replacement = "\\1",
-                                                    x = file)
+        file <- sub(
+          pattern = "(^.*)([.]{1}.*$)", replacement = "\\1",
+          x = file
+        )
 
-                                file
-                        }
+        file
+      }
 
-                remote_link <- glitter::remote_url(path = path,
-                                    remote_name = remote_name)
-                github_user <- stringr::str_replace_all(string = remote_link,
-                                         pattern = "https://github.com/(.*?)/.*.git$",
-                                         replacement = "\\1")
-                repo <- strip_filename(remote_link)
+    remote_link <- glitter::remote_url(
+      path = path,
+      remote_name = remote_name
+    )
+    github_user <- stringr::str_replace_all(
+      string = remote_link,
+      pattern = "https://github.com/(.*?)/.*.git$",
+      replacement = "\\1"
+    )
+    repo <- strip_filename(remote_link)
 
-                DESCRIPTION <- read_description(path = path)
+    DESCRIPTION <- read_description(path = path)
 
-                for (i in 1:nrow(DESCRIPTION)) {
-
-                        cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n", sep = "")
-                }
-
-
-                output <- read_namespace(path = path)
-
-                imports <- c(output$importFrom$pkg) %>%
-                        unique()
-
-                if ("import" %in% names(output)) {
-                        imports <-
-                                c(imports,
-                                  output$import) %>%
-                                unique()
-                }
-
-                imports <- paste(sprintf("    %s", imports), collapse = ",\n")
+    for (i in 1:nrow(DESCRIPTION)) {
+      cat(DESCRIPTION$headers[i], ": ", DESCRIPTION$value[i], "\n", sep = "")
+    }
 
 
-                if (!("Imports" %in% DESCRIPTION$headers)) {
+    output <- read_namespace(path = path)
 
-                        c(Imports = sprintf("Imports: \n%s", imports)) %>%
-                                secretary::redTxt() %>%
-                                secretary::italicize() %>%
-                                paste(collapse = "\n") %>%
-                                cat()
+    imports <- c(output$importFrom$pkg) %>%
+      unique()
 
-                } else {
+    if ("import" %in% names(output)) {
+      imports <-
+        c(
+          imports,
+          output$import
+        ) %>%
+        unique()
+    }
 
-                        c(Imports = sprintf("Imports: \n%s", imports)) %>%
-                                secretary::blueTxt() %>%
-                                secretary::italicize() %>%
-                                paste(collapse = "\n") %>%
-                                cat()
-
-                }
-
-                cat("\n")
-
-                if (!any("URL" %in% DESCRIPTION$headers)) {
-
-                        gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
-                        repo_url <-  sprintf("https://github.com/%s/%s", github_user, repo)
-
-                        c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
-                                secretary::redTxt() %>%
-                                secretary::italicize() %>%
-                                paste(collapse = "\n") %>%
-                                cat()
+    imports <- paste(sprintf("    %s", imports), collapse = ",\n")
 
 
-                }
+    if (!("Imports" %in% DESCRIPTION$headers)) {
+      c(Imports = sprintf("Imports: \n%s", imports)) %>%
+        secretary::redTxt() %>%
+        secretary::italicize() %>%
+        paste(collapse = "\n") %>%
+        cat()
+    } else {
+      c(Imports = sprintf("Imports: \n%s", imports)) %>%
+        secretary::blueTxt() %>%
+        secretary::italicize() %>%
+        paste(collapse = "\n") %>%
+        cat()
+    }
 
-                cat("\n")
+    cat("\n")
 
-                if (!any("BugReports" %in% DESCRIPTION$headers)) {
+    if (!any("URL" %in% DESCRIPTION$headers)) {
+      gh_pages_url <- sprintf("https://%s.github.io/%s", github_user, repo)
+      repo_url <- sprintf("https://github.com/%s/%s", github_user, repo)
 
-                        issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
-                        c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
-                                secretary::redTxt() %>%
-                                secretary::italicize() %>%
-                                paste(collapse = "\n") %>%
-                                cat()
-                }
-}
+      c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url)) %>%
+        secretary::redTxt() %>%
+        secretary::italicize() %>%
+        paste(collapse = "\n") %>%
+        cat()
+    }
+
+    cat("\n")
+
+    if (!any("BugReports" %in% DESCRIPTION$headers)) {
+      issues_url <- sprintf("https://github.com/%s/%s/issues", github_user, repo)
+      c(BugReports = sprintf("BugReports: %s/", issues_url)) %>%
+        secretary::redTxt() %>%
+        secretary::italicize() %>%
+        paste(collapse = "\n") %>%
+        cat()
+    }
+  }
 
 
 #' @title
@@ -294,21 +287,27 @@ makeDescription <-
 #' @export
 
 makeDescriptionLinks <-
-        function(github_user,
-                 repo) {
+  function(github_user,
+           repo) {
+    gh_pages_url <- get_gh_pages_url(
+      github_user = github_user,
+      repo = repo
+    )
+    repo_url <- get_repo_url(
+      github_user = github_user,
+      repo = repo
+    )
 
-                gh_pages_url <- get_gh_pages_url(github_user = github_user,
-                                                 repo = repo)
-                repo_url <- get_repo_url(github_user = github_user,
-                                         repo = repo)
+    issues_url <- get_issues_page_url(
+      github_user =
+        github_user,
+      repo = repo
+    )
 
-                issues_url <- get_issues_page_url(github_user =
-                                                          github_user,
-                                                  repo = repo)
-
-                c(URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url),
-                  BugReports = sprintf("BugReports: %s/", issues_url)) %>%
-                        paste(collapse = "\n") %>%
-                        cat()
-
-        }
+    c(
+      URL = sprintf("URL: %s/, %s/", gh_pages_url, repo_url),
+      BugReports = sprintf("BugReports: %s/", issues_url)
+    ) %>%
+      paste(collapse = "\n") %>%
+      cat()
+  }

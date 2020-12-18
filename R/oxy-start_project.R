@@ -1,14 +1,31 @@
-#' @title
-#' Start a Package Project
-#' @description
-#' Similar suite of functions as \code{\link{make_new_package}} that can occur every time a package is started (i.e. not a one-time setup function.)
-#'
-#' @inheritParams make_new_package
-#' @seealso
+
+
+
+
+
+
+
+
+
+
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param path PARAM_DESCRIPTION
+#' @param open PARAM_DESCRIPTION, Default: FALSE
+#' @param spellcheck_vignettes PARAM_DESCRIPTION, Default: TRUE
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
 #'  \code{\link[usethis]{use_package_doc}},\code{\link[usethis]{use_readme_rmd}},\code{\link[usethis]{use_news_md}},\code{\link[usethis]{use_spell_check}},\code{\link[usethis]{git_vaccinate}}
 #'  \code{\link[utils]{install.packages}}
 #' @rdname start_pkg_proj
-#' @export
+#' @export 
 #' @importFrom usethis use_package_doc use_readme_md use_news_md use_spell_check git_vaccinate
 #' @importFrom utils install.packages
 start_pkg_proj <-
