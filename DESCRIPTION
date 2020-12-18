@@ -23,7 +23,7 @@ Imports:
     magrittr,
     purrr,
     readr,
-    rlang,
+    rlang (>= 0.1.2),
     secretary,
     sinew,
     stringr,
@@ -32,7 +32,9 @@ Imports:
     usethis
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    spelling,
+    roxygen2
 VignetteBuilder: 
     knitr
 Remotes: 
@@ -43,3 +45,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Language: en-US

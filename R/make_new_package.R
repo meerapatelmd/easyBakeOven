@@ -24,14 +24,22 @@ make_new_package <-
                  protocol = usethis::git_protocol(),
                  host = NULL) {
 
-                usethis::create_package(path = path)
+
+                if (!dir.exists(paths = path)) {
+
+                usethis::create_tidy_package(path = path)
 
                 current_wd <- getwd()
                 on.exit(setwd(dir = current_wd))
 
                 usethis::proj_activate(path = path)
+                usethis::use_package_doc(open = open)
                 usethis::use_readme_md(open = open)
                 usethis::use_news_md(open = open)
+
+                if (!("spelling" %in% installed.packages()[, "Package"])) {
+                        utils::install.packages("spelling")
+                }
                 usethis::use_spell_check(vignettes = spellcheck_vignettes)
                 usethis::use_git(message = initial_commit_message)
                 usethis::git_vaccinate()
@@ -39,4 +47,12 @@ make_new_package <-
                                     private = private,
                                     protocol = protocol,
                                     host = host)
+                usethis::use_pipe(export = TRUE)
+                usethis::use_tibble()
+                usethis::use_tidy_eval()
+                usethis::use_tidy_style(strict = TRUE)
+
+                } else {
+                        secretary::typewrite(sprintf("Path '%s' already exists.", path))
+                }
         }
