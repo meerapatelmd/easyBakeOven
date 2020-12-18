@@ -6,14 +6,7 @@
 #' @inheritParams usethis::create_package
 #' @inheritParams usethis::use_readme_md
 #' @inheritParams usethis::use_github
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' @param spellcheck_vignettes Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.
 #' @seealso
 #'  \code{\link[usethis]{create_package}},\code{\link[usethis]{proj_activate}},\code{\link[usethis]{use_readme_rmd}},\code{\link[usethis]{use_news_md}},\code{\link[usethis]{use_git}}
 #' @rdname make_new_package
@@ -24,6 +17,7 @@
 make_new_package <-
         function(path,
                  open = FALSE,
+                 spellcheck_vignettes = TRUE,
                  initial_commit_message = "Initial commit",
                  organisation = NULL,
                  private = FALSE,
@@ -38,7 +32,9 @@ make_new_package <-
                 usethis::proj_activate(path = path)
                 usethis::use_readme_md(open = open)
                 usethis::use_news_md(open = open)
+                usethis::use_spell_check(vignettes = spellcheck_vignettes)
                 usethis::use_git(message = initial_commit_message)
+                usethis::git_vaccinate()
                 usethis::use_github(organisation = organisation,
                                     private = private,
                                     protocol = protocol,
