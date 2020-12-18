@@ -4,6 +4,9 @@
 #' Similar suite of functions as \code{\link{make_new_package}} that can occur every time a package is started (i.e. not a one-time setup function.)
 #'
 #' @inheritParams make_new_package
+#' @inheritParams usethis::create_package
+#' @inheritParams usethis::use_readme_md
+#' @inheritParams usethis::use_github
 #' @seealso
 #'  \code{\link[usethis]{use_package_doc}},\code{\link[usethis]{use_readme_rmd}},\code{\link[usethis]{use_news_md}},\code{\link[usethis]{use_spell_check}},\code{\link[usethis]{git_vaccinate}}
 #'  \code{\link[utils]{install.packages}}
