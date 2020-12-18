@@ -82,6 +82,10 @@ create_medallion <-
 
 create_favicons <-
   function(overwrite = FALSE) {
+
+    if (overwrite) {
+        unlink("pkgdown/favicons")
+    }
     pkgdown::build_favicons(overwrite = overwrite)
     cave::dir.create_path(file.path(getwd(), "man/figures"))
 
