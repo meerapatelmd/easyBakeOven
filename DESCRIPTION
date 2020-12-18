@@ -28,7 +28,8 @@ Imports:
     sinew,
     stringr,
     tibble,
-    tidyr
+    tidyr,
+    usethis
 Suggests: 
     knitr,
     rmarkdown
