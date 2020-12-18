@@ -22,11 +22,6 @@ library(easyBakeOven)
 The DESCRIPTION can be printed back into the console to view or copy and pasting.      
 
 ```{r}
-makeDescription(path = "~/GitHub/packages/easyBakeOven/")
+make_description(path = "~/GitHub/packages/easyBakeOven/")
 ```
 
-If "URL" or "BugReports" are not listed as one of the headers in the file, the function will add the "URL" and "BugReports" at the end of the console message in red italics to add to the DESCRIPTION file.
-
-```{r}
-makeDescription(path = "~/GitHub/packages/easyBakeOven/")  
-```

@@ -4,7 +4,7 @@
 #' @description
 #' Declare formal arguments of a function along with their default values as R objects
 #'
-#' @rdname declareArgs
+#' @rdname declare_args
 #' @family declaration functions
 #' @export
 #' @importFrom secretary typewrite magentaTxt
@@ -12,7 +12,7 @@
 #' @importFrom rlang is_missing
 
 
-declareArgs <-
+declare_args <-
   function(fun) {
     Args <-
       formals(fun) %>%

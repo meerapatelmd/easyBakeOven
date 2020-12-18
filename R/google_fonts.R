@@ -8,14 +8,14 @@
 #'  \code{\link[curl]{handle}}
 #'  \code{\link[sysfonts]{font_add_google}}
 #'  \code{\link[showtext]{showtext_auto}}
-#' @rdname activateGoogleFont
+#' @rdname activate_google_font
 #' @export
 #' @importFrom curl new_handle
 #' @importFrom sysfonts font_add_google
 #' @importFrom showtext showtext_auto
 
 
-activateGoogleFont <-
+activate_google_font <-
   function(name,
            regular.wt = 400,
            bold.wt = 700,

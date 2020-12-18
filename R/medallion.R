@@ -2,10 +2,10 @@
 #' Create Medallion
 #' @importFrom hexSticker sticker
 #' @inheritParams hexSticker::sticker
-#' @rdname createMedallion
+#' @rdname create_medallion
 #' @export
 
-createMedallion <-
+create_medallion <-
   function(sourceImg,
            package,
            white_around_sticker = TRUE,
@@ -77,10 +77,10 @@ createMedallion <-
 #' @description
 #' This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the "man/figures" directory for use.
 #' @importFrom pkgdown build_favicons
-#' @rdname createFavicons
+#' @rdname create_favicons
 #' @export
 
-createFavicons <-
+create_favicons <-
   function(overwrite = FALSE) {
     pkgdown::build_favicons(overwrite = overwrite)
     cave::dir.create_path(file.path(getwd(), "man/figures"))
@@ -96,5 +96,5 @@ createFavicons <-
 
     file.copy("logo.png", "./man/figures/logo.png")
 
-    cli::cat_bullet('# {PACKAGE_NAME} <img src="man/figures/logo.png" align="right" alt="" width="120" />')
+    cli::cat_bullet(sprintf('# %s <img src="man/figures/logo.png" align="right" alt="" width="120" />'), basename(getwd()))
   }

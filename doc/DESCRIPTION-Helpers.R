@@ -8,8 +8,5 @@ knitr::opts_chunk$set(
 library(easyBakeOven)
 
 ## -----------------------------------------------------------------------------
-makeDescription(path = "~/GitHub/packages/easyBakeOven/")
-
-## -----------------------------------------------------------------------------
-makeDescription(path = "~/GitHub/packages/easyBakeOven/")  
+make_description(path = "~/GitHub/packages/easyBakeOven/")
 
