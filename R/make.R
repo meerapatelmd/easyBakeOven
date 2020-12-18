@@ -64,11 +64,11 @@ make_internal_args <-
 
 make_args <-
   function(fun) {
-    makeDefaultArgs(fun = fun)
+    make_default_args(fun = fun)
 
     cat("\n\n")
 
-    makeInternalArgs(fun = fun)
+    make_internal_args(fun = fun)
 
     cat("\n\n")
   }
