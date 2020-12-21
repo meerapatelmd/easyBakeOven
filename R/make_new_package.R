@@ -54,3 +54,30 @@ make_new_package <-
       secretary::typewrite(sprintf("Path '%s' already exists.", path))
     }
   }
+
+#' @title
+#' Setup Tidy Git
+#' @description
+#' Setup both GitHub and tidy style settings in the usethis package.
+#' @inheritParams usethis::use_github
+#' @seealso
+#'  \code{\link[usethis]{use_git}},\code{\link[usethis]{git_vaccinate}},\code{\link[usethis]{use_github}},\code{\link[usethis]{use_pipe}},\code{\link[usethis]{use_tibble}},\code{\link[usethis]{use_tidy_github_actions}}
+#' @rdname setup_tidy_git
+#' @export
+#' @importFrom usethis use_git git_vaccinate use_github use_pipe use_tibble use_tidy_eval use_tidy_style
+
+setup_tidy_git <-
+  function() {
+    usethis::use_git(message = initial_commit_message)
+    usethis::git_vaccinate()
+    usethis::use_github(
+      organisation = organisation,
+      private = private,
+      protocol = protocol,
+      host = host
+    )
+    usethis::use_pipe(export = TRUE)
+    usethis::use_tibble()
+    usethis::use_tidy_eval()
+    usethis::use_tidy_style(strict = TRUE)
+  }
