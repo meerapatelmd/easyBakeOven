@@ -76,19 +76,14 @@ write_schema_to_csvs <-
            eol = "\n") {
     Tables <- pg13::lsTables(conn = conn, schema = schema)
 
-    Data <-
-      Tables %>%
-      purrr::map(~ pg13::readTable(
-        conn = conn,
-        schema = schema,
-        tableName = .
-      ))
-
     Files <- path.expand(file.path(path, sprintf("%s.csv", Tables)))
 
-    for (i in seq_along(Data)) {
+    for (i in seq_along(Tables)) {
+      Data <- pg13::read_table(conn = conn,
+                               schema = schema,
+                               table = Tables[i])
       readr::write_csv(
-        x = Data[[i]],
+        x = Data,
         file = Files[i],
         na = na,
         append = append,
