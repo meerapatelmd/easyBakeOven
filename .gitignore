@@ -3,3 +3,6 @@
 .RData
 inst/doc
 Meta
+.Rdata
+.httr-oauth
+.DS_Store

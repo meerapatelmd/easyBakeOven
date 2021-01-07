@@ -4,11 +4,42 @@
 \alias{setup_tidy_git}
 \title{Setup Tidy Git}
 \usage{
-setup_tidy_git()
+setup_tidy_git(
+  initial_commit_message = "initial commit",
+  organisation = NULL,
+  private = FALSE,
+  protocol = usethis::git_protocol(),
+  host = NULL,
+  steps = c("use_git", "git_vaccinate", "use_github", "use_pipe", "use_tibble",
+    "use_tidy_eval", "use_tidy_style")
+)
+}
+\arguments{
+\item{organisation}{If supplied, the repo will be created under this
+organisation, instead of the login associated with the GitHub token
+discovered for this \code{host}. The user's role and the token's scopes must be
+such that you have permission to create repositories in this
+\code{organisation}.}
+
+\item{private}{If \code{TRUE}, creates a private repository.}
+
+\item{protocol}{One of "https" or "ssh"}
+
+\item{host}{GitHub host to target, passed to the \code{.api_url} argument of
+\code{\link[gh:gh]{gh::gh()}}. If unspecified, gh defaults to "https://api.github.com",
+although gh's default can be customised by setting the GITHUB_API_URL
+environment variable.
+
+For a hypothetical GitHub Enterprise instance, either
+"https://github.acme.com/api/v3" or "https://github.acme.com" is
+acceptable.}
 }
 \description{
 Setup both GitHub and tidy style settings in the usethis package.
 }
 \seealso{
-\code{\link[usethis]{use_git}},\code{\link[usethis]{git_vaccinate}},\code{\link[usethis]{use_github}},\code{\link[usethis]{use_pipe}},\code{\link[usethis]{use_tibble}},\code{\link[usethis]{use_tidy_github_actions}}
+\code{\link[usethis]{use_git}},\code{\link[usethis]{git_vaccinate}},
+\code{\link[usethis]{use_github}},\code{\link[usethis]{use_pipe}},
+\code{\link[usethis]{use_tibble}},
+\code{\link[usethis]{use_tidy_github_actions}}
 }

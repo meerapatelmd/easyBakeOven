@@ -10,12 +10,8 @@ start_pkg_proj(path, open = FALSE, spellcheck_vignettes = TRUE)
 \item{path}{A path. If it exists, it is used. If it does not exist, it is
 created, provided that the parent path exists.}
 
-\item{open}{If \code{TRUE}, \link[usethis:proj_activate]{activates} the new project:
-\itemize{
-\item If RStudio desktop, the package is opened in a new session.
-\item If on RStudio server, the current RStudio project is activated.
-\item Otherwise, the working directory and active project is changed.
-}}
+\item{open}{Open the newly created file for editing? Happens in RStudio, if
+applicable, or via \code{\link[utils:file.edit]{utils::file.edit()}} otherwise.}
 
 \item{spellcheck_vignettes}{Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.}
 }
