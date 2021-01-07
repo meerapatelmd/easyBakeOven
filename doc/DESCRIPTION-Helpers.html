@@ -325,7 +325,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">make_description</span>(<span class="dt">path =</span> <span class="st">&quot;~/GitHub/packages/easyBakeOven/&quot;</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Package: easyBakeOven</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; Title: Helpers for Package Authoring</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Version: 1.0.0</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Version: 1.1.0</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Authors@R: person(given = &quot;Meera&quot;,</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; family = &quot;Patel, MD&quot;,</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; role = c(&quot;aut&quot;, &quot;cre&quot;),</span></a>
@@ -341,50 +341,52 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; Imports: cave,</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; devtools,</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; glitter,</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; magrittr,</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; purrr,</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; readr,</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; rlang (&gt;= 0.1.2),</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; secretary,</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; sinew,</span></a>
-<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; stringr,</span></a>
-<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; tibble,</span></a>
-<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; tidyr,</span></a>
-<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; usethis</span></a>
-<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; Suggests: knitr,</span></a>
-<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; rmarkdown,</span></a>
-<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; spelling,</span></a>
-<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; roxygen2</span></a>
-<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt; VignetteBuilder: knitr</span></a>
-<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; Remotes: meerapatelmd/glitter,</span></a>
-<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; meerapatelmd/secretary,</span></a>
-<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt; meerapatelmd/cave</span></a>
-<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt; Encoding: UTF-8</span></a>
-<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt; LazyData: true</span></a>
-<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></a>
-<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; RoxygenNote: 7.1.1</span></a>
-<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; Language: en-US</span></a>
-<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; Imports: </span></a>
-<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt;     cave,</span></a>
-<a class="sourceLine" id="cb2-46" data-line-number="46"><span class="co">#&gt;     curl,</span></a>
-<a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co">#&gt;     devtools,</span></a>
-<a class="sourceLine" id="cb2-48" data-line-number="48"><span class="co">#&gt;     glitter,</span></a>
-<a class="sourceLine" id="cb2-49" data-line-number="49"><span class="co">#&gt;     hexSticker,</span></a>
-<a class="sourceLine" id="cb2-50" data-line-number="50"><span class="co">#&gt;     magrittr,</span></a>
-<a class="sourceLine" id="cb2-51" data-line-number="51"><span class="co">#&gt;     pkgdown,</span></a>
-<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="co">#&gt;     purrr,</span></a>
-<a class="sourceLine" id="cb2-53" data-line-number="53"><span class="co">#&gt;     readr,</span></a>
-<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="co">#&gt;     rlang,</span></a>
-<a class="sourceLine" id="cb2-55" data-line-number="55"><span class="co">#&gt;     secretary,</span></a>
-<a class="sourceLine" id="cb2-56" data-line-number="56"><span class="co">#&gt;     showtext,</span></a>
-<a class="sourceLine" id="cb2-57" data-line-number="57"><span class="co">#&gt;     sinew,</span></a>
-<a class="sourceLine" id="cb2-58" data-line-number="58"><span class="co">#&gt;     stringr,</span></a>
-<a class="sourceLine" id="cb2-59" data-line-number="59"><span class="co">#&gt;     sysfonts,</span></a>
-<a class="sourceLine" id="cb2-60" data-line-number="60"><span class="co">#&gt;     tibble,</span></a>
-<a class="sourceLine" id="cb2-61" data-line-number="61"><span class="co">#&gt;     tidyr,</span></a>
-<a class="sourceLine" id="cb2-62" data-line-number="62"><span class="co">#&gt;     usethis,</span></a>
-<a class="sourceLine" id="cb2-63" data-line-number="63"><span class="co">#&gt;     utils</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; glue,</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; glitter,</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; magrittr,</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; purrr,</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; readr,</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; rlang (&gt;= 0.1.2),</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; secretary,</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt; sinew,</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt; stringr,</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt; tibble,</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt; tidyr,</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt; usethis</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt; Suggests: knitr,</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt; rmarkdown,</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt; spelling,</span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt; roxygen2</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt; VignetteBuilder: knitr</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt; Remotes: meerapatelmd/glitter,</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt; meerapatelmd/secretary,</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt; meerapatelmd/cave</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt; Encoding: UTF-8</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt; LazyData: true</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt; RoxygenNote: 7.1.1</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt; Language: en-US</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt; Imports: </span></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46"><span class="co">#&gt;     cave,</span></a>
+<a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co">#&gt;     curl,</span></a>
+<a class="sourceLine" id="cb2-48" data-line-number="48"><span class="co">#&gt;     devtools,</span></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49"><span class="co">#&gt;     glitter,</span></a>
+<a class="sourceLine" id="cb2-50" data-line-number="50"><span class="co">#&gt;     glue,</span></a>
+<a class="sourceLine" id="cb2-51" data-line-number="51"><span class="co">#&gt;     hexSticker,</span></a>
+<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="co">#&gt;     magrittr,</span></a>
+<a class="sourceLine" id="cb2-53" data-line-number="53"><span class="co">#&gt;     pkgdown,</span></a>
+<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="co">#&gt;     purrr,</span></a>
+<a class="sourceLine" id="cb2-55" data-line-number="55"><span class="co">#&gt;     readr,</span></a>
+<a class="sourceLine" id="cb2-56" data-line-number="56"><span class="co">#&gt;     rlang,</span></a>
+<a class="sourceLine" id="cb2-57" data-line-number="57"><span class="co">#&gt;     secretary,</span></a>
+<a class="sourceLine" id="cb2-58" data-line-number="58"><span class="co">#&gt;     showtext,</span></a>
+<a class="sourceLine" id="cb2-59" data-line-number="59"><span class="co">#&gt;     sinew,</span></a>
+<a class="sourceLine" id="cb2-60" data-line-number="60"><span class="co">#&gt;     stringr,</span></a>
+<a class="sourceLine" id="cb2-61" data-line-number="61"><span class="co">#&gt;     sysfonts,</span></a>
+<a class="sourceLine" id="cb2-62" data-line-number="62"><span class="co">#&gt;     tibble,</span></a>
+<a class="sourceLine" id="cb2-63" data-line-number="63"><span class="co">#&gt;     tidyr,</span></a>
+<a class="sourceLine" id="cb2-64" data-line-number="64"><span class="co">#&gt;     usethis,</span></a>
+<a class="sourceLine" id="cb2-65" data-line-number="65"><span class="co">#&gt;     utils</span></a></code></pre></div>
 </div>
 
 
