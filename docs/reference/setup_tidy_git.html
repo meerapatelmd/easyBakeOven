@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create Repo Directories — prep_data_repo_dirs • easyBakeOven</title>
+<title>Setup Tidy Git — setup_tidy_git • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Create Repo Directories — prep_data_repo_dirs" />
-<meta property="og:description" content="Creates the data-raw, data, and R directories within the path if they do not already exist." />
+<meta property="og:title" content="Setup Tidy Git — setup_tidy_git" />
+<meta property="og:description" content="Setup both GitHub and tidy style settings in the usethis package." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -131,18 +131,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create Repo Directories</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/data-pkg.R'><code>R/data-pkg.R</code></a></small>
-    <div class="hidden name"><code>prep_data_repo_dirs.Rd</code></div>
+    <h1>Setup Tidy Git</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/make_new_package.R'><code>R/make_new_package.R</code></a></small>
+    <div class="hidden name"><code>setup_tidy_git.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Creates the <code>data-raw</code>, <code>data</code>, and <code>R</code> directories within the <code>path</code> if they do not already exist.</p>
+    <p>Setup both GitHub and tidy style settings in the usethis package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>prep_data_repo_dirs</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>setup_tidy_git</span><span class='op'>(</span>
+  initial_commit_message <span class='op'>=</span> <span class='st'>"initial commit"</span>,
+  organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
+  private <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  protocol <span class='op'>=</span> <span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/git_protocol.html'>git_protocol</a></span><span class='op'>(</span><span class='op'>)</span>,
+  host <span class='op'>=</span> <span class='cn'>NULL</span>,
+  steps <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"use_git"</span>, <span class='st'>"git_vaccinate"</span>, <span class='st'>"use_github"</span>, <span class='st'>"use_pipe"</span>, <span class='st'>"use_tibble"</span>,
+    <span class='st'>"use_tidy_eval"</span>, <span class='st'>"use_tidy_style"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>organisation</th>
+      <td><p>If supplied, the repo will be created under this
+organisation, instead of the login associated with the GitHub token
+discovered for this <code>host</code>. The user's role and the token's scopes must be
+such that you have permission to create repositories in this
+<code>organisation</code>.</p></td>
+    </tr>
+    <tr>
+      <th>private</th>
+      <td><p>If <code>TRUE</code>, creates a private repository.</p></td>
+    </tr>
+    <tr>
+      <th>protocol</th>
+      <td><p>One of "https" or "ssh"</p></td>
+    </tr>
+    <tr>
+      <th>host</th>
+      <td><p>GitHub host to target, passed to the <code>.api_url</code> argument of
+<code><a href='https://gh.r-lib.org/reference/gh.html'>gh::gh()</a></code>. If unspecified, gh defaults to "https://api.github.com",
+although gh's default can be customised by setting the GITHUB_API_URL
+environment variable.</p>
+<p>For a hypothetical GitHub Enterprise instance, either
+"https://github.acme.com/api/v3" or "https://github.acme.com" is
+acceptable.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://usethis.r-lib.org/reference/use_git.html'>use_git</a></code>,<code><a href='https://usethis.r-lib.org/reference/git_vaccinate.html'>git_vaccinate</a></code>,
+<code><a href='https://usethis.r-lib.org/reference/use_github.html'>use_github</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_pipe.html'>use_pipe</a></code>,
+<code><a href='https://usethis.r-lib.org/reference/use_tibble.html'>use_tibble</a></code>,
+<code><a href='https://usethis.r-lib.org/reference/tidyverse.html'>use_tidy_github_actions</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

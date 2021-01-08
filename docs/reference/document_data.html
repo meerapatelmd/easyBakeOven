@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -140,8 +140,16 @@
     <p>For R packages containing data in the <code>data-raw</code> dir, the <code>usethis.R</code> is written in the same directory, the data is documented in the <code>R/data.R</code>, and <code><a href='https://devtools.r-lib.org//reference/document.html'>devtools::document</a></code> is run on the contents of the provided path.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>document_data</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>document_data</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>Path to the package root that contains the <code>data-raw/</code>, <code>data/</code>, and <code>R/</code> folders. `</p></td>
+    </tr>
+    </table>
 
 
   </div>

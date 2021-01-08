@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Data Package Helpers — data_package_helpers • easyBakeOven</title>
+<title>Add a Static Vignette with R.rsp — make_vignette_asis • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,14 @@
 
 
 
-<meta property="og:title" content="Data Package Helpers — data_package_helpers" />
-<meta property="og:description" content="Data Package Helpers are functions that support the maintenance of the data that is exported in packages." />
+<meta property="og:title" content="Add a Static Vignette with R.rsp — make_vignette_asis" />
+<meta property="og:description" content="Make the asis file for static PDF or HTML vignettes which is named the same as
+the file argument with&quot;.asis&quot; appended. The asis file will not be written
+if it already exists, if the file file argument does not exist in the
+vignettes folder, or if file does not have a '.pdf' or '.html' extension.
+Compared to make_vignette_rnw, make_vignette_asis allows using
+static HTML vignettes. However, it requires adding R.rsp to the Suggests and
+VignetteBuilder fields in the DESCRIPTION file to execute." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -131,29 +137,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Data Package Helpers</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/data-pkg.R'><code>R/data-pkg.R</code></a></small>
-    <div class="hidden name"><code>data_package_helpers.Rd</code></div>
+    <h1>Add a Static Vignette with R.rsp</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/make_vignette.R'><code>R/make_vignette.R</code></a></small>
+    <div class="hidden name"><code>make_vignette_asis.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Data Package Helpers are functions that support the maintenance of the data that is exported in packages.</p>
+    <p>Make the asis file for static PDF or HTML vignettes which is named the same as
+the <code>file</code> argument with".asis" appended. The asis file will not be written
+if it already exists, if the <code>file</code> file argument does not exist in the
+<code>vignettes</code> folder, or if <code>file</code> does not have a '.pdf' or '.html' extension.</p>
+<p>Compared to <code><a href='make_vignette_rnw.html'>make_vignette_rnw</a></code>, make_vignette_asis allows using
+static HTML vignettes. However, it requires adding R.rsp to the Suggests and
+VignetteBuilder fields in the DESCRIPTION file to execute.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>make_vignette_asis</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>vignette_title</span>, package <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>Path to a local clone of the target repo.</p></td>
+      <th>file</th>
+      <td><p>Name of the pdf or html file in the <code>vignettes/</code> directory. The full
+path is not required.</p></td>
     </tr>
     <tr>
-      <th>conn</th>
-      <td><p>Connection object.</p></td>
+      <th>vignette_title</th>
+      <td><p>The title of the vignette that will be indexed.</p></td>
+    </tr>
+    <tr>
+      <th>package</th>
+      <td><p>Package that the vignette belongs to. Defaults to the basename
+of the current working directory.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other make vignette functions: 
+<code><a href='make_vignette_rnw.html'>make_vignette_rnw</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

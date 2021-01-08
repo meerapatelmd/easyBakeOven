@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Export a Schema to CSV Files — write_schema_to_csvs" />
-<meta property="og:description" content="Export a Schema to CSV Files" />
+<meta property="og:description" content="Write an entire schema or a subset of tables within a schema to a csv for each
+table to the given path. The csvs are named according to the source table name." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -137,13 +138,15 @@
     </div>
 
     <div class="ref-description">
-    <p>Export a Schema to CSV Files</p>
+    <p>Write an entire schema or a subset of tables within a schema to a csv for each
+table to the given path. The csvs are named according to the source table name.</p>
     </div>
 
     <pre class="usage"><span class='fu'>write_schema_to_csvs</span><span class='op'>(</span>
   <span class='va'>conn</span>,
   <span class='va'>schema</span>,
-  <span class='va'>path</span>,
+  <span class='va'>...</span>,
+  path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>,
   na <span class='op'>=</span> <span class='st'>"NA"</span>,
   append <span class='op'>=</span> <span class='cn'>FALSE</span>,
   col_names <span class='op'>=</span> <span class='op'>!</span><span class='va'>append</span>,
@@ -155,8 +158,17 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>conn</th>
+      <td><p>Connection to a Postgres database.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Optional. Character vectors of names of tables to export. If missing,
+all the tables in the given schema are exported.</p></td>
+    </tr>
+    <tr>
       <th>path</th>
-      <td><p><img src='figures/lifecycle-deprecated.svg' alt='Deprecated lifecycle' /></p></td>
+      <td><p>Path to the package root that contains the <code>data-raw/</code>, <code>data/</code>, and <code>R/</code> folders. `</p></td>
     </tr>
     <tr>
       <th>na</th>

@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -96,58 +96,98 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#easybakeoven" class="anchor"></a>easyBakeOven <img src="reference/figures/logo.png" align="right" alt="" width="200">
 </h1></div>
-<p>R Package that facilitates various aspects of R package authorship and deployment in tandem with the usethis, devtools, and sinew packages. Features include generating pkgdown yaml skeletons as well as providing customizability to the roxygen2 skeletons made by the sinew package.</p>
+<!-- badges: start -->
+<!-- badges: end -->
+<p>R Package that facilitates various aspects of R package authorship and deployment in tandem with the usethis, devtools, and sinew packages. Features include:</p>
+<ul>
+<li>Generate yaml skeletons for the pkgdown package<br>
+</li>
+<li>Write Rnw files for Sweave to incorporate static pdf vignettes into a package<br>
+</li>
+<li>Customize sinew package’s roxygen2 skeletons</li>
+</ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<pre><code><a href="https://devtools.r-lib.org/">library(devtools)  
-install_github("meerapatelmd/easyBakeOven")  
-</a></code></pre>
+<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"meerapatelmd/easyBakeOven"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="use-cases" class="section level2">
+<div id="example" class="section level2">
 <h2 class="hasAnchor">
-<a href="#use-cases" class="anchor"></a>Use Cases</h2>
+<a href="#example" class="anchor"></a>Example</h2>
+<div id="printing-arguments-and-their-values-in-the-r-console" class="section level3">
+<h3 class="hasAnchor">
+<a href="#printing-arguments-and-their-values-in-the-r-console" class="anchor"></a>Printing arguments and their values in the R console</h3>
 <p>If you have the following functions:</p>
-<pre><code>love &lt;- 
-        function(thing1) {
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">love</span> <span class="op">&lt;-</span> 
+        <span class="kw">function</span><span class="op">(</span><span class="va">thing_i_love</span><span class="op">)</span> <span class="op">{</span>
                 
-                sprintf("I love %s.", thing)
+                <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"I love %s."</span>, <span class="va">thing_i_love</span><span class="op">)</span>
                 
-        }
+        <span class="op">}</span>
 
-like &lt;- 
-        function(thing2) {
+<span class="va">like</span> <span class="op">&lt;-</span> 
+        <span class="kw">function</span><span class="op">(</span><span class="va">thing_i_like</span><span class="op">)</span> <span class="op">{</span>
                 
-                sprintf("I like %s.", thing)
+                <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"I like %s."</span>, <span class="va">thing_i_like</span><span class="op">)</span>
                 
-        }</code></pre>
-<p>Making a <code>love_and_like()</code> function:</p>
-<pre><code>makeDefaultArgs(love)  
-makeDefaultArgs(like)  
-&gt;# thing1  
-&gt;# thing2</code></pre>
-<p>Copy and paste console text:</p>
-<pre><code>love_and_like &lt;-
-        function(thing1,
-                 thing2) {
-                 
-                 
-                 }</code></pre>
-<p>Repeat for internal arguments:</p>
-<pre><code>makeInternalArgs(love)  
-makeInternalArgs(like)  
-&gt;# thing1 = thing1  
-&gt;# thing2 = thing2  </code></pre>
-<p>Copy and paste console text:</p>
-<pre><code>love_and_like &lt;-
-        function(thing1,
-                 thing2) {
-                 
-                        c(love(thing1 = thing1),
-                          like(thing2 = thing2)) %&gt;%
-                          paste(collapse = "\n") %&gt;%
-                          cat()
-                 }</code></pre>
+        <span class="op">}</span></code></pre></div>
+<p>You want to print what you love or what you like. For example, if you love apples:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">love</span><span class="op">(</span><span class="st">"apples"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "I love apples."</span></code></pre></div>
+<p>If you like bananas:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">like</span><span class="op">(</span><span class="st">"bananas"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "I like bananas."</span></code></pre></div>
+<p>What if I want to author a new function that prints both <code>things I love</code> and <code>things I like</code> in a single function call?</p>
+<p>I can use <code>easyBakeOven</code>’s <code>make_args</code> functions to return arguments and their values for <code>love()</code> and <code>like()</code> to copy-and-paste into the new function.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://meerapatelmd.github.io/easyBakeOven/">easyBakeOven</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>The default and internal arguments from <code>love()</code> are:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/make_args.html">make_args</a></span><span class="op">(</span><span class="va">love</span><span class="op">)</span>
+<span class="co">#&gt; thing_i_love</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; thing_i_love = thing_i_love</span></code></pre></div>
+<p>The same for <code>like()</code> are:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/make_args.html">make_args</a></span><span class="op">(</span><span class="va">like</span><span class="op">)</span>
+<span class="co">#&gt; thing_i_like</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; thing_i_like = thing_i_like</span></code></pre></div>
+<p>I can then copy-and-paste the results from the above calls to <code>make_args</code> to author <code>like_and_love()</code>. Starting with the default values for the arguments for<br>
+both functions, both of which are missing.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">like_and_love</span> <span class="op">&lt;-</span>
+        <span class="co"># Added default arguments</span>
+        <span class="kw">function</span><span class="op">(</span><span class="va">thing_i_love</span>,
+                 <span class="va">thing_i_like</span><span class="op">)</span> <span class="op">{</span>
+                         
+                
+        <span class="op">}</span></code></pre></div>
+<p>The internal arguments can then be copy-and-pasted.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">like_and_love</span> <span class="op">&lt;-</span>
+        <span class="kw">function</span><span class="op">(</span><span class="va">thing_i_love</span>,
+                 <span class="va">thing_i_like</span><span class="op">)</span> <span class="op">{</span>
+                         
+                         <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%s AND %s"</span>,
+                                 <span class="co"># Added internal arguments</span>
+                                 <span class="fu">love</span><span class="op">(</span>thing_i_love <span class="op">=</span> <span class="va">thing_i_love</span><span class="op">)</span>,
+                                 <span class="fu">like</span><span class="op">(</span>thing_i_like <span class="op">=</span> <span class="va">thing_i_like</span><span class="op">)</span><span class="op">)</span>
+                
+        <span class="op">}</span></code></pre></div>
+<p>The function is now authored and executable.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">like_and_love</span><span class="op">(</span>thing_i_love <span class="op">=</span> <span class="st">"apples"</span>,
+              thing_i_like <span class="op">=</span> <span class="st">"bananas"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "I love apples. AND I like bananas."</span></code></pre></div>
+</div>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -140,16 +140,7 @@
     <p>Starts a new package using a designated path to a local directory, where the folder is created, README.md and NEWS.md files are added, git is initialized and linked to a remote of the same name.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_new_package</span><span class='op'>(</span>
-  <span class='va'>path</span>,
-  open <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  spellcheck_vignettes <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  initial_commit_message <span class='op'>=</span> <span class='st'>"Initial commit"</span>,
-  organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
-  private <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  protocol <span class='op'>=</span> <span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/git_protocol.html'>git_protocol</a></span><span class='op'>(</span><span class='op'>)</span>,
-  host <span class='op'>=</span> <span class='cn'>NULL</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>make_new_package</span><span class='op'>(</span><span class='va'>path</span>, open <span class='op'>=</span> <span class='cn'>FALSE</span>, spellcheck_vignettes <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,41 +152,12 @@ created, provided that the parent path exists.</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>If <code>TRUE</code>, <a href='https://usethis.r-lib.org/reference/proj_activate.html'>activates</a> the new project:</p><ul>
-<li><p>If RStudio desktop, the package is opened in a new session.</p></li>
-<li><p>If on RStudio server, the current RStudio project is activated.</p></li>
-<li><p>Otherwise, the working directory and active project is changed.</p></li>
-</ul></td>
+      <td><p>Open the newly created file for editing? Happens in RStudio, if
+applicable, or via <code><a href='https://rdrr.io/r/utils/file.edit.html'>utils::file.edit()</a></code> otherwise.</p></td>
     </tr>
     <tr>
       <th>spellcheck_vignettes</th>
       <td><p>Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.</p></td>
-    </tr>
-    <tr>
-      <th>organisation</th>
-      <td><p>If supplied, the repo will be created under this
-organisation, instead of the login associated with the GitHub token
-discovered for this <code>host</code>. The user's role and the token's scopes must be
-such that you have permission to create repositories in this
-<code>organisation</code>.</p></td>
-    </tr>
-    <tr>
-      <th>private</th>
-      <td><p>If <code>TRUE</code>, creates a private repository.</p></td>
-    </tr>
-    <tr>
-      <th>protocol</th>
-      <td><p>One of "https" or "ssh"</p></td>
-    </tr>
-    <tr>
-      <th>host</th>
-      <td><p>GitHub host to target, passed to the <code>.api_url</code> argument of
-<code><a href='https://gh.r-lib.org/reference/gh.html'>gh::gh()</a></code>. If unspecified, gh defaults to "https://api.github.com",
-although gh's default can be customised by setting the GITHUB_API_URL
-environment variable.</p>
-<p>For a hypothetical GitHub Enterprise instance, either
-"https://github.acme.com/api/v3" or "https://github.acme.com" is
-acceptable.</p></td>
     </tr>
     </table>
 
