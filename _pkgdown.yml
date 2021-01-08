@@ -24,3 +24,4 @@ reference:
   - title: Miscellaneous
     contents:
       - activate_google_font
+      - declare_args

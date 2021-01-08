@@ -7,5 +7,8 @@
 create_favicons(overwrite = FALSE)
 }
 \description{
-This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the "man/figures" directory for use.
+This package first runs the build_favicons() function in the pkgdown package,
+which auto-detects a logo.svg or logo.png file and runs it through an API.
+The function makes a copy of the favicon output to the "man/figures"
+directory for use.
 }
