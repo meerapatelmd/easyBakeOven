@@ -4,7 +4,7 @@
 \alias{document_data}
 \title{Document Package Data}
 \usage{
-document_data(path)
+document_data(path = getwd())
 }
 \description{
 For R packages containing data in the \code{data-raw} dir, the \code{usethis.R} is written in the same directory, the data is documented in the \code{R/data.R}, and \code{devtools::document} is run on the contents of the provided path.

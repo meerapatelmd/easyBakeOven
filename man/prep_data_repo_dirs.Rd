@@ -4,7 +4,7 @@
 \alias{prep_data_repo_dirs}
 \title{Create Repo Directories}
 \usage{
-prep_data_repo_dirs(path)
+prep_data_repo_dirs(path = getwd())
 }
 \description{
 Creates the \code{data-raw}, \code{data}, and \code{R} directories within the \code{path} if they do not already exist.

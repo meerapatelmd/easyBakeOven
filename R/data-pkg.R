@@ -21,7 +21,7 @@ NULL
 
 
 document_data <-
-  function(path) {
+  function(path = getwd()) {
     write_usethis_file(path = path)
     write_data_file(path = path)
     devtools::document(pkg = path)
@@ -41,7 +41,7 @@ document_data <-
 #' @rdname prep_data_repo_dirs
 
 prep_data_repo_dirs <-
-  function(path) {
+  function(path = getwd()) {
 
     # path <- "~/GitHub/Public-Packages/cancergovData/"
 
@@ -61,20 +61,34 @@ prep_data_repo_dirs <-
 #' @title
 #' Export a Schema to CSV Files
 #'
+#' @description
+#' Write an entire schema or a subset of tables within a schema to a csv for each
+#' table to the given path. The csvs are named according to the source table name.
 #' @rdname write_schema_to_csvs
 #' @export
 #' @inheritParams readr::write_csv
+#' @importFrom rlang list2
 
 write_schema_to_csvs <-
   function(conn,
            schema,
-           path,
+           ...,
+           path = getwd(),
            na = "NA",
            append = FALSE,
            col_names = !append,
            quote_escape = "double",
            eol = "\n") {
-    Tables <- pg13::lsTables(conn = conn, schema = schema)
+
+
+
+    Tables <- pg13::ls_tables(conn = conn,
+                              schema = schema)
+
+    if (!missing(...)) {
+       Args <- rlang::list2(...)
+       Tables <- Tables[Tables %in% unlist(Args)]
+    }
 
     Files <- path.expand(file.path(path, sprintf("%s.csv", Tables)))
 

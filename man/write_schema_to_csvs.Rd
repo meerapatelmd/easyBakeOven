@@ -7,7 +7,8 @@
 write_schema_to_csvs(
   conn,
   schema,
-  path,
+  ...,
+  path = getwd(),
   na = "NA",
   append = FALSE,
   col_names = !append,
@@ -37,5 +38,6 @@ equivalent to "none". The default is \code{"double"}, which is expected format f
 Unix style newlines, or \code{"\r\n"} for Windows style newlines.}
 }
 \description{
-Export a Schema to CSV Files
+Write an entire schema or a subset of tables within a schema to a csv for each
+table to the given path. The csvs are named according to the source table name.
 }
