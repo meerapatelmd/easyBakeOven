@@ -75,8 +75,12 @@ create_medallion <-
 #' @title
 #' Create and Move Favicons
 #' @description
-#' This package first runs the build_favicons() function in the pkgdown package, which auto-detects a logo.svg or logo.png file and runs it through an API. The function makes a copy of the favicon output to the "man/figures" directory for use.
+#' This package first runs the build_favicons() function in the pkgdown package,
+#' which auto-detects a logo.svg or logo.png file and runs it through an API.
+#' The function makes a copy of the favicon output to the "man/figures"
+#' directory for use.
 #' @importFrom pkgdown build_favicons
+#' @importFrom secretary typewrite
 #' @rdname create_favicons
 #' @export
 
@@ -103,5 +107,12 @@ create_favicons <-
 
     file.copy("logo.png", "./man/figures/logo.png")
 
-    cli::cat_bullet(sprintf('# %s <img src="man/figures/logo.png" align="right" alt="" width="120" />', basename(getwd())))
+    secretary::typewrite("The following must be added to the README:",
+                         timepunched = FALSE)
+    cli::cat_bullet(
+      sprintf(
+        '# %s <img src="man/figures/logo.png" align="right" alt="" width="120" />',
+        basename(getwd())
+        )
+      )
   }

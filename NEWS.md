@@ -1,6 +1,8 @@
 # easyBakeOven 1.0.0  
 - All functions converted to snake case names    
-- Removed dependency on the cave package
+- Removed dependency on the cave package  
+- Added `make vignette` function family that writes Sweave and asis files for 
+static vignettes  
 
 # easyBakeOven 0.0.3  
 - Final v0 before conversion to snake case
