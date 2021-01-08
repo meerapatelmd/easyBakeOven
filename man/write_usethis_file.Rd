@@ -2,10 +2,11 @@
 % Please edit documentation in R/data-pkg.R
 \name{write_usethis_file}
 \alias{write_usethis_file}
-\title{Write Processing File}
+\title{Write Usethis File}
 \usage{
 write_usethis_file(path)
 }
 \description{
-Write Processing File
+To write the usethis.R file to \code{data-raw}, the data.R file to \code{R}, and run
+\code{devtools::document()}, see \code{\link{document_data}}.
 }

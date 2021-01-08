@@ -17,7 +17,12 @@ write_schema_to_csvs(
 )
 }
 \arguments{
-\item{path}{\Sexpr[results=rd, stage=render]{lifecycle::badge("deprecated")}}
+\item{conn}{Connection to a Postgres database.}
+
+\item{...}{Optional. Character vectors of names of tables to export. If missing,
+all the tables in the given schema are exported.}
+
+\item{path}{Path to the package root that contains the \verb{data-raw/}, \verb{data/}, and \verb{R/} folders. `}
 
 \item{na}{String used for missing values. Defaults to NA. Missing values
 will never be quoted; strings with the same value as \code{na} will

@@ -1,19 +1,10 @@
 #' @title
-#' Data Package Helpers
-#'
-#' @description
-#' Data Package Helpers are functions that support the maintenance of the data that is exported in packages.
-#'
-#' @param path   Path to a local clone of the target repo.
-#' @param conn          Connection object.
-#' @name data_package_helpers
-NULL
-
-#' @title
 #' Document Package Data
 #'
 #' @description
 #' For R packages containing data in the `data-raw` dir, the `usethis.R` is written in the same directory, the data is documented in the `R/data.R`, and `devtools::document` is run on the contents of the provided path.
+#'
+#' @param path Path to the package root that contains the `data-raw/`, `data/`, and `R/` folders. `
 #'
 #' @rdname document_data
 #' @export
@@ -36,21 +27,57 @@ document_data <-
 #' @description
 #' Creates the `data-raw`, `data`, and `R` directories within the `path` if they do not already exist.
 #'
-#' @importFrom cave dir.create_path
+#' @inheritParams document_data
 #' @export
-#' @rdname prep_data_repo_dirs
+#' @rdname create_data_repo_dirs
 
-prep_data_repo_dirs <-
+create_data_repo_dirs <-
   function(path = getwd()) {
 
-    # path <- "~/GitHub/Public-Packages/cancergovData/"
+    create_path <-
+      function (dir)
+      {
+        dir <- path.expand(dir)
+        all_dirs <- unlist(strsplit(x = dir, split = .Platform$file.sep))
+        all_dirs <- no_blank(all_dirs)
+        dirs1 <- list()
+        for (i in seq_along(all_dirs)) {
+          if (i == 1) {
+            dirs1[[i]] <- all_dirs[i]
+          }
+          else {
+            dirs1[[i]] <- c(dirs1[[i - 1]], all_dirs[i])
+          }
+        }
+        formatted_dir_paths <- list()
+        for (i in seq_along(dirs1)) {
+          if (i == 1) {
+            formatted_dir_paths[[i]] <- sprintf("%s%s", .Platform$file.sep,
+                                                dirs1[[i]])
+          }
+          else {
+            formatted_dir_paths[[i]] <- do.call(what = file.path,
+                                                args = as.list(dirs1[[i]]))
+            formatted_dir_paths[[i]] <- sprintf("/%s", formatted_dir_paths[[i]])
+          }
+        }
+        for (i in seq_along(formatted_dir_paths)) {
+          if (!dir.exists(paths = formatted_dir_paths[[i]])) {
+            dir.create(formatted_dir_paths[[i]])
+            message(sprintf("%s directory created", formatted_dir_paths[[i]]))
+          }
+          else {
+            message(sprintf("%s already exists", formatted_dir_paths[[i]]))
+          }
+        }
+      }
 
     subdirs <- c("data-raw", "data", "R")
     all_paths <- as.list(path.expand(file.path(path, subdirs)))
     names(all_paths) <- c("DATA_RAW", "DATA", "R")
 
     for (i in seq_along(all_paths)) {
-      cave::dir.create_path(all_paths[[i]])
+      create_path(all_paths[[i]])
     }
 
     invisible(all_paths)
@@ -66,6 +93,10 @@ prep_data_repo_dirs <-
 #' table to the given path. The csvs are named according to the source table name.
 #' @rdname write_schema_to_csvs
 #' @export
+#' @inheritParams document_data
+#' @param conn Connection to a Postgres database.
+#' @param ... Optional. Character vectors of names of tables to export. If missing,
+#' all the tables in the given schema are exported.
 #' @inheritParams readr::write_csv
 #' @importFrom rlang list2
 
@@ -111,8 +142,11 @@ write_schema_to_csvs <-
   }
 
 #' @title
-#' Write Processing File
+#' Write Usethis File
 #'
+#' @description
+#' To write the usethis.R file to `data-raw`, the data.R file to `R`, and run
+#' `devtools::document()`, see \code{\link{document_data}}.
 #' @rdname write_usethis_file
 #' @export
 
@@ -170,7 +204,9 @@ write_usethis_file <-
 
 #' @title
 #' Write Processing File
-#'
+#' @description
+#' To write the usethis.R file to `data-raw`, the data.R file to `R`, and run
+#' `devtools::document()`, see \code{\link{document_data}}.
 #' @rdname write_data_file
 #' @export
 #' @importFrom stringr str_replace str_remove_all

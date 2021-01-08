@@ -7,5 +7,6 @@
 write_data_file(path)
 }
 \description{
-Write Processing File
+To write the usethis.R file to \code{data-raw}, the data.R file to \code{R}, and run
+\code{devtools::document()}, see \code{\link{document_data}}.
 }
