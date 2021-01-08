@@ -21,4 +21,8 @@ The Rnw file will not be written if it already exists, if the \code{pdf_file}
 file argument does not exist in the \code{vignettes} folder, or if \code{pdf_file} does
 not have a '.pdf' extension.
 }
+\seealso{
+Other make vignette functions: 
+\code{\link{make_vignette_asis}()}
+}
 \concept{make vignette functions}

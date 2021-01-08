@@ -17,6 +17,7 @@ URL: https://meerapatelmd.github.io/easyBakeOven/,
     https://github.com/meerapatelmd/easyBakeOven/
 BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/
 Imports:
+    cli,
     devtools,
     glue,
     glitter,
@@ -34,15 +35,18 @@ Suggests:
     knitr,
     rmarkdown,
     spelling,
-    roxygen2
+    roxygen2,
+    R.rsp
 VignetteBuilder: 
-    knitr
+    knitr,
+    R.rsp
 Remotes: 
     meerapatelmd/glitter,
-    meerapatelmd/secretary,
-    meerapatelmd/cave
+    meerapatelmd/secretary
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Language: en-US
+Depends: 
+    R (>= 2.10)
