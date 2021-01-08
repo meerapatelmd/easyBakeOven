@@ -17,7 +17,6 @@ URL: https://meerapatelmd.github.io/easyBakeOven/,
     https://github.com/meerapatelmd/easyBakeOven/
 BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/
 Imports:
-    cave,
     devtools,
     glue,
     glitter,

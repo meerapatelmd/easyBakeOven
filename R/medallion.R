@@ -90,7 +90,7 @@ create_favicons <-
                recursive = TRUE)
     }
     pkgdown::build_favicons(overwrite = overwrite)
-    cave::dir.create_path(file.path(getwd(), "man/figures"))
+    create_path(file.path(getwd(), "man/figures"))
 
     filesToCopy <- list.files("pkgdown/favicon", full.names = TRUE)
     newFiles <- paste0("man/figures/", basename(filesToCopy))
