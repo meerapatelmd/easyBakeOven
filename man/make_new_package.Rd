@@ -4,20 +4,20 @@
 \alias{make_new_package}
 \title{Start a New Package}
 \usage{
-make_new_package(path, open = FALSE, spellcheck_vignettes = TRUE)
+make_new_package(path, copyright_holder = NULL)
 }
 \arguments{
 \item{path}{A path. If it exists, it is used. If it does not exist, it is
 created, provided that the parent path exists.}
 
-\item{open}{Open the newly created file for editing? Happens in RStudio, if
-applicable, or via \code{\link[utils:file.edit]{utils::file.edit()}} otherwise.}
-
-\item{spellcheck_vignettes}{Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.}
+\item{copyright_holder}{Name of the copyright holder or holders. This
+defaults to "{package name} authors"; you should only change this if you
+use a CLA to assign copyright to a single entity.}
 }
 \description{
-Starts a new package using a designated path to a local directory, where the folder is created, README.md and NEWS.md files are added, git is initialized and linked to a remote of the same name.
-}
-\seealso{
-\code{\link[usethis]{create_package}},\code{\link[usethis]{proj_activate}},\code{\link[usethis]{use_readme_rmd}},\code{\link[usethis]{use_news_md}},\code{\link[usethis]{use_git}}
+Starts a new package using a designated path to a local
+directory, where the folder is created and the DESCRIPTION,
+/R, LICENSE, NAMESPACE, and README are written. Additional
+documentation such as the Code of Conduct can be generated
+using \code{setup_package_docs()}.
 }
