@@ -47,7 +47,11 @@
 
 
 <meta property="og:title" content="Start a New Package — make_new_package" />
-<meta property="og:description" content="Starts a new package using a designated path to a local directory, where the folder is created, README.md and NEWS.md files are added, git is initialized and linked to a remote of the same name." />
+<meta property="og:description" content="Starts a new package using a designated path to a local
+directory, where the folder is created and the DESCRIPTION,
+/R, LICENSE, NAMESPACE, and README are written. Additional
+documentation such as the Code of Conduct can be generated
+using setup_package_docs()." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -137,10 +141,14 @@
     </div>
 
     <div class="ref-description">
-    <p>Starts a new package using a designated path to a local directory, where the folder is created, README.md and NEWS.md files are added, git is initialized and linked to a remote of the same name.</p>
+    <p>Starts a new package using a designated path to a local
+directory, where the folder is created and the DESCRIPTION,
+/R, LICENSE, NAMESPACE, and README are written. Additional
+documentation such as the Code of Conduct can be generated
+using <code><a href='setup_package_docs.html'>setup_package_docs()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_new_package</span><span class='op'>(</span><span class='va'>path</span>, open <span class='op'>=</span> <span class='cn'>FALSE</span>, spellcheck_vignettes <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>make_new_package</span><span class='op'>(</span><span class='va'>path</span>, copyright_holder <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,19 +159,13 @@
 created, provided that the parent path exists.</p></td>
     </tr>
     <tr>
-      <th>open</th>
-      <td><p>Open the newly created file for editing? Happens in RStudio, if
-applicable, or via <code><a href='https://rdrr.io/r/utils/file.edit.html'>utils::file.edit()</a></code> otherwise.</p></td>
-    </tr>
-    <tr>
-      <th>spellcheck_vignettes</th>
-      <td><p>Spell check is automatically enabled for the new package, but if TRUE, will also spell check all rmd and rnw files in the vignettes/ folder.</p></td>
+      <th>copyright_holder</th>
+      <td><p>Name of the copyright holder or holders. This
+defaults to "package name authors"; you should only change this if you
+use a CLA to assign copyright to a single entity.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></code>,<code><a href='https://usethis.r-lib.org/reference/proj_activate.html'>proj_activate</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_readme_rmd.html'>use_readme_rmd</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_news_md.html'>use_news_md</a></code>,<code><a href='https://usethis.r-lib.org/reference/use_git.html'>use_git</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

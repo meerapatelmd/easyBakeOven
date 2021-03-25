@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pipe operator — %&gt;% • easyBakeOven</title>
+<title>Setup Package Documentation — setup_package_docs • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,10 @@
 
 
 
-<meta property="og:title" content="Pipe operator — %&gt;%" />
-<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
+<meta property="og:title" content="Setup Package Documentation — setup_package_docs" />
+<meta property="og:description" content="Adds the package doc R/&amp;lt;package&amp;gt;-package.R,
+README.Rmd, Code of Conduct, and NEWS.md documents.
+Spellcheck is also added usig this function." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">easyBakeOven</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -131,17 +133,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pipe operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
-    <div class="hidden name"><code>pipe.Rd</code></div>
+    <h1>Setup Package Documentation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/make_new_package.R'><code>R/make_new_package.R</code></a></small>
+    <div class="hidden name"><code>setup_package_docs.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See <code>magrittr::%&gt;%</code> for details.</p>
+    <p>Adds the package doc <code>R/&lt;package&gt;-package.R</code>,
+<code>README.Rmd</code>, Code of Conduct, and <code>NEWS.md</code> documents.
+Spellcheck is also added usig this function.</p>
     </div>
 
-    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
+    <pre class="usage"><span class='fu'>setup_package_docs</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>FALSE</span>, spellcheck_vignettes <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>open</th>
+      <td><p>Open the newly created file for editing? Happens in RStudio, if
+applicable, or via <code><a href='https://rdrr.io/r/utils/file.edit.html'>utils::file.edit()</a></code> otherwise.</p></td>
+    </tr>
+    <tr>
+      <th>spellcheck_vignettes</th>
+      <td><p>Spell check is automatically
+enabled for the new package, but if TRUE, will also
+spellcheck all rmd and rnw files in the vignettes/ folder.</p></td>
+    </tr>
+    </table>
 
 
   </div>
