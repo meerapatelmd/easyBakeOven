@@ -111,10 +111,17 @@ create_report <-
 
   # Are there any variables within the template that have not been replaced?
   unrep_vars <-
-    grep(pattern = "[^```]{1}[{]{1}.*?[}]{1}",
+    grep(pattern = "[^```]{1}[{]{1}.*?[}]",
          new_rmd,
          value = TRUE,
          perl = TRUE)
+
+  # Filtering out counts within {} in regex
+  unrep_vars <-
+    grep(pattern = "[{]{1}[0-9]{1,}[,]{0,1}[0-9]{0,}[}]{1}",
+         unrep_vars,
+         invert = TRUE,
+         value = TRUE)
 
   if (length(unrep_vars)>0) {
     unrep_vars <- unlist(strsplit(unrep_vars, split = "[ ]{1}"))
