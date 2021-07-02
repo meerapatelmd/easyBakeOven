@@ -43,6 +43,8 @@ create_report <-
     stopifnot(!missing(report_title))
     stopifnot(!grepl(pattern = "[/]{1}", x = report_title))
 
+    report_tree()
+
     var_values <<-
     rlang::list2(project_path = project_path,
                  issue_key = issue_key,
@@ -292,7 +294,7 @@ remove_report <-
 
 #' @keywords internal
 
-report_dir_tree <-
+report_tree <-
   function(path = getwd()) {
     dir_tree <-
       c(
@@ -300,8 +302,14 @@ report_dir_tree <-
         path.expand(file.path(path, "output")))
 
     sapply(dir_tree,
-           cave::dir.create_path)
+           create_path)
 
+    file.copy(
+      from = system.file(package = "easyBakeOven",
+                         "reports",
+                         "style.css"),
+      to = path.expand(file.path(path, "rmd"))
+    )
 
   }
 
