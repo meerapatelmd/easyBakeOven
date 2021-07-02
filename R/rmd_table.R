@@ -16,6 +16,8 @@ print_dt <-
                  download_buttons = TRUE,
                  caption = NULL,
                  rownames = FALSE,
+                 pageLength = 10,
+                 autoWidth = TRUE,
                  colnames,
                  filter = c("top", "none", "bottom"),
                  scrollX = TRUE,
@@ -60,7 +62,9 @@ print_dt <-
                                 list(dom = "Blfrtip",
                                      buttons = c("copy", "csv","excel", "pdf", "print"),
                                      lengthMenu = list(c(10, 25, 50, -1), c(10, 25, 50, "All")),
-                                     scrollX = scrollX
+                                     scrollX = scrollX,
+                                     pageLength = pageLength,
+                                     autoWidth = autoWidth
                                 )
                 )
                 } else {
@@ -84,7 +88,9 @@ print_dt <-
                                 options =
                                         list(
                                              lengthMenu = list(c(10, 25, 50, -1), c(10, 25, 50, "All")),
-                                             scrollX = scrollX
+                                             scrollX = scrollX,
+                                             pageLength = pageLength,
+                                             autoWidth = autoWidth
                                         )
                         )
                 }

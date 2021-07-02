@@ -10,6 +10,8 @@ print_dt(
   download_buttons = TRUE,
   caption = NULL,
   rownames = FALSE,
+  pageLength = 10,
+  autoWidth = TRUE,
   colnames,
   filter = c("top", "none", "bottom"),
   scrollX = TRUE,
