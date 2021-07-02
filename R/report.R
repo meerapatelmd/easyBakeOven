@@ -267,6 +267,10 @@ remove_report <-
 
     cli::cat_rule("HTML")
     html_pattern <- sprintf("%s--%s.html$", issue_key, report_title)
+    html_pattern <-
+    stringr::str_replace_all(html_pattern,
+                             pattern = "[ ]{1}",
+                             replacement = "-")
     htmls_to_remove <-
     list.files(pattern = html_pattern,
                full.names = TRUE,
