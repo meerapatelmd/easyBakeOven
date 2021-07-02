@@ -59,22 +59,31 @@ knitr::opts_chunk$set(
 rmd_title    <- basename(knitr::opts_chunk$get("cache.path"))
 github_page  <- sprintf("%s/%s.html", params$github_page_path, rmd_title)
 source_code  <- sprintf("%s/%s.Rmd", params$source_code_page_path, rmd_title)
+issue_key    <- params$issue_key
+report_title <- params$report_title
 project_path <- path.expand(params$project_path)
 ```
 
 **Last Updated On:** `r Sys.time()`  
-**GitHub Page:** `r github_page`  
-**Source Code:** `r source_code` 
 
 ```{r setup2,eval=TRUE,message=FALSE,echo=FALSE}
 library(tidyverse)
 library(easyBakeOven)
-print_list(params)
+```
+
+## Parameters  
+
+```{r params_display,eval=TRUE,message=FALSE,echo=FALSE}
+params_display <- 
+  c(params,
+    rmd_title = rmd_title, 
+    github_page = github_page, 
+    source_code = source_code)
+names(params_display) <- str_to_title(str_replace_all(names(params_display), "[_]{1}", " "))
+print_list(params_display)
 ```
 
 ```{r folders,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
-issue_key    <- params$issue_key
-report_title <- params$report_title
 global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
 raw_folder          <- file.path(global_data_folder, "raw")
 intermediate_folder <- file.path(global_data_folder, "intermediate")
