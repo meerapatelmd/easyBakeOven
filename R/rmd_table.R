@@ -122,7 +122,7 @@ print_list <-
                 }
 
 
-                args <- rlang::list2(...)
+                args <- unlist(rlang::list2(...))
 
                 # All inputs must be named
                 if (any(names(args) %in% c(""))) {
