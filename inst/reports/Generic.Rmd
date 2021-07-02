@@ -8,10 +8,10 @@ output:
     toc: yes
     number_sections: false
     toc_depth: 3 
-    # toc_float: 
-      # collapsed: false  
-      # smooth_scroll: false
-    # code_folding: show #or hide
+    toc_float: true 
+    collapsed: false
+    smooth_scroll: false
+    code_folding: show #or hide
     df_print: paged
     fig_height: 5 
     fig_width: 7 
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(
   comment = "##",
   tidy = FALSE, #`styler` to use styler:style_text() to reformat code
   tidy.opts = list(blank = FALSE, width.cutoff = 60),
-  echo = FALSE,
+  echo = TRUE,
   eval = TRUE,
   cache = FALSE,
   cache.path = file.path(getwd(), "cache", sub("_cache/.*$", "", knitr::opts_chunk$get("cache.path")), "/"),
