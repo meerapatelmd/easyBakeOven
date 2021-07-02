@@ -1,0 +1,114 @@
+---
+title: "{issue_key}: {report_title}"
+output: 
+  html_document:
+    css: style.css
+    theme: flatly
+    highlight: kate  
+    toc: yes
+    number_sections: false
+    toc_depth: 3 
+    # toc_float: 
+      # collapsed: false  
+      # smooth_scroll: false
+    # code_folding: show #or hide
+    df_print: paged
+    fig_height: 5 
+    fig_width: 7 
+    fig_caption: true
+    dev: png
+params: 
+  project_path: {project_path}  
+  issue_key: {issue_key} 
+  report_title: {report_title}
+  github_page_path: {github_page_path}  
+  source_code_page_path: {source_code_page_path}  
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile,
+                    encoding = encoding,
+                    output_dir =
+                      file.path(getwd(), "output"))
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = "##",
+  tidy = FALSE, #`styler` to use styler:style_text() to reformat code
+  tidy.opts = list(blank = FALSE, width.cutoff = 60),
+  echo = FALSE,
+  eval = TRUE,
+  cache = FALSE,
+  cache.path = file.path(getwd(), "cache", sub("_cache/.*$", "", knitr::opts_chunk$get("cache.path")), "/"),
+  child = NULL, #file/s to knit and then include,
+  collapse = FALSE, #collapse all output into a single block,
+  error = TRUE, #display error messages in doc. FALSE stops render when error is thrown
+  fig.align = "center", #left, right, center, or default
+  fig.width = 7, #inches
+  fig.height = 7, #inches
+  fig.asp=0.50, #adds whitespace around images
+  include = TRUE, #include chunk?
+  message = TRUE, #display code messages?
+  warning = TRUE, #include warnings?
+  results = "markup"
+    # "asis": passthrough results
+    # "hide": do not display results 
+    # "hold": put all results below all code
+)  
+
+rmd_title    <- basename(knitr::opts_chunk$get("cache.path"))
+github_page  <- sprintf("%s/%s.html", params$github_page_path, rmd_title)
+source_code  <- sprintf("%s/%s.Rmd", params$source_code_page_path, rmd_title)
+project_path <- path.expand(params$project_path)
+```
+
+**Last Updated On:** `r Sys.time()`  
+**GitHub Page:** `r github_page`  
+**Source Code:** `r source_code` 
+
+```{r setup2,eval=TRUE,message=FALSE,echo=FALSE}
+library(tidyverse)
+library(easyBakeOven)
+print_list(params)
+```
+
+```{r folders,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
+issue_key    <- params$issue_key
+report_title <- params$report_title
+global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
+raw_folder          <- file.path(global_data_folder, "raw")
+intermediate_folder <- file.path(global_data_folder, "intermediate")
+final_folder        <- file.path(global_data_folder, "final")
+outgoing_folder     <- file.path(global_data_folder, "outgoing") 
+
+
+global_rmd_folder   <- file.path(project_path, "rmd", issue_key)
+child_rmd_folder    <- file.path(global_rmd_folder, report_title)
+
+global_img_folder   <- file.path(project_path, "img", issue_key)
+img_folder          <- file.path(global_img_folder, report_title)
+cache_folder        <- file.path(project_path, "cache", issue_key, report_title, "/")
+
+sapply(c(global_data_folder,
+         raw_folder,
+         intermediate_folder,
+         final_folder,
+         outgoing_folder,
+         global_rmd_folder,
+         child_rmd_folder,
+         global_img_folder,
+         img_folder,
+         cache_folder),
+       create_path)
+```
+
+<!-- # Summary   -->
+
+<!-- # Tasks   -->
+
+<!-- ## Completed   -->
+
+<!-- ## Backlog   -->
+
+<!-- <a href='#top' style='float: right;'>Back to top</a> -->
+<!-- <br> -->

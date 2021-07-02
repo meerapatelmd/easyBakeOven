@@ -6,3 +6,8 @@ Meta
 .Rdata
 .httr-oauth
 .DS_Store
+output/*
+rmd/*
+
+/doc/
+/Meta/
