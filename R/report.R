@@ -147,10 +147,10 @@ create_report <-
     unrep_vars <- paste(unrep_vars, collapse = ", ")
 
     if (require_all_vars) {
-    stop(sprintf("Missing values for vars: %s.", unrep_vars),
+    stop(sprintf("Missing values for vars: %s.\n", unrep_vars),
          call. = FALSE)
     } else {
-      warning(sprintf("Missing values for vars: %s.", unrep_vars),
+      warning(sprintf("Missing values for vars: %s.\n", unrep_vars),
            call. = FALSE)
     }
   }
@@ -449,10 +449,10 @@ create_report_child <-
       unrep_vars <- sprintf("`%s`", unrep_vars)
       unrep_vars <- paste(unrep_vars, collapse = ", ")
       if (require_all_vars) {
-      stop(sprintf("Missing values for vars: %s.", unrep_vars),
+      stop(sprintf("Missing values for vars: %s.\n", unrep_vars),
            call. = FALSE)
       } else {
-        warning(sprintf("Missing values for vars: %s.", unrep_vars),
+        warning(sprintf("Missing values for vars: %s.\n", unrep_vars),
                 call. = FALSE)
       }
     }
