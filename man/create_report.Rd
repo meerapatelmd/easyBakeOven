@@ -11,6 +11,7 @@ create_report(
   github_page_path = "",
   source_code_page_path = "",
   template_path = system.file(package = "easyBakeOven", "reports", "Generic.Rmd"),
+  require_all_vars = TRUE,
   ...
 )
 }
@@ -31,6 +32,12 @@ for the Rmd file.}
 \item{template_path}{Path to the template file to use. It can point to a
 template Rmd in your local machine.}
 
+\item{require_all_vars}{Variables to replace are designated as those enclosed
+in curly brackets in the template Rmd file. Sometimes, the template may have
+variables to be called upon by the glue function iteratively outside the
+template itself. This argument controls whether or not all of these variables
+must be assigned a value or not. Default: TRUE.}
+
 \item{...}{(Optional) Additional parameters that should be added in the
 front matter of the Rmd. Should be entered in the format of a named vector.}
 }
@@ -44,6 +51,8 @@ value for a bracketed variable within the template folder is
 missing, the file will not be written. All templates are
 required to have an \code{issue_key} and \code{report_title}. If a report of the
 same issue_key and report_title already exists, it will not be overwritten.
+Sometimes a template will have child Rmds. See 'create_child_report()'
+to create template children.
 }
 \seealso{
 \code{\link[xfun]{read_utf8}}
