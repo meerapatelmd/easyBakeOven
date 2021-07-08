@@ -56,7 +56,14 @@ knitr::opts_chunk$set(
     # "hold": put all results below all code
 )  
 
-rmd_title    <- basename(knitr::opts_chunk$get("cache.path"))
+# Derived from the name of the file itself
+rmd_title    <- 
+  if (interactive()) { 
+    xfun::sans_ext(basename(rstudioapi::getSourceEditorContext()$path))
+  } else {
+    basename(knitr::opts_chunk$get("cache.path"))
+  }
+
 github_page  <- sprintf("%s/%s.html", params$github_page_path, rmd_title)
 source_code  <- sprintf("%s/%s.Rmd", params$source_code_page_path, rmd_title)
 issue_key    <- params$issue_key
@@ -111,13 +118,19 @@ sapply(c(global_data_folder,
        create_path)
 ```
 
-<!-- # Summary   -->
+<!-- # Summary  -->
+<!-- Why am I running this report?   -->
 
-<!-- # Tasks   -->
+<!-- # Changelog   -->
+<!-- What changes have I made and what issues have I come across that  -->
+<!-- need resolving?   -->
 
-<!-- ## Completed   -->
+<!-- # Backlog -->
+<!-- What changes do I need to make still?   -->
 
-<!-- ## Backlog   -->
+<!-- # Workflow   -->
+<!-- How did I run this report?   -->
+
 
 <!-- <a href='#top' style='float: right;'>Back to top</a> -->
 <!-- <br> -->
