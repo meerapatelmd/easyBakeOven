@@ -457,6 +457,52 @@ report_tree <-
 
   }
 
+#' @title
+#' List all the Bracketed Variables
+#' @inheritParams create_report
+#' @seealso
+#'  \code{\link[xfun]{read_utf8}}
+#' @rdname list_template_variables
+#' @export
+#' @importFrom xfun read_utf8
+#' @importFrom stringr str_replace_all
+
+list_template_variables <-
+  function(template_path) {
+
+    new_rmd <-
+      xfun::read_utf8(template_path)
+
+    # Are there any variables within the template that have not been replaced?
+    unrep_vars <-
+      grep(pattern = "[^```]{1}[{]{1}.*?[}]",
+           new_rmd,
+           value = TRUE,
+           perl = TRUE)
+
+    # Filtering out counts within {} in regex
+    unrep_vars <-
+      grep(pattern = "[{]{1}[0-9]{1,}[,]{0,1}[0-9]{0,}[}]{1}",
+           unrep_vars,
+           invert = TRUE,
+           value = TRUE)
+
+
+    # The lines with the regex matches are tokenized
+    strsplit(unrep_vars,
+             split = " ") %>%
+      unlist() %>%
+      trimws() %>%
+      grep(pattern = "[{]{1}.*[}]{1}",
+           value = TRUE) %>%
+      # Sometimes the {variable} is surrounded by quotes ie '{variable}' so am
+      # making sure that that is removed
+      stringr::str_replace_all(
+        pattern = "(^.*?)([{]{1}.*?[}]{1})(.*$)",
+        replacement = "\\2"
+      )
+
+  }
 
 #' @title
 #' Create a Child Rmd from a Template's Child
