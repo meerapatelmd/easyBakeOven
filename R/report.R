@@ -51,7 +51,7 @@ create_report <-
     stopifnot(!missing(report_title))
     stopifnot(!grepl(pattern = "[/]{1}", x = report_title))
 
-    report_tree()
+    report_tree(path = project_path)
 
     var_values <-
     rlang::list2(project_path = project_path,
@@ -62,7 +62,9 @@ create_report <-
                  ...)
 
     new_rmd_file <-
-      sprintf("rmd/%s: %s.Rmd", issue_key, report_title)
+      file.path(project_path,
+                  "rmd",
+                  sprintf("%s: %s.Rmd", issue_key, report_title))
 
     if (file.exists(new_rmd_file)) {
       stop(sprintf("`%s` already exists and was not overwritten.",
