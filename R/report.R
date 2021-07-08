@@ -176,7 +176,7 @@ create_report <-
       "outgoing")
 
     data_paths <-
-      file.path(getwd(),
+      file.path(project_path,
                 "data",
                 issue_key,
                 report_title,
@@ -190,7 +190,7 @@ create_report <-
 
     # Adding child folder in rmd/
     child_rmd_path <-
-      file.path(getwd(),
+      file.path(project_path,
                 "rmd",
                 issue_key,
                 report_title)
@@ -199,7 +199,7 @@ create_report <-
 
     # Adding Image Directory
     img_path <-
-      file.path(getwd(),
+      file.path(project_path,
                 "img",
                 issue_key,
                 report_title)
