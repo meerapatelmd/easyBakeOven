@@ -108,13 +108,14 @@ create_report <-
 
 
     params_x <- grep(pattern = "params[:]{1}",
-                     x = new_rmd)[1]
+                     x = new_rmd)
 
     if (length(params_x) == 0) {
       stop("'params:' not found.")
     }
+
     new_rmd2 <-
-      new_rmd[1:params_x]
+      new_rmd[1:params_x[1]]
 
     new_rmd2 <-
       c(new_rmd2,
@@ -170,49 +171,168 @@ create_report <-
   cli::cli_alert_success(text = new_rmd_file)
 
 
-  # Adding Data Subdirectories
-  data_folders =
-    c("raw",
-      "intermediate",
-      "final",
-      "outgoing")
+  # # Adding Data Subdirectories
+  # data_folders =
+  #   c("raw",
+  #     "intermediate",
+  #     "final",
+  #     "outgoing")
+  #
+  #   data_paths <-
+  #     file.path(project_path,
+  #               "data",
+  #               issue_key,
+  #               report_title,
+  #               data_folders)
+  #
+  # for (data_path in data_paths) {
+  #   if (!dir.exists(data_path)) {
+  #     cave::dir.create_path(data_path)
+  #   }
+  # }
+  #
+  #   # Adding child folder in rmd/
+  #   child_rmd_path <-
+  #     file.path(project_path,
+  #               "rmd",
+  #               issue_key,
+  #               report_title)
+  #
+  #   if (!dir.exists(child_rmd_path)) {cave::dir.create_path(child_rmd_path)}
+  #
+  #   # Adding Image Directory
+  #   img_path <-
+  #     file.path(project_path,
+  #               "img",
+  #               issue_key,
+  #               report_title)
+  #
+  #   cave::dir.create_path(img_path)
 
-    data_paths <-
-      file.path(project_path,
-                "data",
-                issue_key,
-                report_title,
-                data_folders)
 
-  for (data_path in data_paths) {
-    if (!dir.exists(data_path)) {
-      cave::dir.create_path(data_path)
-    }
-  }
+    global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
+    raw_folder          <- file.path(global_data_folder, "raw")
+    intermediate_folder <- file.path(global_data_folder, "intermediate")
+    final_folder        <- file.path(global_data_folder, "final")
+    outgoing_folder     <- file.path(global_data_folder, "outgoing")
 
-    # Adding child folder in rmd/
-    child_rmd_path <-
-      file.path(project_path,
-                "rmd",
-                issue_key,
-                report_title)
 
-    if (!dir.exists(child_rmd_path)) {cave::dir.create_path(child_rmd_path)}
+    global_rmd_folder   <- file.path(project_path, "rmd", issue_key)
+    child_rmd_folder    <- file.path(global_rmd_folder, report_title)
 
-    # Adding Image Directory
-    img_path <-
-      file.path(project_path,
-                "img",
-                issue_key,
-                report_title)
+    global_img_folder   <- file.path(project_path, "img", issue_key)
+    img_folder          <- file.path(global_img_folder, report_title)
+    cache_folder        <- file.path(project_path, "cache", issue_key, report_title, "/")
 
-    cave::dir.create_path(img_path)
+    sapply(c(global_data_folder,
+             raw_folder,
+             intermediate_folder,
+             final_folder,
+             outgoing_folder,
+             global_rmd_folder,
+             child_rmd_folder,
+             global_img_folder,
+             img_folder,
+             cache_folder),
+           easyBakeOven::create_path)
 
     if (interactive()) {
       file.edit(new_rmd_file)
-
     }
 
+
+    invisible(
+      get_report_metadata(
+        issue_key = issue_key,
+        report_title = report_title,
+        project_path = project_path,
+        github_page_path = github_page_path,
+        source_code_page_path = source_code_page_path,
+        template_path = template_path,
+        ...
+      )
+    )
+  }
+
+
+#' @title
+#' Return a Nested List of Report Metadata
+#' @inheritParams create_report
+#' @seealso
+#'  \code{\link[rlang]{list2}}
+#'  \code{\link[tibble]{tibble}}
+#'  \code{\link[xfun]{file_ext}}
+#' @rdname get_report_metadata
+#' @export
+#' @importFrom rlang list2
+#' @importFrom tibble tibble
+#' @importFrom xfun sans_ext
+
+get_report_metadata <-
+  function(issue_key,
+           report_title,
+           project_path = getwd(),
+           github_page_path = "",
+           source_code_page_path = "",
+           template_path = system.file(package = "easyBakeOven", "reports", "Generic.Rmd"),
+           ...) {
+
+    new_rmd_file <-
+      file.path(project_path,
+                "rmd",
+                sprintf("%s: %s.Rmd", issue_key, report_title))
+    global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
+    raw_folder          <- file.path(global_data_folder, "raw")
+    intermediate_folder <- file.path(global_data_folder, "intermediate")
+    final_folder        <- file.path(global_data_folder, "final")
+    outgoing_folder     <- file.path(global_data_folder, "outgoing")
+
+
+    global_rmd_folder   <- file.path(project_path, "rmd", issue_key)
+    child_rmd_folder    <- file.path(global_rmd_folder, report_title)
+
+    global_img_folder   <- file.path(project_path, "img", issue_key)
+    img_folder          <- file.path(global_img_folder, report_title)
+    cache_folder        <- file.path(project_path, "cache", issue_key, report_title, "/")
+
+
+    core_args <-
+      rlang::list2(project_path = project_path,
+                   issue_key = issue_key,
+                   report_title = report_title,
+                   github_page_path = github_page_path,
+                   source_code_page_path = source_code_page_path)
+
+    custom_args <-
+      rlang::list2(...)
+
+    output_metadata <-
+      tibble::tibble(
+        rmd_file = new_rmd_file,
+        rmd_title = xfun::sans_ext(basename(new_rmd_file))) %>%
+      mutate(github_page = sprintf("%s/%s.html", github_page_path, rmd_title),
+             source_code_page =  sprintf("%s/%s.Rmd", source_code_page_path, rmd_title)) %>%
+      as.list()
+
+    output_folders <-
+      list(data = list(global_data_folder = global_data_folder,
+                       raw_folder = raw_folder,
+                       intermediate_folder = intermediate_folder,
+                       final_folder = final_folder,
+                       outgoing_folder = outgoing_folder),
+           rmd  = list(global_rmd_folder = global_rmd_folder,
+                       child_rmd_folder = child_rmd_folder),
+           img = list(global_img_folder = global_img_folder,
+                      img_folder = img_folder),
+           cache = list(cache_folder = cache_folder))
+
+    list(arguments =
+           list(core   = core_args,
+                custom = custom_args),
+         output =
+           list(metadata = output_metadata,
+                folders  = output_folders)
+    )
   }
 
 #' @title
