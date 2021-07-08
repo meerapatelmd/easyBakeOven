@@ -105,8 +105,12 @@ create_report <-
 
 
 
-    params_x <- grep("params[:]{1}",
-                     new_rmd)
+    params_x <- grep(pattern = "params[:]{1}",
+                     x = new_rmd)[1]
+
+    if (length(params_x) == 0) {
+      stop("'params:' not found.")
+    }
     new_rmd2 <-
       new_rmd[1:params_x]
 
