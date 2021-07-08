@@ -312,7 +312,7 @@ get_report_metadata <-
         rmd_title = xfun::sans_ext(basename(new_rmd_file))) %>%
       mutate(rmd_title2 = str_replace_all(string = rmd_title,
                                           pattern = "[:]{1}|[ ]{1}",
-                                          replacement = "_")) %>%
+                                          replacement = "-")) %>%
       mutate(github_page = sprintf("%s/%s.html", github_page_path, rmd_title2),
              local_github_page = sprintf("%s/%s/%s.html", project_path, "output", rmd_title2),
              source_code_page =  sprintf("%s/%s.Rmd", source_code_page_path, rmd_title2)) %>%
