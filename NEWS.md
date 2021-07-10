@@ -1,10 +1,11 @@
 # easyBakeOven 1.3.0  
-- Add `report` functions that create a parameterized R markdown  
+- Added `report` functions that create a parameterized R markdown  
 from a template that is either provided by this package or 
 user-determined.  
-- Add table printing functions that incorporate the advantages 
+- Added table printing functions that incorporate the advantages 
 of both the DT and kableExtra packages.  
-- Add utility functions ie `create_path()`  
+- Added utility functions ie `create_path()`  
+- Added HTML functions
 
 # easyBakeOven 1.0.0  
 - All functions converted to snake case names    
