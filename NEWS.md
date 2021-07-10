@@ -5,7 +5,7 @@ user-determined.
 - Added table printing functions that incorporate the advantages 
 of both the DT and kableExtra packages.  
 - Added utility functions ie `create_path()`  
-- Added HTML functions
+- Added HTML and `cat` functions
 
 # easyBakeOven 1.0.0  
 - All functions converted to snake case names    
