@@ -28,6 +28,7 @@
 #' must be assigned a value or not. Default: TRUE.
 #' @param ... (Optional) Additional parameters that should be added in the
 #' front matter of the Rmd. Should be entered in the format of a named vector.
+#' @param edit_file If called in an interactive session, the file will be opened in R Studio if TRUE.  
 #' @return
 #' @seealso
 #'  \code{\link[xfun]{read_utf8}}
@@ -46,6 +47,7 @@ create_report <-
            source_code_page_path = "",
            template_path = system.file(package = "easyBakeOven", "reports", "Generic.Rmd"),
            require_all_vars = TRUE,
+           edit_file = TRUE,
            ...) {
 
     stopifnot(!missing(report_title))
@@ -237,7 +239,9 @@ create_report <-
            easyBakeOven::create_path)
 
     if (interactive()) {
+      if (edit_file) {
       file.edit(new_rmd_file)
+        }
     }
 
 
@@ -534,6 +538,7 @@ create_report_child <-
   function(template_path,
            child_rmd_folder, #Destination folder for new template to be copied
            require_all_vars = TRUE,
+           edit_file = TRUE,
            ...) {
 
 
@@ -644,7 +649,11 @@ create_report_child <-
 
 
     if (interactive()) {
-      file.edit(new_rmd_file)
+      
+      if (edit_file) {
+        
+        file.edit(new_rmd_file)
+      }
 
     }
 
