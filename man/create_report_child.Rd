@@ -8,6 +8,7 @@ create_report_child(
   template_path,
   child_rmd_folder,
   require_all_vars = TRUE,
+  edit_file = TRUE,
   ...
 )
 }
@@ -22,6 +23,8 @@ in curly brackets in the template Rmd file. Sometimes, the template may have
 variables to be called upon by the glue function iteratively outside the
 template itself. This argument controls whether or not all of these variables
 must be assigned a value or not. Default: TRUE.}
+
+\item{edit_file}{If called in an interactive session, the file will be opened in R Studio if TRUE.}
 
 \item{...}{(Optional) Additional parameters that should be added in the
 front matter of the Rmd. Should be entered in the format of a named vector.}
