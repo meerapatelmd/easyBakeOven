@@ -19,7 +19,7 @@ output:
     dev: png
 params: 
   project_path: {project_path}  
-  issue_key: {issue_key} 
+  issue_key: '{issue_key}' 
   report_title: {report_title}
   github_page_path: {github_page_path}  
   source_code_page_path: {source_code_page_path}  
@@ -42,7 +42,7 @@ knitr::opts_chunk$set(
   cache.path = file.path(getwd(), "cache", sub("_cache/.*$", "", knitr::opts_chunk$get("cache.path")), "/"),
   child = NULL, #file/s to knit and then include,
   collapse = FALSE, #collapse all output into a single block,
-  error = TRUE, #display error messages in doc. FALSE stops render when error is thrown
+  error = FALSE, #display error messages in doc. FALSE stops render when error is thrown
   fig.align = "center", #left, right, center, or default
   fig.width = 7, #inches
   fig.height = 7, #inches
