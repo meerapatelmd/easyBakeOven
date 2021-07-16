@@ -7,6 +7,7 @@
 #' source file exists.
 #'
 #' @inheritParams create_report
+#' @path Optional. Path to HTML to prefix final link with.
 #' @seealso
 #'  \code{\link[xfun]{file_ext}}
 #'  \code{\link[stringr]{str_replace}}
@@ -16,7 +17,8 @@
 #' @importFrom stringr str_replace_all
 
 cat_link_to_report <-
-        function(rmd_title) {
+        function(rmd_title,
+                 path) {
 
                 rmd_title <-
                         xfun::sans_ext(rmd_title)
@@ -29,11 +31,18 @@ cat_link_to_report <-
                                                                  replacement = "-"),
                                 ext = "html")
 
+                if (!missing(path)) {
+
+                        link <-
+                                paste(rmd_title,
+                                      path,
+                                      collapse = "/")
+                } else {
+                        link <- html
+                }
 
                 cat_html_link(
-                        link =
-                        file.path("output",
-                                  html),
+                        link = link,
                         label = rmd_title
                 )
 
