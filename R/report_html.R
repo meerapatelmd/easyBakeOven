@@ -24,7 +24,7 @@ cat_link_to_report <-
                 html <-
                         xfun::with_ext(
                                 x =
-                                        stringr::str_replace_all(string = rmd,
+                                        stringr::str_replace_all(string = rmd_title,
                                                                  pattern = "[ ]{1}|[:]{1}",
                                                                  replacement = "-"),
                                 ext = "html")
