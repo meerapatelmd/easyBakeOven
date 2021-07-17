@@ -42,13 +42,6 @@ Example of a named list of customizations passed to the function:\preformatted{f
       list(border_style = "single-double"))
 }
 }
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
-}
 \seealso{
 \code{\link[cli]{console_width}},\code{\link[cli]{cat_line}}
 \code{\link[rlang]{list2}},\code{\link[rlang]{parse_expr}}

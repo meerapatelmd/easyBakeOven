@@ -113,12 +113,6 @@ cat_diagram <-
 #'       list(border_style = "single-double"))
 #' ```
 #'
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
 #' @seealso
 #'  \code{\link[cli]{console_width}},\code{\link[cli]{cat_line}}
 #'  \code{\link[rlang]{list2}},\code{\link[rlang]{parse_expr}}
