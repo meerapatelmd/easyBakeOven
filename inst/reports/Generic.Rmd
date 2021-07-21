@@ -56,12 +56,28 @@ knitr::opts_chunk$set(
     # "hold": put all results below all code
 )  
 
-# Derived from the name of the file itself
-rmd_title    <- 
+# If the session is interactive, the Rmd title is 
+# checked against the filename and the parameterized value, which should be the same.
   if (interactive()) { 
-    xfun::sans_ext(basename(rstudioapi::getSourceEditorContext()$path))
+    rmd_title_by_filename <- xfun::sans_ext(basename(rstudioapi::getSourceEditorContext()$path)) 
+    rmd_title_by_params <- 
+        sprintf("%s: %s", 
+            gsub(pattern = "^'|'$", 
+                 x = params$issue_key,
+                 replacement = ""),
+            params$report_title)
+     if (rmd_title_by_filename != rmd_title_by_params) {
+       stop("Filename does not match parameterized name")
+     } else {
+     rmd_title <- rmd_title_by_filename
+     
   } else {
-    basename(knitr::opts_chunk$get("cache.path"))
+  rmd_title <- 
+    sprintf("%s: %s", 
+            gsub(pattern = "^'|'$", 
+                 x = params$issue_key,
+                 replacement = ""),
+            params$report_title)
   }
 
 github_page  <- sprintf("%s/%s.html", params$github_page_path, rmd_title)
