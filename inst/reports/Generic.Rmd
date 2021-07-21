@@ -39,7 +39,6 @@ knitr::opts_chunk$set(
   echo = TRUE,
   eval = TRUE,
   cache = FALSE,
-  cache.path = file.path(getwd(), "cache", sub("_cache/.*$", "", knitr::opts_chunk$get("cache.path")), "/"),
   child = NULL, #file/s to knit and then include,
   collapse = FALSE, #collapse all output into a single block,
   error = FALSE, #display error messages in doc. FALSE stops render when error is thrown
@@ -132,6 +131,10 @@ sapply(c(global_data_folder,
          img_folder,
          cache_folder),
        create_path)
+       
+knitr::opts_chunk$set(
+  cache.path = cache_folder
+)  
 ```
 
 <!-- # Summary  -->
