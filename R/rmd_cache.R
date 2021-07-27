@@ -1,4 +1,122 @@
 #' @title
+#' Cache Only In Interactive
+#' @description
+#' If called in an interactive session, the object will be cached.
+#'
+#' @param object Object to be cached.
+#' @param dirs   Required. Path to the subdirectory within R.cache root path to
+#' save the cache to.
+#'
+#' @details
+#' This function is useful when reporting on a process that has already been
+#' executed and does not require re-execution during the knitting process.
+#' For example, a Neo4j database can be written in an interactive session at
+#' which point the metadata for reporting purposes can be logged. Instead of forcing
+#' the database to be instantiated when the R markdown is knit, knitr will
+#' only pull up the cached log.
+#'
+#' @seealso
+#'  \code{\link[R.cache]{saveCache}},\code{\link[R.cache]{findCache}},\code{\link[R.cache]{loadCache}}
+#' @rdname cache_if_interactive
+#' @export
+#' @importFrom R.cache saveCache findCache loadCache
+
+
+cache_if_interactive <-
+        function(object,
+                 dirs,
+                 overwrite = FALSE) {
+
+                stopifnot(!missing(dirs))
+
+                object_name <-
+                        deparse(substitute(object))
+
+                if (interactive()) {
+
+
+                        if (overwrite) {
+
+                        R.cache::saveCache(
+                                object = object,
+                                dirs   = dirs,
+                                key    = list(object_name)
+                        )
+
+                        cli::cli_alert_success("{object_name} successfully cached.")
+
+                        } else {
+
+                                # Checking to see if a cache for this key already exists
+                                object_is_cached <-
+                                        !is.null(
+                                                R.cache::findCache(
+                                                        dirs = dirs,
+                                                        key  = list(object_name)
+                                                )
+                                        )
+
+                                if (object_is_cached) {
+
+                                        cli::cli_alert_danger("{object_name} already previously cached. To overwrite, set `overwrite` to TRUE.")
+                                } else {
+
+                                        R.cache::saveCache(
+                                                object = object,
+                                                dirs   = dirs,
+                                                key    = list(object_name)
+                                        )
+
+                                        cli::cli_alert_success("{object_name} successfully cached.")
+
+                                }
+
+
+                        }
+
+                } else {
+
+                        # Checking to see if a cache for this key already exists
+                        object_is_cached <-
+                                !is.null(
+                                        R.cache::findCache(
+                                                dirs = dirs,
+                                                key  = list(object_name)
+                                        )
+                                )
+
+
+                        if (!object_is_cached) {
+                                stop(sprintf("`%s` is not cached at `%s`.", object_name,
+                                             cache_folder))
+                        }
+
+                        value <-
+                                R.cache::loadCache(
+                                        dirs   = dirs,
+                                        key    = list(object_name))
+
+                        assign(x = object_name,
+                               value = value,
+                               envir = parent.frame())
+
+                }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#' @title
 #' Cache or Load an Object Depending on
 #' Interactive Status
 #' @description
@@ -31,6 +149,8 @@
 preknit_cache <-
         function(object,
                  dirs) {
+
+                .Deprecated()
 
                 stopifnot(!missing(dirs))
 
