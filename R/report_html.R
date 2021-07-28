@@ -7,7 +7,7 @@
 #' source file exists.
 #'
 #' @inheritParams create_report
-#' @path Optional. Path to HTML to prefix final link with.
+#' @param path Optional. Path to HTML to prefix final link with.
 #' @seealso
 #'  \code{\link[xfun]{file_ext}}
 #'  \code{\link[stringr]{str_replace}}
