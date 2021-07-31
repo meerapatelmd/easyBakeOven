@@ -4,16 +4,16 @@
 #' @param alpha PARAM_DESCRIPTION, Default: FALSE
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[grDevices]{col2rgb}},\code{\link[grDevices]{rgb}}
 #' @rdname color_to_hex
-#' @export 
+#' @export
 #' @importFrom grDevices col2rgb rgb
 color_to_hex <-
         function(x,
@@ -38,14 +38,14 @@ color_to_hex <-
 
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
 #' @rdname colors_hex_map
-#' @export 
+#' @export
 colors_hex_map <-
         function() {
                 sapply(colors(), color_to_hex)
@@ -56,14 +56,14 @@ colors_hex_map <-
 #' @param hex PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
 #' @rdname hex_to_color
-#' @export 
+#' @export
 hex_to_color <-
         function(hex) {
 
@@ -76,14 +76,14 @@ hex_to_color <-
 #' @param x PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
 #' @rdname hex_colors_map
-#' @export 
+#' @export
 hex_colors_map <-
         function(x) {
 
@@ -101,17 +101,17 @@ hex_colors_map <-
 
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[dplyr]{filter}}
 #'  \code{\link[rubix]{filter_at_grepl}}
 #' @rdname base_colors
-#' @export 
+#' @export
 #' @importFrom dplyr filter
 #' @importFrom rubix filter_at_grepl
 base_colors <-
@@ -158,6 +158,7 @@ base_colors <-
 
 
 
+
 # Adapted from scales::show_col. Labels are color names instead
 # of hex code.
 
@@ -170,16 +171,16 @@ base_colors <-
 #' @param ncol PARAM_DESCRIPTION, Default: NULL
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[rlang]{list2}}
 #' @rdname view_colors
-#' @export 
+#' @export
 #' @importFrom rlang list2
 view_colors <-
         function (..., labels = TRUE, borders = NULL, cex_label = 0.5,
@@ -214,18 +215,18 @@ view_colors <-
 #' @param ... PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[rlang]{list2}}
 #'  \code{\link[stringr]{str_remove}}
 #'  \code{\link[dplyr]{filter}},\code{\link[dplyr]{select}}
 #' @rdname view_color_shades
-#' @export 
+#' @export
 #' @importFrom rlang list2
 #' @importFrom stringr str_remove_all
 #' @importFrom dplyr filter select
@@ -373,16 +374,16 @@ view_color_shades <-
 #' @param x PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[colorspace]{hcl_palettes}}
 #' @rdname assign_colors_by
-#' @export 
+#' @export
 #' @importFrom colorspace diverge_hcl
 assign_colors_by <-
         function(x) {
@@ -405,16 +406,16 @@ assign_colors_by <-
 #' @param color PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[glue]{glue}}
 #' @rdname add_html_color
-#' @export 
+#' @export
 #' @importFrom glue glue
 add_html_color <-
         function(text,
@@ -431,14 +432,14 @@ add_html_color <-
 #' @param color_assignment PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
 #' @rdname map_colors
-#' @export 
+#' @export
 map_colors <-
         function(x,
                  color_assignment) {
@@ -462,16 +463,16 @@ map_colors <-
 #' @param exclude_color_regex PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples 
+#' @examples
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @seealso 
+#' @seealso
 #'  \code{\link[dplyr]{filter}}
 #' @rdname assign_colors
-#' @export 
+#' @export
 #' @importFrom dplyr filter
 assign_colors <-
         function(x,
