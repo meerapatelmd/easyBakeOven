@@ -6,6 +6,9 @@
 \usage{
 cat_link_to_report(rmd_title, path)
 }
+\arguments{
+\item{path}{Optional. Path to HTML to prefix final link with.}
+}
 \description{
 HTML link to another report based by
 title. Note that this function does not

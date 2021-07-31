@@ -1,3 +1,20 @@
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param x PARAM_DESCRIPTION
+#' @param alpha PARAM_DESCRIPTION, Default: FALSE
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[grDevices]{col2rgb}},\code{\link[grDevices]{rgb}}
+#' @rdname color_to_hex
+#' @export 
+#' @importFrom grDevices col2rgb rgb
 color_to_hex <-
         function(x,
                  alpha = FALSE) {
@@ -16,11 +33,37 @@ color_to_hex <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @rdname colors_hex_map
+#' @export 
 colors_hex_map <-
         function() {
                 sapply(colors(), color_to_hex)
         }
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param hex PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @rdname hex_to_color
+#' @export 
 hex_to_color <-
         function(hex) {
 
@@ -28,6 +71,19 @@ hex_to_color <-
 
         }
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param x PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @rdname hex_colors_map
+#' @export 
 hex_colors_map <-
         function(x) {
 
@@ -40,6 +96,24 @@ hex_colors_map <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[dplyr]{filter}}
+#'  \code{\link[rubix]{filter_at_grepl}}
+#' @rdname base_colors
+#' @export 
+#' @importFrom dplyr filter
+#' @importFrom rubix filter_at_grepl
 base_colors <-
         function() {
 
@@ -87,6 +161,26 @@ base_colors <-
 # Adapted from scales::show_col. Labels are color names instead
 # of hex code.
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param ... PARAM_DESCRIPTION
+#' @param labels PARAM_DESCRIPTION, Default: TRUE
+#' @param borders PARAM_DESCRIPTION, Default: NULL
+#' @param cex_label PARAM_DESCRIPTION, Default: 0.5
+#' @param ncol PARAM_DESCRIPTION, Default: NULL
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[rlang]{list2}}
+#' @rdname view_colors
+#' @export 
+#' @importFrom rlang list2
 view_colors <-
         function (..., labels = TRUE, borders = NULL, cex_label = 0.5,
                   ncol = NULL) {
@@ -115,6 +209,26 @@ view_colors <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param ... PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[rlang]{list2}}
+#'  \code{\link[stringr]{str_remove}}
+#'  \code{\link[dplyr]{filter}},\code{\link[dplyr]{select}}
+#' @rdname view_color_shades
+#' @export 
+#' @importFrom rlang list2
+#' @importFrom stringr str_remove_all
+#' @importFrom dplyr filter select
 view_color_shades <-
         function(...) {
 
@@ -254,6 +368,22 @@ view_color_shades <-
 
         }
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param x PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[colorspace]{hcl_palettes}}
+#' @rdname assign_colors_by
+#' @export 
+#' @importFrom colorspace diverge_hcl
 assign_colors_by <-
         function(x) {
 
@@ -269,6 +399,23 @@ assign_colors_by <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param text PARAM_DESCRIPTION
+#' @param color PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[glue]{glue}}
+#' @rdname add_html_color
+#' @export 
+#' @importFrom glue glue
 add_html_color <-
         function(text,
                  color) {
@@ -278,6 +425,20 @@ add_html_color <-
 
         }
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param x PARAM_DESCRIPTION
+#' @param color_assignment PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @rdname map_colors
+#' @export 
 map_colors <-
         function(x,
                  color_assignment) {
@@ -292,6 +453,26 @@ map_colors <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param x PARAM_DESCRIPTION
+#' @param taken_colors PARAM_DESCRIPTION
+#' @param shade_level PARAM_DESCRIPTION, Default: 2
+#' @param seed PARAM_DESCRIPTION, Default: 100
+#' @param exclude_color_regex PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[dplyr]{filter}}
+#' @rdname assign_colors
+#' @export 
+#' @importFrom dplyr filter
 assign_colors <-
         function(x,
                  taken_colors,
