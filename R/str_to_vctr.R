@@ -30,12 +30,36 @@ str_to_vctr <-
 
 vctr_to_str <-
   function(vector,
-           quote = "'") {
+           quote = "'",
+           collapse = ", ") {
     vector <- as.character(vector)
 
     # Enquoting the strings
     vector <- sprintf("%s%s%s", quote, vector, quote)
 
     # Adding commas and bordering with c()
-    sprintf("c(%s)", paste(vector, collapse = ", "))
+    sprintf("c(%s)", paste(vector, collapse = collapse))
+  }
+
+
+#' @title
+#' Convert a vector of values into a string
+#'
+#' @description
+#' Store values neatly in an Excel or other dataframe for summary or record-keeping, but is in a format that can be readily parsed back to an expression if need be. This is important in cases where the names of columns want to be saved for a dataframe in a particular script to reference back or to QA later on. The string can be converted back to a vector by its counterpart function string_to_vector() in this package.
+#' @export
+#' @example inst/examples/str_to_vctr.R
+#' @rdname vctr_to_str_nl
+
+vctr_to_str_nl <-
+  function(vector,
+           quote = "'") {
+    vector <- as.character(vector)
+
+    # Enquoting the strings
+    vector <- sprintf("    %s%s%s", quote, vector, quote)
+    vector <- paste(vector, collapse = ",\n")
+
+    # Adding commas and bordering with c()
+    sprintf("  c(\n%s\n  )", vector)
   }

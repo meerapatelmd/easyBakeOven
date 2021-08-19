@@ -1,3 +1,8 @@
+# easyBakeOven 1.3.0.9000    
+- Included NA as 'NA' for color mapping in `map_colors()`.  
+- Added `vctr_to_str_nl()`, `map_to_value()`    
+
+
 # easyBakeOven 1.3.0  
 - Added `report` functions that create a parameterized R markdown  
 from a template that is either provided by this package or 

@@ -1,7 +1,5 @@
 #' @title
 #' Make a List Object
-#' @seealso
-#'  \code{\link[glue]{glue}}
 #' @rdname cat_list
 #' @export
 #' @importFrom glue glue

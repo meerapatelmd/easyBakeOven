@@ -432,22 +432,20 @@ add_html_color <-
 #' @param color_assignment PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
 #' @rdname map_colors
 #' @export
+#' @importFrom stringr str_replace_na
 map_colors <-
         function(x,
                  color_assignment) {
 
                 color_assignment2 <- names(color_assignment)
-                names(color_assignment2) <- color_assignment
+                names(color_assignment2) <-
+                        stringr::str_replace_na(color_assignment)
 
-                fct_recode(factor(x),
+
+
+                fct_recode(factor(stringr::str_replace_na(x)),
                            !!!color_assignment2) %>%
                         as.character()
 
