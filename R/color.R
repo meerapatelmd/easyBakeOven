@@ -209,6 +209,59 @@ view_colors <-
                 }
         }
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param ... PARAM_DESCRIPTION
+#' @param labels PARAM_DESCRIPTION, Default: TRUE
+#' @param borders PARAM_DESCRIPTION, Default: NULL
+#' @param cex_label PARAM_DESCRIPTION, Default: 0.5
+#' @param ncol PARAM_DESCRIPTION, Default: NULL
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso
+#'  \code{\link[rlang]{list2}}
+#' @rdname view_labelled_colors
+#' @export
+#' @import cli
+#' @importFrom rlang list2
+view_labelled_colors <-
+        function (..., labels = NULL, borders = NULL, cex_label = 0.5,
+                  ncol = NULL) {
+
+                colours <- unlist(rlang::list2(...))
+
+                n <- length(colours)
+                ncol <- ncol %||% ceiling(sqrt(length(colours)))
+                nrow <- ceiling(n/ncol)
+                colours <- c(colours, rep(NA, nrow * ncol - length(colours)))
+                colours <- matrix(colours, ncol = ncol, byrow = TRUE)
+                old <- par(pty = "s", mar = c(0, 0, 0, 0))
+                on.exit(par(old))
+                size <- max(dim(colours))
+                plot(c(0, size), c(0, -size), type = "n", xlab = "", ylab = "",
+                     axes = FALSE)
+                rect(col(colours) - 1, -row(colours) + 1, col(colours), -row(colours),
+                     col = colours, border = borders)
+                if (!is.null(labels)) {
+
+                        if (length(labels) == length(colours)) {
+                                text(x = col(colours) - 0.5,
+                                     y = -row(colours) + 0.5,
+                                     labels = labels,
+                                     cex = cex_label,
+                                     col = "black")
+                        } else {
+
+                                cli::cli_alert_warning("There are {length(labels)} `labels` and {length(colours)} color{?s}. `labels` must be the same length as colors. No labels are applied.")
+                        }
+                }
+        }
 
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION

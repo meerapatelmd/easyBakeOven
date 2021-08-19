@@ -1,6 +1,6 @@
 # easyBakeOven 1.3.0.9000    
 - Included NA as 'NA' for color mapping in `map_colors()`.  
-- Added `vctr_to_str_nl()`, `map_to_value()`    
+- Added `vctr_to_str_nl()`, `map_to_value()`, `view_labelled_colors()`     
 
 
 # easyBakeOven 1.3.0  

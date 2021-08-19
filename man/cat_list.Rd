@@ -9,6 +9,3 @@ cat_list(list)
 \description{
 Make a List Object
 }
-\seealso{
-\code{\link[glue]{glue}}
-}
