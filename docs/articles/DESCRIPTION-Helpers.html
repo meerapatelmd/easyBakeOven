@@ -86,7 +86,7 @@
 
       
 
-      </header><script src="DESCRIPTION-Helpers_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="DESCRIPTION-Helpers_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>DESCRIPTION Helpers</h1>
@@ -100,7 +100,13 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://meerapatelmd.github.io/easyBakeOven/">easyBakeOven</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://meerapatelmd.github.io/easyBakeOven/">easyBakeOven</a></span><span class="op">)</span>
+<span class="co">#&gt; Warning: replacing previous import 'dplyr::pull' by 'git2r::pull' when loading</span>
+<span class="co">#&gt; 'glitter'</span>
+<span class="co">#&gt; Warning: replacing previous import 'dplyr::collapse' by 'glue::collapse' when</span>
+<span class="co">#&gt; loading 'glitter'</span>
+<span class="co">#&gt; Warning: replacing previous import 'git2r::content' by 'httr::content' when</span>
+<span class="co">#&gt; loading 'glitter'</span></code></pre></div>
 <div id="make-description" class="section level1">
 <h1 class="hasAnchor">
 <a href="#make-description" class="anchor"></a>Make DESCRIPTION</h1>
@@ -124,19 +130,36 @@
 <span class="co">#&gt;     https: //github.com/meerapatelmd/easyBakeOven/</span>
 <span class="co">#&gt; BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/</span>
 <span class="co">#&gt; Imports: cli,</span>
+<span class="co">#&gt; colorspace,</span>
+<span class="co">#&gt; DT,</span>
+<span class="co">#&gt; R.cache,</span>
+<span class="co">#&gt; cave,</span>
+<span class="co">#&gt; curl,</span>
+<span class="co">#&gt; data.tree,</span>
 <span class="co">#&gt; devtools,</span>
-<span class="co">#&gt; glue,</span>
+<span class="co">#&gt; dplyr,</span>
+<span class="co">#&gt; forcats,</span>
 <span class="co">#&gt; glitter,</span>
+<span class="co">#&gt; glue,</span>
+<span class="co">#&gt; grDevices,</span>
+<span class="co">#&gt; hexSticker,</span>
+<span class="co">#&gt; kableExtra,</span>
 <span class="co">#&gt; magrittr,</span>
+<span class="co">#&gt; pkgdown,</span>
 <span class="co">#&gt; purrr,</span>
 <span class="co">#&gt; readr,</span>
-<span class="co">#&gt; rlang (&gt;= 0.1.2),</span>
+<span class="co">#&gt; rlang,</span>
+<span class="co">#&gt; rubix,</span>
 <span class="co">#&gt; secretary,</span>
+<span class="co">#&gt; showtext,</span>
 <span class="co">#&gt; sinew,</span>
 <span class="co">#&gt; stringr,</span>
+<span class="co">#&gt; sysfonts,</span>
 <span class="co">#&gt; tibble,</span>
 <span class="co">#&gt; tidyr,</span>
-<span class="co">#&gt; usethis</span>
+<span class="co">#&gt; usethis,</span>
+<span class="co">#&gt; utils,</span>
+<span class="co">#&gt; xfun</span>
 <span class="co">#&gt; Suggests: knitr,</span>
 <span class="co">#&gt; rmarkdown,</span>
 <span class="co">#&gt; spelling,</span>
@@ -145,6 +168,7 @@
 <span class="co">#&gt; VignetteBuilder: knitr,</span>
 <span class="co">#&gt; R.rsp</span>
 <span class="co">#&gt; Remotes: meerapatelmd/glitter,</span>
+<span class="co">#&gt; meerapatelmd/rubix,</span>
 <span class="co">#&gt; meerapatelmd/secretary</span>
 <span class="co">#&gt; Encoding: UTF-8</span>
 <span class="co">#&gt; LazyData: true</span>
@@ -152,7 +176,7 @@
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
 <span class="co">#&gt; Language: en-US</span>
 <span class="co">#&gt; Depends: R (&gt;= 2.10)</span>
-<span class="co">#&gt; Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [77].</span>
+<span class="co">#&gt; Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [81].</span>
 <span class="co">#&gt; Imports: </span>
 <span class="co">#&gt;     DT,</span>
 <span class="co">#&gt;     R.cache,</span>

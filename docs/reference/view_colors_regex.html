@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FUNCTION_TITLE — view_colors_regex • easyBakeOven</title>
+<title>View Colors Via Regex — view_colors_regex • easyBakeOven</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="FUNCTION_TITLE — view_colors_regex" />
-<meta property="og:description" content="FUNCTION_DESCRIPTION" />
+<meta property="og:title" content="View Colors Via Regex — view_colors_regex" />
+<meta property="og:description" content="View Colors Via Regex" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,13 +131,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>FUNCTION_TITLE</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/color2.R'><code>R/color2.R</code></a></small>
+    <h1>View Colors Via Regex</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/easyBakeOven/blob/master/R/color.R'><code>R/color.R</code></a></small>
     <div class="hidden name"><code>view_colors_regex.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>FUNCTION_DESCRIPTION</p>
+    <p>View Colors Via Regex</p>
     </div>
 
     <pre class="usage"><span class='fu'>view_colors_regex</span><span class='op'>(</span>
@@ -154,44 +154,38 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>pattern</th>
-      <td><p>PARAM_DESCRIPTION</p></td>
+      <td><p>character string containing a <a href='https://rdrr.io/r/base/regex.html'>regular expression</a>
+    (or character string for <code>fixed = TRUE</code>) to be matched
+    in the given character vector.  Coerced by
+    <code><a href='https://rdrr.io/r/base/character.html'>as.character</a></code> to a character string if possible.  If a
+    character vector of length 2 or more is supplied, the first element
+    is used with a warning.  Missing values are allowed except for
+    <code>regexpr</code> and <code>gregexpr</code>.</p></td>
     </tr>
     <tr>
       <th>invert</th>
-      <td><p>PARAM_DESCRIPTION, Default: FALSE</p></td>
+      <td><p>logical.  If <code>TRUE</code> return indices or values for
+    elements that do <em>not</em> match.</p></td>
     </tr>
     <tr>
       <th>labels</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
+      <td><p>If TRUE, the plot is labelled with the color name. Default: TRUE</p></td>
     </tr>
     <tr>
       <th>borders</th>
-      <td><p>PARAM_DESCRIPTION, Default: NULL</p></td>
+      <td><p>Color for rectangle border(s) that is passed to <code><a href='https://rdrr.io/r/graphics/rect.html'>rect()</a></code>, Default: NULL</p></td>
     </tr>
     <tr>
       <th>cex_label</th>
-      <td><p>PARAM_DESCRIPTION, Default: 0.5</p></td>
+      <td><p>Numeric character expansion factor; multiplied by par("cex") yields the final character size. NULL and NA are equivalent to 1.0, Default: 0.5</p></td>
     </tr>
     <tr>
       <th>ncol</th>
-      <td><p>PARAM_DESCRIPTION, Default: NULL</p></td>
+      <td><p>How wide the plot should be, Default: NULL</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>OUTPUT_DESCRIPTION</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>DETAILS</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
- <span class='co'>#EXAMPLE1</span>
- <span class='op'>}</span>
-<span class='op'>}</span>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
