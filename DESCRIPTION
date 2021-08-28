@@ -16,21 +16,38 @@ License: MIT + file LICENSE
 URL: https://meerapatelmd.github.io/easyBakeOven/,
     https://github.com/meerapatelmd/easyBakeOven/
 BugReports: https://github.com/meerapatelmd/easyBakeOven/issues/
-Imports:
+Imports:                                                                                                                                                                                               
     cli,
+    colorspace,
+    DT,
+    R.cache,
+    cave,
+    curl,
+    data.tree,
     devtools,
-    glue,
+    dplyr,
+    forcats,
     glitter,
+    glue,
+    grDevices,
+    hexSticker,
+    kableExtra,
     magrittr,
+    pkgdown,
     purrr,
     readr,
-    rlang (>= 0.1.2),
+    rlang,
+    rubix,
     secretary,
+    showtext,
     sinew,
     stringr,
+    sysfonts,
     tibble,
     tidyr,
-    usethis
+    usethis,
+    utils,
+    xfun
 Suggests: 
     knitr,
     rmarkdown,
@@ -42,6 +59,7 @@ VignetteBuilder:
     R.rsp
 Remotes: 
     meerapatelmd/glitter,
+    meerapatelmd/rubix,
     meerapatelmd/secretary
 Encoding: UTF-8
 LazyData: true

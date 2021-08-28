@@ -10,7 +10,7 @@
 #' @rdname cache_object
 #' @export
 #' @importFrom R.cache saveCache findCache loadCache
-#' @import cli
+#' @importFrom cli cli_alert_success cli_alert_danger
 
 
 cache_object <-
@@ -80,7 +80,7 @@ cache_object <-
 #' @rdname load_cached_object
 #' @export
 #' @importFrom R.cache saveCache findCache loadCache
-#' @import cli
+#' @importFrom cli cli_alert_success cli_alert_danger
 
 
 load_cached_object <-

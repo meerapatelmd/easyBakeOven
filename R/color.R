@@ -207,7 +207,7 @@ view_colors <-
 #'  \code{\link[rlang]{list2}}
 #' @rdname view_labelled_colors
 #' @export
-#' @import cli
+#' @importFrom cli cli_alert_warning
 #' @importFrom rlang list2
 view_labelled_colors <-
         function (..., labels = NULL, borders = NULL, cex_label = 0.5,
