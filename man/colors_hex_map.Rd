@@ -2,23 +2,15 @@
 % Please edit documentation in R/color.R
 \name{colors_hex_map}
 \alias{colors_hex_map}
-\title{FUNCTION_TITLE}
+\title{Map Between Base R Colors and Hex Codes}
 \usage{
 colors_hex_map()
 }
 \value{
-OUTPUT_DESCRIPTION
+Vector of hexadecimal codes named by the source
+color name.
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+All colors returned by base::colors() are
+mapped to their corresponding hex codes.
 }

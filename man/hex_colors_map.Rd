@@ -2,26 +2,14 @@
 % Please edit documentation in R/color.R
 \name{hex_colors_map}
 \alias{hex_colors_map}
-\title{FUNCTION_TITLE}
+\title{Map Between Hex Codes and Base R Colors}
 \usage{
 hex_colors_map(x)
 }
-\arguments{
-\item{x}{PARAM_DESCRIPTION}
-}
 \value{
-OUTPUT_DESCRIPTION
+Vector of color names named by their corresponding hexadecimal code.
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+The inverse map of all colors returned by base::colors() are
+mapped to their corresponding hex codes.
 }

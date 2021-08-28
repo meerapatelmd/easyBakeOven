@@ -2,28 +2,29 @@
 % Please edit documentation in R/color.R
 \name{view_color_shades}
 \alias{view_color_shades}
-\title{FUNCTION_TITLE}
+\title{View Each Color and Its Shades}
 \usage{
-view_color_shades(...)
+view_color_shades(
+  ...,
+  labels = TRUE,
+  borders = NULL,
+  cex_label = 0.5,
+  ncol = NULL
+)
 }
 \arguments{
-\item{...}{PARAM_DESCRIPTION}
-}
-\value{
-OUTPUT_DESCRIPTION
+\item{...}{Base names of colors}
+
+\item{labels}{If TRUE, the plot is labelled with the color name. Default: TRUE}
+
+\item{borders}{Color for rectangle border(s) that is passed to \code{rect()}, Default: NULL}
+
+\item{cex_label}{Numeric character expansion factor; multiplied by par("cex") yields the final character size. NULL and NA are equivalent to 1.0, Default: 0.5}
+
+\item{ncol}{How wide the plot should be, Default: NULL}
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+View Each Color and Its Shades
 }
 \seealso{
 \code{\link[rlang]{list2}}

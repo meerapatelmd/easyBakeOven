@@ -2,26 +2,10 @@
 % Please edit documentation in R/color.R
 \name{hex_to_color}
 \alias{hex_to_color}
-\title{FUNCTION_TITLE}
+\title{Lookup the Color Name of a Hex Code}
 \usage{
 hex_to_color(hex)
 }
-\arguments{
-\item{hex}{PARAM_DESCRIPTION}
-}
-\value{
-OUTPUT_DESCRIPTION
-}
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+Lookup the Color Name of a Hex Code
 }

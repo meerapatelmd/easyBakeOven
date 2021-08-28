@@ -2,27 +2,10 @@
 % Please edit documentation in R/color.R
 \name{base_colors}
 \alias{base_colors}
-\title{FUNCTION_TITLE}
+\title{Base Colors}
 \usage{
 base_colors()
 }
-\value{
-OUTPUT_DESCRIPTION
-}
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
-}
-\seealso{
-\code{\link[dplyr]{filter}}
-\code{\link[rubix]{filter_at_grepl}}
+Base Colors
 }

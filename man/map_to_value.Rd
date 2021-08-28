@@ -9,9 +9,10 @@ map_to_value(x, map_assignment, other)
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{map_assignment}{PARAM_DESCRIPTION}
+\item{map_assignment}{Named vector that is the inverse of what is expected in the forcats fct_recode arguments.
+Map assignments to \code{NA_character_} should use \code{NA = {value}}.}
 
-\item{other}{PARAM_DESCRIPTION}
+\item{other}{The value to map all other values not in the \code{map_assignment}.}
 }
 \value{
 OUTPUT_DESCRIPTION

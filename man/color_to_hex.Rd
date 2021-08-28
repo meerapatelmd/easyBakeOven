@@ -2,30 +2,25 @@
 % Please edit documentation in R/color.R
 \name{color_to_hex}
 \alias{color_to_hex}
-\title{FUNCTION_TITLE}
+\title{Color to Hex}
 \usage{
 color_to_hex(x, alpha = FALSE)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{Color name as string.}
 
-\item{alpha}{PARAM_DESCRIPTION, Default: FALSE}
+\item{alpha}{logical value indicating whether the alpha channel (opacity)
+    values should be returned.}
 }
 \value{
-OUTPUT_DESCRIPTION
+Vector of length 1 or greater of hex codes matched to the RGB derived
+from the color name.
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
+Get the hex code for a color given by its name.
 }
 \examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+color_to_hex("blue")
 }
 \seealso{
 \code{\link[grDevices]{col2rgb}},\code{\link[grDevices]{rgb}}

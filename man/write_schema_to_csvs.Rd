@@ -35,9 +35,7 @@ file is created.}
 \item{col_names}{If \code{FALSE}, column names will not be included at the top of the file. If \code{TRUE},
 column names will be included. If not specified, \code{col_names} will take the opposite value given to \code{append}.}
 
-\item{quote_escape}{The type of escaping to use for quoted values, one of
-\code{"double"}, \code{"backslash"} or \code{"none"}. You can also use \code{FALSE}, which is
-equivalent to "none". The default is \code{"double"}, which is expected format for Excel.}
+\item{quote_escape}{\Sexpr[results=rd, stage=render]{lifecycle::badge("deprecated")}, use the \code{escape} argument instead.}
 
 \item{eol}{The end of line character to use. Most commonly either \code{"\n"} for
 Unix style newlines, or \code{"\r\n"} for Windows style newlines.}

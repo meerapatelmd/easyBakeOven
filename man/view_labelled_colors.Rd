@@ -2,7 +2,7 @@
 % Please edit documentation in R/color.R
 \name{view_labelled_colors}
 \alias{view_labelled_colors}
-\title{FUNCTION_TITLE}
+\title{View Colors in the Plots Pane}
 \usage{
 view_labelled_colors(
   ...,
@@ -13,31 +13,18 @@ view_labelled_colors(
 )
 }
 \arguments{
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Color names or hex codes.}
 
-\item{labels}{PARAM_DESCRIPTION, Default: TRUE}
+\item{labels}{Custom labels other than the color name.}
 
-\item{borders}{PARAM_DESCRIPTION, Default: NULL}
+\item{borders}{Color for rectangle border(s) that is passed to \code{rect()}, Default: NULL}
 
-\item{cex_label}{PARAM_DESCRIPTION, Default: 0.5}
+\item{cex_label}{Numeric character expansion factor; multiplied by par("cex") yields the final character size. NULL and NA are equivalent to 1.0, Default: 0.5}
 
-\item{ncol}{PARAM_DESCRIPTION, Default: NULL}
-}
-\value{
-OUTPUT_DESCRIPTION
+\item{ncol}{How wide the plot should be, Default: NULL}
 }
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+View Colors in the Plots Pane
 }
 \seealso{
 \code{\link[rlang]{list2}}

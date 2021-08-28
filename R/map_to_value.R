@@ -1,8 +1,9 @@
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
 #' @param x PARAM_DESCRIPTION
-#' @param map_assignment PARAM_DESCRIPTION
-#' @param other PARAM_DESCRIPTION
+#' @param map_assignment Named vector that is the inverse of what is expected in the forcats fct_recode arguments.
+#' Map assignments to `NA_character_` should use `NA = {value}`.
+#' @param other The value to map all other values not in the `map_assignment`.
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
 #' @rdname map_to_value
@@ -13,7 +14,9 @@
 
 
 map_to_value <-
-function (x, map_assignment, other)
+function (x,
+          map_assignment,
+          other)
 {
         stopifnot(is.character(x))
         x <- stringr::str_replace_na(x)
