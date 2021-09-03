@@ -1,5 +1,5 @@
 ---
-title: "{issue_key}: {report_title}"
+title: '<<<report_title>>>'
 output: 
   html_document:
     css: style.css
@@ -18,11 +18,11 @@ output:
     fig_caption: true
     dev: png
 params: 
-  project_path: {project_path}  
-  issue_key: '{issue_key}' 
-  report_title: {report_title}
-  github_page_path: {github_page_path}  
-  source_code_page_path: {source_code_page_path}  
+  project_path: '<<<project_path>>>'  
+  issue_key: '<<<issue_key>>>' 
+  report_title: '<<<report_title>>>'
+  github_page_path: '<<<github_page_path>>>'  
+  source_code_page_path: '<<<source_code_page_path>>>'  
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile,
                     encoding = encoding,

@@ -12,6 +12,7 @@ output:
     collapsed: false
     smooth_scroll: false
     code_folding: show #or hide
+    df_print: paged
     fig_height: 5 
     fig_width: 7 
     fig_caption: true
@@ -63,41 +64,84 @@ registerS3method(
   "knit_print", "data.frame", knit_print.data.frame,
   envir = asNamespace("knitr")
 )
+```
+
+```{r setup2,include=FALSE}
+knitr::knit_hooks$set(error = function(x, options) { 
+  paste(c('\n\n:::{style="color:Crimson; background-color:SeaShell;"}',
+        gsub('^## Error', '**Error**:', x),
+        ':::\n'), collapse = '\n')
+})
+
+knitr::knit_hooks$set(warning = function(x, options) { 
+  paste(c('\n\n:::{style="color:Gray; background-color:White;"}',
+        gsub('^## Warning', '**Warning**:', x), ':::\n'), collapse = '\n')
+})
+
+knitr::knit_hooks$set(message = function(x, options) { 
+  paste(c('\n\n:::{style="color:Green; background-color:PaleGreen;"}',
+        gsub('^## Message', '**Message**:', x), ':::\n'), collapse = '\n')
+})
 
 
+knitr::knit_hooks$set(timed = local({
+  now <- NULL
+  function(before, options) {
+    if (before) {
+      # record the current time before each chunk
+      now <<- Sys.time()
+    } else {
+      # calculate the time difference after a chunk
+      res <- difftime(Sys.time(), now)
+      # return a character string to show the time
+      paste("Time for this code chunk to run:", res)
+    }
+  }
+}))
+```
+
+```{r setup3,include=FALSE}
 # If the session is interactive, the Rmd title is 
 # checked against the filename and the parameterized value, which should be the same.
   if (interactive()) { 
     rmd_title_by_filename <- xfun::sans_ext(basename(rstudioapi::getSourceEditorContext()$path)) 
-    rmd_title <- rmd_title_by_filename
+    rmd_title_by_params <- 
+        sprintf("%s: %s", 
+            gsub(pattern = "^'|'$", 
+                 x = params$issue_key,
+                 replacement = ""),
+            params$report_title)
+     if (rmd_title_by_filename != rmd_title_by_params) {
+       stop("Filename does not match parameterized name")
+     } else {
+     rmd_title <- rmd_title_by_filename
+     }
      
   } else {
   rmd_title <- 
-            params$report_title
+    sprintf("%s: %s", 
+            gsub(pattern = "^'|'$", 
+                 x = params$issue_key,
+                 replacement = ""),
+            params$report_title)
   }
 
 github_page  <- sprintf("%s/%s.html", params$github_page_path, rmd_title)
 source_code  <- sprintf("%s/%s.Rmd", params$source_code_page_path, rmd_title)
+issue_key    <- params$issue_key
 report_title <- params$report_title
 project_path <- path.expand(params$project_path)
-
-
-knitr::knit_hooks$set(error = function(x, options) { 
-  paste(c('\n\n:::{style="color:Crimson; background-color: SeaShell;"}',
-        gsub('^## Error', '**Error**:', x),
-        ':::'), collapse = '\n')
-})
 ```
 
 **Last Updated On:** `r Sys.time()`  
 
-```{r setup2,eval=TRUE,message=FALSE,echo=FALSE}
+```{r setup4,eval=TRUE,message=FALSE,echo=FALSE}
 library(tidyverse)
 library(easyBakeOven)
 library(glue)
 ```
 
-```{r folders,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
+```{r setup5,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
 global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
 raw_folder          <- file.path(global_data_folder, "raw")
 intermediate_folder <- file.path(global_data_folder, "intermediate")
