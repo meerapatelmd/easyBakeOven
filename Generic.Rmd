@@ -55,16 +55,6 @@ knitr::opts_chunk$set(
     # "hold": put all results below all code
 )  
 
-knit_print.data.frame = function(x, ...) {
-  res = DT::datatable(x)
-  knitr::knit_print(res)
-}
-
-registerS3method(
-  "knit_print", "data.frame", knit_print.data.frame,
-  envir = asNamespace("knitr")
-)
-
 # If the session is interactive, the Rmd title is 
 # checked against the filename and the parameterized value, which should be the same.
   if (interactive()) { 
@@ -105,6 +95,18 @@ library(easyBakeOven)
 library(glue)
 ```
 
+## Parameters  
+
+```{r params_display,eval=TRUE,message=FALSE,echo=FALSE}
+params_display <- 
+  c(params,
+    rmd_title = rmd_title, 
+    github_page = github_page, 
+    source_code = source_code)
+names(params_display) <- str_to_title(str_replace_all(names(params_display), "[_]{1}", " "))
+print_list(params_display)
+```
+
 ```{r folders,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
 global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
 raw_folder          <- file.path(global_data_folder, "raw")
@@ -136,6 +138,20 @@ knitr::opts_chunk$set(
   cache.path = cache_folder
 )  
 ```
+
+```{r}
+knit_print.data.frame = function(x, ...) {
+  res = paste(c("", "", DT::datatable(x)), collapse = "\n")
+  knitr::asis_output(res)
+}
+
+registerS3method(
+  "knit_print", "data.frame", knit_print.data.frame,
+  envir = asNamespace("knitr")
+)
+```
+
+
 
 <!-- # Summary  -->
 <!-- Why am I running this report?   -->
