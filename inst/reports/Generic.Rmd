@@ -64,7 +64,17 @@ registerS3method(
   "knit_print", "data.frame", knit_print.data.frame,
   envir = asNamespace("knitr")
 )
+```
 
+```{r setup2,include=FALSE}
+knitr::knit_hooks$set(error = function(x, options) { 
+  paste(c('\n\n:::{style="color:Crimson; background-color: SeaShell;"}',
+        gsub('^## Error', '**Error**:', x),
+        ':::'), collapse = '\n')
+})
+```
+
+```{r setup3,include=FALSE}
 # If the session is interactive, the Rmd title is 
 # checked against the filename and the parameterized value, which should be the same.
   if (interactive()) { 
@@ -99,13 +109,13 @@ project_path <- path.expand(params$project_path)
 
 **Last Updated On:** `r Sys.time()`  
 
-```{r setup2,eval=TRUE,message=FALSE,echo=FALSE}
+```{r setup4,eval=TRUE,message=FALSE,echo=FALSE}
 library(tidyverse)
 library(easyBakeOven)
 library(glue)
 ```
 
-```{r folders,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
+```{r setup5,eval=TRUE,echo=FALSE,results='hide',message=FALSE}
 global_data_folder  <- file.path(project_path, "data", issue_key, report_title)
 raw_folder          <- file.path(global_data_folder, "raw")
 intermediate_folder <- file.path(global_data_folder, "intermediate")
