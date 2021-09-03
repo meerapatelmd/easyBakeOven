@@ -1,3 +1,19 @@
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param file PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[stringr]{str_replace}}
+#' @rdname list_all_variables
+#' @export 
+#' @importFrom stringr str_replace_all
 list_all_variables <-
         function(file) {
 
@@ -19,6 +35,24 @@ list_all_variables <-
 
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param file PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[glue]{glue}}
+#'  \code{\link[stringr]{str_replace}}
+#' @rdname list_missing_variables
+#' @export 
+#' @importFrom glue glue
+#' @importFrom stringr str_replace_all
 list_missing_variables <-
         function(file) {
 

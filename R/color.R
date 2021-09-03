@@ -226,8 +226,14 @@ view_labelled_colors <-
                 size <- max(dim(colours))
                 plot(c(0, size), c(0, -size), type = "n", xlab = "", ylab = "",
                      axes = FALSE)
-                rect(col(colours) - 1, -row(colours) + 1, col(colours), -row(colours),
-                     col = colours, border = borders)
+
+                rect(col(colours) - 1,
+                     -row(colours) + 1,
+                     col(colours),
+                     -row(colours),
+                     col = colours,
+                     border = borders)
+
                 if (!is.null(labels)) {
 
                         if (length(labels) == arg_length) {
