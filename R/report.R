@@ -28,7 +28,7 @@
 #' must be assigned a value or not. Default: TRUE.
 #' @param ... (Optional) Additional parameters that should be added in the
 #' front matter of the Rmd. Should be entered in the format of a named vector.
-#' @param edit_file If called in an interactive session, the file will be opened in R Studio if TRUE.  
+#' @param edit_file If called in an interactive session, the file will be opened in R Studio if TRUE.
 #' @return
 #' @seealso
 #'  \code{\link[xfun]{read_utf8}}
@@ -141,6 +141,8 @@ create_report <-
          unrep_vars,
          invert = TRUE,
          value = TRUE)
+  unrep_vars <-
+    unrep_vars[!(unrep_vars %in% c(""))]
 
   if (length(unrep_vars)>0) {
     unrep_vars <- unlist(strsplit(unrep_vars, split = "[ ]{1}"))
@@ -649,9 +651,9 @@ create_report_child <-
 
 
     if (interactive()) {
-      
+
       if (edit_file) {
-        
+
         file.edit(new_rmd_file)
       }
 
