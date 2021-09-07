@@ -129,9 +129,18 @@ create_report <-
   }
 
   # Are there any variables within the template that have not been replaced?
+  # Removing chunk blocks
   unrep_vars <-
     grep(pattern = "[^```]{1}[{]{1}.*?[}]",
          new_rmd,
+         value = TRUE,
+         perl = TRUE)
+
+  # Removing HTML styles
+  unrep_vars <-
+    grep(pattern = "[{]{1}.*?[[:punct:]]{1,}.*?[}]",
+         unrep_vars,
+         invert = TRUE,
          value = TRUE,
          perl = TRUE)
 
