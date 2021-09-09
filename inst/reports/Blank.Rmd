@@ -173,6 +173,7 @@ knitr::opts_chunk$set(
 )  
 ```
 
+
 <!-- # Summary  -->
 <!-- Why am I running this report?   -->
 
@@ -186,6 +187,14 @@ knitr::opts_chunk$set(
 <!-- # Workflow   -->
 <!-- How did I run this report?   -->
 
+# Appendix  
+
+```{r get-labels, echo=FALSE}
+labs <- knitr::all_labels(echo == FALSE && results != 'asis' && include != FALSE)
+```
+
+```{r all-code,ref.label=labs,eval=FALSE}
+```
 
 <!-- <a href='#top' style='float: right;'>Back to top</a> -->
 <!-- <br> -->

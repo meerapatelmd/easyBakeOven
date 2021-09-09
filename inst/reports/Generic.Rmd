@@ -11,7 +11,6 @@ output:
     toc_float: true 
     collapsed: false
     smooth_scroll: false
-    code_folding: show #or hide
     df_print: paged
     fig_height: 5 
     fig_width: 7 
@@ -43,9 +42,9 @@ knitr::opts_chunk$set(
   collapse = FALSE, #collapse all output into a single block,
   error = FALSE, #display error messages in doc. FALSE stops render when error is thrown
   fig.align = "center", #left, right, center, or default
-  fig.width = 7, #inches
-  fig.height = 7, #inches
-  fig.asp=0.50, #adds whitespace around images
+ # fig.width = 7, #inches
+ #  fig.height = 7, #inches
+ # fig.asp=0.50, #adds whitespace around images
   include = TRUE, #include chunk?
   message = TRUE, #display code messages?
   warning = TRUE, #include warnings?
@@ -183,9 +182,14 @@ knitr::opts_chunk$set(
 <!-- # Backlog -->
 <!-- What changes do I need to make still?   -->
 
-<!-- # Workflow   -->
-<!-- How did I run this report?   -->
+# Appendix  
 
+```{r get-labels, echo=FALSE}
+labs <- knitr::all_labels(echo == FALSE && results != 'asis' && include != FALSE)
+```
+
+```{r all-code,ref.label=labs,eval=FALSE}
+```
 
 <!-- <a href='#top' style='float: right;'>Back to top</a> -->
 <!-- <br> -->
