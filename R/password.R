@@ -1,15 +1,21 @@
 #' @title
 #' Generate Password
 #'
+#' @param words type of word in chronological order. Can be
+#' 1 of "adjective", "noun", "adverb", "verb", or "other".
+#'
+#' @param collapse passed to `paste()`.
+#'
 #' @rdname generate_password
 #' @export
 
 
 generate_password <-
-  function(words = c("adjective", "noun", "adverb", "verb")) {
+  function(words = c("adjective", "noun"),
+           collapse = "-") {
 
     paste(process_password_words(!!!words),
-          collapse = "")
+          collapse = collapse)
 
 
   }

@@ -4,7 +4,13 @@
 \alias{generate_password}
 \title{Generate Password}
 \usage{
-generate_password(words = c("adjective", "noun", "adverb", "verb"))
+generate_password(words = c("adjective", "noun"), collapse = "-")
+}
+\arguments{
+\item{words}{type of word in chronological order. Can be
+1 of "adjective", "noun", "adverb", "verb", or "other".}
+
+\item{collapse}{passed to \code{paste()}.}
 }
 \description{
 Generate Password
