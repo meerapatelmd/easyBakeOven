@@ -4,6 +4,7 @@
 - Added `vctr_to_str_nl()`, `map_to_value()`, `view_labelled_colors()`     
 - Updated documentation for `color` functions.  
 - Added `make_tribble` and `make_list` functions.  
+- Added password generating function
 
 
 
