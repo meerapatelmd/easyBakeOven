@@ -4,14 +4,36 @@
 \alias{generate_password}
 \title{Generate Password}
 \usage{
-generate_password(words = c("adjective", "noun"), collapse = "-")
+generate_password(
+  words = c("adjective", "noun"),
+  collapse = "-",
+  numbers = 0,
+  symbols = 0,
+  unique = FALSE,
+  verbose = TRUE
+)
 }
 \arguments{
-\item{words}{type of word in chronological order. Can be
+\item{words}{Type of word in chronological order. Can be
 1 of "adjective", "noun", "adverb", "verb", or "other".}
 
-\item{collapse}{passed to \code{paste()}.}
+\item{collapse}{Passed to \code{collapse} in \code{paste()}.}
+
+\item{numbers}{Integer of number count to be added to password.}
+
+\item{symbols}{Integer of symbol count to be added to password.}
+
+\item{unique}{Should every character within the symbol be unique? This
+includes the numbers and symbols that are added to the password.}
+
+\item{verbose}{Only applies when \code{unique} is set to TRUE. If TRUE, each generated password is printed to the console prior to undergoing uniqueness testing. If the password passes the uniqueness test, then it is printed to the console along with the time it took for the password to be generated.}
 }
 \description{
 Generate Password
+}
+\details{
+This function will throw an error if the length of \code{words} is greater than 2
+along with a \code{collapse} value that is not \code{""}, but \code{unique} is set to \code{TRUE}.
+The generated password will be in the order of 1. words, 2. numbers, and
+3. symbols and cannot be altered.
 }
