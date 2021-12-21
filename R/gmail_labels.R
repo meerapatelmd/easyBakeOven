@@ -1,6 +1,7 @@
 #' @title
 #' Authorize Google API Access
 #' @rdname authorize_google
+#' @family Google
 #' @export
 #' @importFrom gmailr gm_auth_configure gm_auth
 authorize_google <-
@@ -20,6 +21,7 @@ authorize_google <-
 #' Get Gmail Messages By Label
 #' @inheritParams gmailr::gm_messages
 #' @rdname get_gmail_messages_by_label
+#' @family Google
 #' @export
 #' @importFrom gmailr gm_labels gm_messages
 #' @importFrom purrr map transpose pluck
@@ -86,6 +88,14 @@ get_gmail_messages_by_label <-
         }
 
 
+#' @title
+#' Get Gmail Labels
+#' @rdname get_gmail_labels
+#' @family Google
+#' @export
+#' @import gmailr
+
+
 get_gmail_labels <-
         function() {
                 gmail_labels <- gmailr::gm_labels()[[1]]
@@ -109,6 +119,16 @@ get_gmail_labels <-
 
         }
 
+
+
+#' @title
+#' Get Unread Emails
+#' @rdname get_unread_gmail
+#' @family Google
+#' @export
+#' @import gmailr
+#' @import tidyverse
+#' @import glue
 
 get_unread_gmail <-
         function(days_back = 90,
@@ -218,6 +238,14 @@ get_unread_gmail <-
 
         }
 
+#' @title
+#' Get Unread Unlabelled Emails
+#' @rdname get_unread_unlabelled_emails
+#' @family Google
+#' @export
+#' @import gmailr
+#' @import tidyverse
+#' @import glue
 
 get_unread_unlabelled_emails <-
         function() {
@@ -231,7 +259,15 @@ get_unread_unlabelled_emails <-
         }
 
 
-
+#' @title
+#' Get Inbox
+#' @rdname get_gmail_inbox
+#' @family Google
+#' @export
+#' @import gmailr
+#' @import tidyverse
+#' @import glue
+#' @import prettyunits
 
 
 get_gmail_inbox <-

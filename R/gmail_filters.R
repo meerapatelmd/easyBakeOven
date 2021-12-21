@@ -1,4 +1,11 @@
-
+#' @title
+#' Process Gmail Filters XML
+#' @rdname process_gmail_filters_xml
+#' @family Google
+#' @export
+#' @import XML
+#' @import xml2
+#' @import tidyverse
 
 
 process_gmail_filters_xml <-
