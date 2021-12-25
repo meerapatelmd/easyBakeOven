@@ -4,7 +4,12 @@
 \alias{make_new_package}
 \title{Start a New Package}
 \usage{
-make_new_package(path, copyright_holder = NULL)
+make_new_package(
+  path,
+  copyright_holder = NULL,
+  include_github = TRUE,
+  include_pkgdown = TRUE
+)
 }
 \arguments{
 \item{path}{A path. If it exists, it is used. If it does not exist, it is
@@ -13,6 +18,10 @@ created, provided that the parent path exists.}
 \item{copyright_holder}{Name of the copyright holder or holders. This
 defaults to "{package name} authors"; you should only change this if you
 use a CLA to assign copyright to a single entity.}
+
+\item{include_github}{Include GitHub features?}
+
+\item{include_pkgdown}{Setup pkgdown?}
 }
 \description{
 Starts a new package using a designated path to a local

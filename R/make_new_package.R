@@ -8,26 +8,71 @@
 #' documentation such as the Code of Conduct can be generated
 #' using `setup_package_docs()`.
 #'
-#' @inheritParams usethis::create_tidy_package
+#' @inheritParams usethis::create_package
+#' @inheritParams usethis::use_mit_license
+#' @param include_github Include GitHub features?
+#' @param include_pkgdown Setup pkgdown?
 #'
 #'
 #' @rdname make_new_package
 #' @export
-#' @importFrom usethis create_tidy_package
+#' @importFrom usethis
 
 
 make_new_package <-
   function(path,
-           copyright_holder = NULL) {
-    if (!dir.exists(paths = path)) {
+           copyright_holder = NULL,
+           include_github = TRUE,
+           include_pkgdown = TRUE) {
 
+    if (dir.exists(paths = path)) {
 
-      usethis::create_tidy_package(path = path,
-                                   copyright_holder = copyright_holder)
+      cli::cli_alert_warning(
+        "Package '{basename(path)}' already exists at path '{dirname(path)}'."
+      )
+
 
     } else {
-      secretary::typewrite(sprintf("Path '%s' already exists.", path))
+
+      # Set working directory back to what it initially was
+      # after `local_project` is called on the new path
+      calling_wd <- getwd()
+      on.exit(setwd(calling_wd))
+
+      path <- create_package(path, rstudio = TRUE, open = FALSE)
+      local_project(path)
+      use_testthat()
+      use_mit_license(copyright_holder)
+      use_tidy_description()
+      usethis::use_package_doc(open = FALSE)
+      usethis::use_readme_rmd(open = FALSE)
+      usethis::use_code_of_conduct()
+      usethis::use_news_md(open = FALSE)
+      use_lifecycle_badge("experimental")
+      use_cran_badge()
+      use_cran_comments(open = FALSE)
+      use_tidy_release_test_env()
+      usethis::use_pipe(export = FALSE)
+      usethis::use_tibble()
+      usethis::use_tidy_eval()
+      usethis::use_tidy_style(strict = TRUE)
+
+      if (include_github) {
+        use_git()
+        use_github()
+        use_tidy_github_actions()
+        git_vaccinate()
+
+      }
+
+      if (include_pkgdown) {
+
+        use_pkgdown()
+
+      }
+
     }
+
   }
 
 #' @title

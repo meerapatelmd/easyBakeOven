@@ -5,8 +5,7 @@
 - Updated documentation for `color` functions.  
 - Added `make_tribble` and `make_list` functions.  
 - Added password generating function
-
-
+- Fixed `make_new_package`  
 
 # easyBakeOven 1.3.0  
 - Added `report` functions that create a parameterized R markdown  
