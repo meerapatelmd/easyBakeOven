@@ -16,7 +16,7 @@
 #'
 #' @rdname make_new_package
 #' @export
-#' @importFrom usethis
+#' @import usethis
 
 
 make_new_package <-
