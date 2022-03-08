@@ -2,9 +2,9 @@
 #' Map Character Vector to New Values
 #'
 #' @param x Character vector.
-#' @param map_assignment Vector of new values named with `x` values. \emph{NA} values
-#' are viewed as \emph{"NA"} strings, meaning that \emph{NA} and \emph{"NA"} will
-#' be treated as the same value. Map assignment should therefore be \code{c("NA" = "{new_value}")}}.
+#' @param map_assignment Vector of new values named with `x` values. NA values
+#' are viewed as "NA" strings, meaning that NA and "NA" will
+#' be treated as the same value. Map assignment should therefore be `c("NA" = "{new_value}")`.
 #'
 #' @param other The value to map all other values not in `map_assignment`.  Required only if
 #' `map_assignment` is incomplete.
@@ -23,6 +23,7 @@
 #' @importFrom cli cli_alert_warning cli_alert_success
 #' @importFrom forcats fct_recode
 #' @examples
+#' \dontrun{
 #' x <- c('T', 'R', 'H', 'W', 'P', 'NA', NA_character)
 #' map_to_value(
 #'   x = x,
@@ -40,6 +41,7 @@
 #'     'NA' = 'white'),
 #'   other = 'black'
 #' )
+#' }
 
 
 map_to_value <-

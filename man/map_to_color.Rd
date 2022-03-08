@@ -9,6 +9,10 @@ map_to_color(x, color_assignment, other)
 \arguments{
 \item{x}{Character vector.}
 
+\item{color_assignment}{Vector of new values named with \code{x} values. NA values
+are viewed as "NA" strings, meaning that NA and "NA" will
+be treated as the same value. Map assignment should therefore be 'c("NA" = "{new_value}")'.}
+
 \item{other}{The value to map all other values not in \code{color_assignment}. Required only if
 \code{color_assignment} is incomplete.}
 }

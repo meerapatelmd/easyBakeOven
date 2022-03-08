@@ -5,9 +5,9 @@
 #' Will abort if `color_assignment` does not contain valid colors in `colors_hex_map()` or `hex_colors_map()`.
 #'
 #' @param x Character vector.
-#' @param color_assignment Vector of new values named with `x` values. \emph{NA} values
-#' are viewed as \emph{"NA"} strings, meaning that \emph{NA} and \emph{"NA"} will
-#' be treated as the same value. Map assignment should therefore be \code{c("NA" = "{new_value}")}}.
+#' @param color_assignment Vector of new values named with `x` values. NA values
+#' are viewed as "NA" strings, meaning that NA and "NA" will
+#' be treated as the same value. Map assignment should therefore be 'c("NA" = "{new_value}")'.
 #'
 #' @param other The value to map all other values not in `color_assignment`. Required only if
 #' `color_assignment` is incomplete.

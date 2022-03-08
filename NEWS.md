@@ -1,8 +1,14 @@
 # easyBakeOven 1.4.0    
 
-## Password Generating Feature 
+## New Features  
+
+### Password Generator   
 
 - Added `generate_password()`  
+
+### Time Calculation  
+
+- Added `calculate_time_remaining()`  
 
 ## Color Feature  
 
