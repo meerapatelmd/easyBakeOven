@@ -8,11 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-R Package that facilitates various aspects of R
-    package authorship and deployment in tandem with the usethis,
-    devtools, and sinew packages. Features include generating pkgdown yaml
-    skeletons as well as providing customizability to the roxygen2
-    skeletons made by the sinew package.
+R Package that facilitates various aspects of R package authorship and deployment in tandem with the usethis, devtools, and sinew packages. Features include generating pkgdown yaml skeletons as well as providing customizability to the roxygen2 skeletons made by the sinew package.
 }
 \seealso{
 Useful links:

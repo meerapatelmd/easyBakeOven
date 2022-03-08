@@ -13,7 +13,7 @@ view_color_shades(
 )
 }
 \arguments{
-\item{...}{Base names of colors}
+\item{...}{Base names of colors from \code{base_colors()}}
 
 \item{labels}{If TRUE, the plot is labelled with the color name. Default: TRUE}
 

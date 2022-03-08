@@ -10,6 +10,8 @@ generate_password(
   numbers = 0,
   symbols = 0,
   unique = FALSE,
+  min_char = 12,
+  max_char = 20,
   verbose = TRUE
 )
 }

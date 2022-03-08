@@ -252,7 +252,7 @@ view_labelled_colors <-
 #' @title
 #' View Each Color and Its Shades
 #' @inheritParams view_colors
-#' @param ... Base names of colors
+#' @param ... Base names of colors from `base_colors()`
 #' @seealso
 #'  \code{\link[rlang]{list2}}
 #'  \code{\link[stringr]{str_remove}}
@@ -409,32 +409,6 @@ assign_colors_by <-
 
                 fct_recode(factor(x),
                            !!!color_assignment) %>%
-                        as.character()
-
-        }
-
-
-#' @title FUNCTION_TITLE
-#' @description FUNCTION_DESCRIPTION
-#' @param x PARAM_DESCRIPTION
-#' @param color_assignment PARAM_DESCRIPTION
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
-#' @rdname map_colors
-#' @export
-#' @importFrom stringr str_replace_na
-map_colors <-
-        function(x,
-                 color_assignment) {
-
-                color_assignment2 <- names(color_assignment)
-                names(color_assignment2) <-
-                        stringr::str_replace_na(color_assignment)
-
-
-
-                fct_recode(factor(stringr::str_replace_na(x)),
-                           !!!color_assignment2) %>%
                         as.character()
 
         }

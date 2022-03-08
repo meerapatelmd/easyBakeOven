@@ -1,13 +1,30 @@
-# easyBakeOven 1.3.0.9000    
+# easyBakeOven 1.4.0    
 
-- Included NA as 'NA' for color mapping in `map_colors()`.  
-- Added `vctr_to_str_nl()`, `map_to_value()`, `view_labelled_colors()`     
-- Updated documentation for `color` functions.  
-- Added `make_tribble` and `make_list` functions.  
-- Added password generating function
-- Fixed `make_new_package`  
+## Password Generating Feature 
+
+- Added `generate_password()`  
+
+## Color Feature  
+
+- Deprecated `map_colors()` to `map_to_color()`  
+- Included NA as 'NA' for color mapping in `map_to_color()`   
+- Added `view_labelled_colors()`  
+
+## Helpers  
+
+- Added `vctr_to_str_nl()`  
+- Added `map_to_value()`  
+- Added `make_tribble()`  
+- Added `make_list()`  
+
+## Bugs  
+
+- Fixed `make_new_package()`  
+
+
 
 # easyBakeOven 1.3.0  
+
 - Added `report` functions that create a parameterized R markdown  
 from a template that is either provided by this package or 
 user-determined.  

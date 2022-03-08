@@ -27,6 +27,8 @@ generate_password <-
            numbers = 0,
            symbols = 0,
            unique = FALSE,
+           min_char = 12,
+           max_char = 20,
            verbose = TRUE) {
 
 
@@ -39,6 +41,13 @@ generate_password <-
 
 
     if (!unique) {
+
+      proceed <- TRUE
+
+      start_dt <- Sys.time()
+
+
+      while (proceed == TRUE) {
 
       out <-
         paste(process_password_words(!!!words),
@@ -70,8 +79,22 @@ generate_password <-
         paste(out,
               collapse = "")
 
-      print(out)
-      invisible(out)
+      if (nchar(out)>=min_char & nchar(out)<=max_char) {
+
+        if (verbose) {
+          cli::cli_alert_success(text = "Success: '{out}'")
+          msg1 <- prettyunits::time_ago(start_dt)
+          cli::cli_alert_info(text = msg1)
+
+        }
+
+        proceed <- FALSE
+        print(out)
+        invisible(out)
+
+      }
+
+      }
 
     } else {
 
@@ -133,6 +156,11 @@ generate_password <-
 
         if (unique_character_ct == total_character_ct) {
 
+          if (nchar(out_i)>=min_char & nchar(out_i)<=max_char) {
+
+
+            proceed <- FALSE
+
           if (verbose) {
             cli::cli_alert_success(text = "Success: '{out_i}'")
             msg1 <- prettyunits::time_ago(start_dt)
@@ -147,17 +175,15 @@ generate_password <-
           }
 
 
-          break
+
+          }
+        }
+
 
         }
 
 
       }
-
-
-
-
-    }
 
 
   }

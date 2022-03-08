@@ -2,24 +2,43 @@
 % Please edit documentation in R/map_to_value.R
 \name{map_to_value}
 \alias{map_to_value}
-\title{FUNCTION_TITLE}
+\title{Map Character Vector to New Values}
 \usage{
-map_to_value(x, map_assignment, other)
+map_to_value(x, map_assignment, na, other)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{Character vector.}
 
-\item{map_assignment}{Named vector that is the inverse of what is expected in the forcats fct_recode arguments.
-Map assignments to \code{NA_character_} should use \code{NA = {value}}.}
-
-\item{other}{The value to map all other values not in the \code{map_assignment}.}
+\item{other}{The value to map all other values not in \code{map_assignment}.  Required only if
+\code{map_assignment} is incomplete.}
 }
 \value{
-OUTPUT_DESCRIPTION
+A character vector of the same length as x.
 }
 \description{
-FUNCTION_DESCRIPTION
+Map Character Vector to New Values
 }
 \details{
-DETAILS
+This function converts \code{x} to factor, recodes the factor, and then
+returns the recoded factor vector as character.
 }
+\examples{
+x <- c('T', 'R', 'H', 'W', 'P', 'NA', NA_character)
+map_to_value(
+  x = x,
+  map_assignment =
+  c('T' = 'red',
+    'R' = 'green'),
+  other = 'black'
+)
+
+map_to_value(
+  x = x,
+  map_assignment =
+  c('T' = 'red',
+    'R' = 'green',
+    'NA' = 'white'),
+  other = 'black'
+)
+}
+\concept{mapping functions}
